@@ -613,6 +613,7 @@
     <None Include="Source Code\Perlin Noise\noise\UpgradeLog.htm" />
     <None Include="packages.config" />
     <None Include="Libraries\glfw3.dll" />
+    <None Include="Libraries\glew32.dll" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source Code\Perlin Noise\noise\src\win32\noise.rc">

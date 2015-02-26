@@ -221,6 +221,7 @@
     <ClCompile Include="Source Code\Perlin Noise\noise\src\win32\dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Libraries\glew32.dll" />
     <None Include="Libraries\glfw3.dll" />
     <None Include="packages.config" />
     <None Include="Source Code\Perlin Noise\noise\doc\htmldata\templatefooter.html" />
