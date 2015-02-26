@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{96D6A75D-0715-465F-BD74-851C33DD7907}</ProjectGuid>
+    <RootNamespace>Simulator</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <NuGetPackageImportStamp>aa9bbb87</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Adrian Simionescu\Dropbox\Simulator\Simulator\Simulator\Libraries;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Libraries\Includes\GLFW\glfw3.h" />
+    <ClInclude Include="Libraries\Includes\GLFW\glfw3native.h" />
+    <ClInclude Include="Libraries\Includes\GL\glew.h" />
+    <ClInclude Include="Libraries\Includes\GL\glxew.h" />
+    <ClInclude Include="Libraries\Includes\GL\wglew.h" />
+    <ClInclude Include="Source Code\Aurora\Aurora.h" />
+    <ClInclude Include="Source Code\Aurora\Engine\CommonCalculations\EngineCommonCalculations.h" />
+    <ClInclude Include="Source Code\Aurora\Engine\EngineOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Errors\ErrorMessages.h" />
+    <ClInclude Include="Source Code\Aurora\Errors\ErrorOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Globals\Constants.h" />
+    <ClInclude Include="Source Code\Aurora\Globals\GlobalDatatypes.h" />
+    <ClInclude Include="Source Code\Aurora\Globals\GlobalOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Math\MathDataTypes.h" />
+    <ClInclude Include="Source Code\Aurora\Math\MathOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Matrix.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Vector.h" />
+    <ClInclude Include="Source Code\Aurora\Models\ModelDefines.h" />
+    <ClInclude Include="Source Code\Aurora\Models\ModelLoad.h" />
+    <ClInclude Include="Source Code\Aurora\Models\Transformations.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\AccessPoints\iPhysicsAccessPoint.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\BaseClasses\CalculationsBase.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\BaseClasses\ForceBase.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\BaseClasses\IPhysicsObjectBase.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\BaseClasses\PhysicsBase.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\Common\CommonCalculations.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\Common\FrictionCalculations.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\Common\PhysicsConstants.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\Implementations\Force.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\Implementations\PhysicsCalculator.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\Implementors\IPhysicsImplementor.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\PhysicsOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\Representations\IPhysicsForceRepresentationBase.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\Representations\IPhysicsRepresentationBase.h" />
+    <ClInclude Include="Source Code\Aurora\Physics\Representations\Liquid.h" />
+    <ClInclude Include="Source Code\Aurora\Random\BaseClasses\ObjectBase.h" />
+    <ClInclude Include="Source Code\Aurora\Random\BaseClasses\RandomBase.h" />
+    <ClInclude Include="Source Code\Aurora\Random\CommonTools.h" />
+    <ClInclude Include="Source Code\Aurora\Random\Implementations\Mover.h" />
+    <ClInclude Include="Source Code\Aurora\Random\Implementations\Oscillator.h" />
+    <ClInclude Include="Source Code\Aurora\Random\Implementations\Walker.h" />
+    <ClInclude Include="Source Code\Aurora\Random\RandomOperations.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\basictypes.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\exception.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\interp.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\latlon.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\mathconsts.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\misc.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\model\cylinder.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\model\line.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\model\model.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\model\plane.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\model\sphere.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\abs.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\add.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\billow.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\blend.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\cache.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\checkerboard.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\clamp.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\const.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\curve.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\cylinders.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\displace.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\exponent.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\invert.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\max.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\min.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\module.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\modulebase.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\multiply.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\perlin.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\power.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\ridgedmulti.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\rotatepoint.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\scalebias.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\scalepoint.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\select.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\spheres.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\terrace.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\translatepoint.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\turbulence.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\module\voronoi.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\noise.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\noisegen.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\vectortable.h" />
+    <ClInclude Include="Source Code\Perlin Noise\noise\src\win32\resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Source Code\Aurora\Errors\ErrorMessages.cpp" />
+    <ClCompile Include="Source Code\Aurora\Globals\GlobalOperations.cpp" />
+    <ClCompile Include="Source Code\Aurora\Math\MathDataTypes.cpp" />
+    <ClCompile Include="Source Code\Aurora\Math\MathOperations.cpp" />
+    <ClCompile Include="Source Code\Aurora\Math\Matrix.cpp" />
+    <ClCompile Include="Source Code\Aurora\Math\Vector.cpp" />
+    <ClCompile Include="Source Code\Aurora\Models\ModelDefines.cpp" />
+    <ClCompile Include="Source Code\Aurora\Models\ModelLoad.cpp" />
+    <ClCompile Include="Source Code\Aurora\Models\Transformations.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\BaseClasses\ForceBase.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\BaseClasses\PhysicsBase.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\Common\CommonCalculations.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\Common\FrictionCalculations.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\Common\PhysicsConstants.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\Implementations\Force.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\Implementations\PhysicsCalculator.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\Implementors\IPhysicsImplementor.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\Representations\IPhysicsForceRepresentationBase.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\Representations\IPhysicsRepresentationBase.cpp" />
+    <ClCompile Include="Source Code\Aurora\Physics\Representations\Liquid.cpp" />
+    <ClCompile Include="Source Code\Aurora\Random\BaseClasses\ObjectBase.cpp" />
+    <ClCompile Include="Source Code\Aurora\Random\BaseClasses\RandomBase.cpp" />
+    <ClCompile Include="Source Code\Aurora\Random\Implementations\Mover.cpp" />
+    <ClCompile Include="Source Code\Aurora\Random\Implementations\Oscillator.cpp" />
+    <ClCompile Include="Source Code\Aurora\Random\Implementations\Walker.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\latlon.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\model\cylinder.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\model\line.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\model\plane.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\model\sphere.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\abs.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\add.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\billow.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\blend.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\cache.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\checkerboard.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\clamp.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\const.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\curve.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\cylinders.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\displace.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\exponent.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\invert.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\max.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\min.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\modulebase.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\multiply.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\perlin.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\power.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\ridgedmulti.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\rotatepoint.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\scalebias.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\scalepoint.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\select.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\spheres.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\terrace.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\translatepoint.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\turbulence.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\module\voronoi.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\noisegen.cpp" />
+    <ClCompile Include="Source Code\Perlin Noise\noise\src\win32\dllmain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libraries\glfw3.dll" />
+    <None Include="packages.config" />
+    <None Include="Source Code\Perlin Noise\noise\doc\htmldata\templatefooter.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\htmldata\templateheader.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\abs_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\add_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\annotated.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\basictypes_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\billow_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\blend_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\cache_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\checkerboard_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\clamp_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1Exception.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1ExceptionInvalidParam.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1ExceptionNoModule.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1ExceptionOutOfMemory.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1ExceptionUnknown.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1model_1_1Cylinder-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1model_1_1Cylinder.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1model_1_1Line-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1model_1_1Line.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1model_1_1Plane-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1model_1_1Plane.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1model_1_1Sphere-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1model_1_1Sphere.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Abs-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Abs.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Add-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Add.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Billow-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Billow.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Blend-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Blend.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Cache-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Cache.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Checkerboard-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Checkerboard.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Clamp-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Clamp.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Const-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Const.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Curve-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Curve.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Cylinders-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Cylinders.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Displace-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Displace.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Exponent-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Exponent.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Invert-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Invert.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Max-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Max.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Min-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Min.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Module-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Module.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Multiply-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Multiply.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Perlin-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Perlin.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Power-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Power.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1RidgedMulti-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1RidgedMulti.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1RotatePoint-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1RotatePoint.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1ScaleBias-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1ScaleBias.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1ScalePoint-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1ScalePoint.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Select-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Select.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Spheres-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Spheres.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Terrace-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Terrace.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1TranslatePoint-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1TranslatePoint.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Turbulence-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Turbulence.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Voronoi-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\classnoise_1_1module_1_1Voronoi.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\const_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\curve_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\cylinders_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\cylinder_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\dir_000000.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\dir_000001.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\dir_000002.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\dir_000003.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\displace_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\exception_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\exponent_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\files.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\functions.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\functions_func.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\functions_vars.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\group__combinermodules.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\group__generatormodules.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\group__libnoise.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\group__miscmodules.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\group__models.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\group__modifiermodules.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\group__modules.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\group__selectormodules.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\group__transformermodules.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\hierarchy.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\index.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\interp_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\invert_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\latlon_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\line_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\mathconsts_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\max_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\min_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\misc_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\model_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\modulebase_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\modules.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\module_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\multiply_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\noisegen_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\noise_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\perlin_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\plane_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\power_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\resource_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\ridgedmulti_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\rotatepoint_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\scalebias_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\scalepoint_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\select_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\spheres_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\sphere_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\structnoise_1_1module_1_1ControlPoint-members.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\structnoise_1_1module_1_1ControlPoint.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\terrace_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\translatepoint_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\turbulence_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\vectortable_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\doc\html\voronoi_8h-source.html" />
+    <None Include="Source Code\Perlin Noise\noise\src\win32\libnoise.def" />
+    <None Include="Source Code\Perlin Noise\noise\UpgradeLog.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Source Code\Perlin Noise\noise\src\win32\noise.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Libraries\glew32.lib" />
+    <Library Include="Libraries\glfw3.lib" />
+    <Library Include="Libraries\glfw3dll.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\rxd_glew.redist.1.10.0.1\build\native\rxd_glew.redist.targets" Condition="Exists('..\packages\rxd_glew.redist.1.10.0.1\build\native\rxd_glew.redist.targets')" />
+    <Import Project="..\packages\rxd_glew.1.10.0.1\build\native\rxd_glew.targets" Condition="Exists('..\packages\rxd_glew.1.10.0.1\build\native\rxd_glew.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\rxd_glew.redist.1.10.0.1\build\native\rxd_glew.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\rxd_glew.redist.1.10.0.1\build\native\rxd_glew.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\rxd_glew.1.10.0.1\build\native\rxd_glew.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\rxd_glew.1.10.0.1\build\native\rxd_glew.targets'))" />
+  </Target>
+</Project>
