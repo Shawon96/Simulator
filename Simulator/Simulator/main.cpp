@@ -1,25 +1,8 @@
-/******************************************************************************\
-| OpenGL 4 Example Code.                                                       |
-| Accompanies written series "Anton's OpenGL 4 Tutorials"                      |
-| Email: anton at antongerdelan dot net                                        |
-| First version 27 Jan 2014                                                    |
-| Copyright Dr Anton Gerdelan, Trinity College Dublin, Ireland.                |
-| See individual libraries for separate legal notices                          |
-|******************************************************************************|
-| "Hello Triangle". Just the basics.                                           |
-| If you're on Mac un-comment the version number code at the beginning. It     |
-| will give you the latest, even if you say 3.2!                               |
-| This uses the libraries GLEW and GLFW3 to start GL. Download and compile     |
-| these first. Linking them might be a pain, but you'll need to master this.   |
-|                                                                              |
-| I wrote this so that it compiles in pedantic ISO C90, to show that it's      |
-| easily done. I usually use minimalist C++ though, for tidier-looking maths   |
-| functions.                                                                   |
-\******************************************************************************/
 #include "Libraries\Includes\GL\glew.h" /* include GLEW and new version of GL on Windows */
 #include "Libraries\Includes\GLFW\glfw3.h" /* GLFW helper library */
 #include <stdlib.h>
 #include <stdio.h>
+#include "Source Code/Aurora/Aurora.h"
 
 static void error_callback(int error, const char* description)
 {    

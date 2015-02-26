@@ -276,6 +276,18 @@
     <ClInclude Include="Libraries\Includes\GLFW\glfw3native.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Globe\Geodetic2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Globe\Geodetic3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Globe\GlobeOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Globe\Trig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source Code\Aurora\Errors\ErrorMessages.cpp">
@@ -462,6 +474,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\Aurora\Math\Globe\Geodetic2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\Aurora\Math\Globe\Geodetic3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\Aurora\Math\Globe\GlobeOperations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\Aurora\Math\Globe\Trig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

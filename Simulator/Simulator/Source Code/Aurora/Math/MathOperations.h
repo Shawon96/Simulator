@@ -25,8 +25,8 @@ namespace Aurora
 		class MathOperations
 		{
 			public:
-				static inline Float Degrees_To_Radians(const float &angle);
-				static inline Float Radians_To_Degrees(const float &radians);
+				static Float Degrees_To_Radians(const double &angle);
+				static Float Radians_To_Degrees(const double &radians);
 
 				/*!
 				\brief Calculates in a fast way the distance from the origin(0,0) to the given point.

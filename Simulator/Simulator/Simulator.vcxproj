@@ -81,6 +81,10 @@
     <ClInclude Include="Source Code\Aurora\Globals\Constants.h" />
     <ClInclude Include="Source Code\Aurora\Globals\GlobalDatatypes.h" />
     <ClInclude Include="Source Code\Aurora\Globals\GlobalOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Globe\Geodetic2D.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Globe\Geodetic3D.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Globe\GlobeOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Globe\Trig.h" />
     <ClInclude Include="Source Code\Aurora\Math\MathDataTypes.h" />
     <ClInclude Include="Source Code\Aurora\Math\MathOperations.h" />
     <ClInclude Include="Source Code\Aurora\Math\Matrix.h" />
@@ -160,6 +164,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Source Code\Aurora\Errors\ErrorMessages.cpp" />
     <ClCompile Include="Source Code\Aurora\Globals\GlobalOperations.cpp" />
+    <ClCompile Include="Source Code\Aurora\Math\Globe\Geodetic2D.cpp" />
+    <ClCompile Include="Source Code\Aurora\Math\Globe\Geodetic3D.cpp" />
+    <ClCompile Include="Source Code\Aurora\Math\Globe\GlobeOperations.cpp" />
+    <ClCompile Include="Source Code\Aurora\Math\Globe\Trig.cpp" />
     <ClCompile Include="Source Code\Aurora\Math\MathDataTypes.cpp" />
     <ClCompile Include="Source Code\Aurora\Math\MathOperations.cpp" />
     <ClCompile Include="Source Code\Aurora\Math\Matrix.cpp" />

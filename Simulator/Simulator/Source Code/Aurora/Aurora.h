@@ -14,5 +14,6 @@
 #include "Physics\PhysicsOperations.h"
 #include "Engine\EngineOperations.h"
 #include "Errors\ErrorOperations.h"
+#include "Math\Globe\GlobeOperations.h"
 
 #endif

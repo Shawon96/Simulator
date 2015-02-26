@@ -75,12 +75,12 @@ namespace Aurora
 					return(table.SinTable[theta_int] + theta_frac*(table.SinTable[theta_int + 1] - table.SinTable[theta_int]));
 				} // END OF FUNCTION
 
-		Aurora::DataTypes::Float MathOperations::Degrees_To_Radians(const float &angle)
+		Aurora::DataTypes::Float MathOperations::Degrees_To_Radians(const double &angle)
 		{
 			return((angle)*PI / 180.0);
 		}
 
-		Aurora::DataTypes::Float MathOperations::Radians_To_Degrees(const float &radians)
+		Aurora::DataTypes::Float MathOperations::Radians_To_Degrees(const double &radians)
 		{
 			return((radians)*180.0 / PI);
 		}
