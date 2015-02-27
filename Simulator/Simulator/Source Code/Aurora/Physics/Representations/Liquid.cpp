@@ -4,13 +4,13 @@ namespace Aurora {
 	namespace Physics {
 		
 
-
-		void Liquid::init()
+		template<typename Type>
+		void Liquid<Type>::init()
 		{
 			
 		}
-
-		bool Liquid::IsInside(const VECTOR2D &value)
+		template<typename Type>
+		bool Liquid<Type>::IsInside(const VECTOR2D<Type> &value)
 		{
 			bool isInside = false;
 
@@ -28,14 +28,14 @@ namespace Aurora {
 
 			return(isInside);
 		}
-
-		Liquid::Liquid(float coefficientDrag)
+		template<typename Type>
+		Liquid<Type>::Liquid(float coefficientDrag)
 		{
 			
 			this->coefficientDrag = coefficientDrag;
 		}
-
-		void Liquid::AddEdgePoint(const VECTOR2D &value)
+		template<typename Type>
+		void Liquid<Type>::AddEdgePoint(const VECTOR2D<Type> &value)
 		{
 			this->liquidArea.push_back(value);
 		}

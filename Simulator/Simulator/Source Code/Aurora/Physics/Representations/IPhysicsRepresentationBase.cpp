@@ -6,28 +6,28 @@ namespace Aurora {
 
 		
 
-
-		IPhysicsRepresentationBase::IPhysicsRepresentationBase() : IPhysicsBase()
+		template<typename Type>
+		IPhysicsRepresentationBase<Type>::IPhysicsRepresentationBase() : IPhysicsBase()
 		{
 			this->init();
 		}
-
-		IPhysicsRepresentationBase::IPhysicsRepresentationBase(const IPhysicsRepresentationBase &value) : IPhysicsBase()
+		template<typename Type>
+		IPhysicsRepresentationBase<Type>::IPhysicsRepresentationBase(const IPhysicsRepresentationBase &value) : IPhysicsBase()
 		{
 			this->objectPhysics = value.objectPhysics;
 		}
-
-		IPhysicsRepresentationBase::IPhysicsRepresentationBase(IPhysicsRepresentationBase &&value) : IPhysicsBase(), objectPhysics(std::move(value.objectPhysics))
+		template<typename Type>
+		IPhysicsRepresentationBase<Type>::IPhysicsRepresentationBase(IPhysicsRepresentationBase &&value) : IPhysicsBase(), objectPhysics(std::move(value.objectPhysics))
 		{
 			value.objectPhysics = nullptr;
 		}
-
-		IPhysicsRepresentationBase::~IPhysicsRepresentationBase()
+		template<typename Type>
+		IPhysicsRepresentationBase<Type>::~IPhysicsRepresentationBase()
 		{
 			IPhysicsBase::~IPhysicsBase();
 		}
-
-		IPhysicsRepresentationBase & IPhysicsRepresentationBase::operator=(IPhysicsRepresentationBase && value)
+		template<typename Type>
+		IPhysicsRepresentationBase<Type> & IPhysicsRepresentationBase<Type>::operator=(IPhysicsRepresentationBase && value)
 		{
 			if (this == &value)
 				return *this;
@@ -38,8 +38,8 @@ namespace Aurora {
 
 			return *this;
 		}
-
-		IPhysicsRepresentationBase& IPhysicsRepresentationBase::operator=(const IPhysicsRepresentationBase& value)
+		template<typename Type>
+		IPhysicsRepresentationBase<Type>& IPhysicsRepresentationBase<Type>::operator=(const IPhysicsRepresentationBase& value)
 		{
 			if (this == &value) { return(*this); }
 

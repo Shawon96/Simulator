@@ -19,6 +19,7 @@ namespace Aurora {
 		 * \date February 2015
 		 */
 		
+		template<typename Type>
 		class IPhysicsAccessPoint
 		{
 		private:
@@ -27,7 +28,7 @@ namespace Aurora {
 			IPhysicsAccessPoint() = default;
 			virtual ~IPhysicsAccessPoint() = default;
 
-			virtual std::shared_ptr<Physics::Force> AccessObjectPhysics() const = 0;
+			virtual std::shared_ptr < Force<Type> > AccessObjectPhysics() const = 0;
 
 		};
 

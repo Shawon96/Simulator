@@ -18,241 +18,241 @@ namespace Aurora
 	namespace Math
 	{
 
-		VECTOR2D::VECTOR2D() : X(0), Y(0)
-		{
-			this->X = 0;
-			this->Y = 0;
-		}
-		
-		VECTOR2D::VECTOR2D(Float x, Float y)
-		{
-			this->X = x;
-			this->Y = y;
-		}
+		//VECTOR2D::VECTOR2D() : X(0), Y(0)
+		//{
+		//	this->X = 0;
+		//	this->Y = 0;
+		//}
+		//
+		//VECTOR2D::VECTOR2D(Float x, Float y)
+		//{
+		//	this->X = x;
+		//	this->Y = y;
+		//}
 
-		VECTOR2D::VECTOR2D(const VECTOR2D &value)
-		{
-			this->X = value.X;
-			this->Y = value.Y;
-		}
+		//VECTOR2D::VECTOR2D(const VECTOR2D &value)
+		//{
+		//	this->X = value.X;
+		//	this->Y = value.Y;
+		//}
 
-		VECTOR2D::VECTOR2D(VECTOR2D &&value) : X(std::move(value.X)), Y(std::move(value.Y))
-		{
+		//VECTOR2D::VECTOR2D(VECTOR2D &&value) : X(std::move(value.X)), Y(std::move(value.Y))
+		//{
 
-		}
+		//}
 
-		VECTOR2D::~VECTOR2D()
-		{
-		}
-		// ADDITION - OPERATIONS
-		//--------------------------------------------------------
-		const VECTOR2D VECTOR2D::operator+(const Float &value)
-		{
-			
-			
-			return(VECTOR2D(this->X + value,this->Y + value));
-		}
+		//VECTOR2D::~VECTOR2D()
+		//{
+		//}
+		//// ADDITION - OPERATIONS
+		////--------------------------------------------------------
+		//const VECTOR2D VECTOR2D::operator+(const Float &value)
+		//{
+		//	
+		//	
+		//	return(VECTOR2D(this->X + value,this->Y + value));
+		//}
 
-		const VECTOR2D VECTOR2D::operator+(const VECTOR2D &value)
-		{
-			if(this == &value) { return(*this); }
-			return(VECTOR2D(this->X + value.X, this->Y + value.Y));
-		}
+		//const VECTOR2D VECTOR2D::operator+(const VECTOR2D &value)
+		//{
+		//	if(this == &value) { return(*this); }
+		//	return(VECTOR2D(this->X + value.X, this->Y + value.Y));
+		//}
 
-		// SUBSTRACTION - OPERATIONS
-		//--------------------------------------------------------
-		const VECTOR2D VECTOR2D::operator-(const Float &value)
-		{
-			return(VECTOR2D(this->X - value, this->Y - value));
-		}
+		//// SUBSTRACTION - OPERATIONS
+		////--------------------------------------------------------
+		//const VECTOR2D VECTOR2D::operator-(const Float &value)
+		//{
+		//	return(VECTOR2D(this->X - value, this->Y - value));
+		//}
 
-		const VECTOR2D VECTOR2D::operator-(const VECTOR2D &value)
-		{
-			if(this == &value) { return(*this); }
-			return(VECTOR2D(this->X - value.X, this->Y - value.Y));
-		}
+		//const VECTOR2D VECTOR2D::operator-(const VECTOR2D &value)
+		//{
+		//	if(this == &value) { return(*this); }
+		//	return(VECTOR2D(this->X - value.X, this->Y - value.Y));
+		//}
 
-		// ASSIGNMENT - OPERATIONS
-		//--------------------------------------------------------
-		VECTOR2D &VECTOR2D::operator=(const Float &value)
-		{
-			this->X = value;
-			this->Y = value;
-			return(*this);
-		}
+		//// ASSIGNMENT - OPERATIONS
+		////--------------------------------------------------------
+		//VECTOR2D &VECTOR2D::operator=(const Float &value)
+		//{
+		//	this->X = value;
+		//	this->Y = value;
+		//	return(*this);
+		//}
 
-		VECTOR2D &VECTOR2D::operator=(const VECTOR2D &value)
-		{
-			if(this == &value) { return(*this); }
-			this->X = value.X;
-			this->Y = value.Y;
-			return(*this);
-		}
+		//VECTOR2D &VECTOR2D::operator=(const VECTOR2D &value)
+		//{
+		//	if(this == &value) { return(*this); }
+		//	this->X = value.X;
+		//	this->Y = value.Y;
+		//	return(*this);
+		//}
 
-		VECTOR2D & VECTOR2D::operator=(VECTOR2D && value)
-		{
-			if (this == &value)
-				return *this;
+		//VECTOR2D & VECTOR2D::operator=(VECTOR2D && value)
+		//{
+		//	if (this == &value)
+		//		return *this;
 
-			this->X = std::move(value.X);
-			this->Y = std::move(value.Y);
-			return(*this);
-		}
+		//	this->X = std::move(value.X);
+		//	this->Y = std::move(value.Y);
+		//	return(*this);
+		//}
 
-		VECTOR2D &VECTOR2D::operator+=(const Float &value)
-		{
-			this->X += value;
-			this->Y += value;
-			return(*this);
-		}
+		//VECTOR2D &VECTOR2D::operator+=(const Float &value)
+		//{
+		//	this->X += value;
+		//	this->Y += value;
+		//	return(*this);
+		//}
 
-		VECTOR2D &VECTOR2D::operator+=(const VECTOR2D &value)
-		{
-			if(this == &value) { return(*this); }
-			this->X += value.X;
-			this->Y += value.Y;
-			return(*this);
-		}
+		//VECTOR2D &VECTOR2D::operator+=(const VECTOR2D &value)
+		//{
+		//	if(this == &value) { return(*this); }
+		//	this->X += value.X;
+		//	this->Y += value.Y;
+		//	return(*this);
+		//}
 
-		const VECTOR2D &VECTOR2D::operator-=(const Float &value)
-		{
-			this->X -= value;
-			this->Y -= value;
-			return(*this);
-		}
+		//const VECTOR2D &VECTOR2D::operator-=(const Float &value)
+		//{
+		//	this->X -= value;
+		//	this->Y -= value;
+		//	return(*this);
+		//}
 
-		const VECTOR2D &VECTOR2D::operator-=(const VECTOR2D &value)
-		{
-			if(this == &value) { return(*this); }
-			this->X -= value.X;
-			this->Y -= value.Y;
-			return(*this);
-		}	
-		
-		const VECTOR2D VECTOR2D::operator*(const Float		&value)
-		{
-			return(VECTOR2D(this->X * value, this->Y * value));
-		}
+		//const VECTOR2D &VECTOR2D::operator-=(const VECTOR2D &value)
+		//{
+		//	if(this == &value) { return(*this); }
+		//	this->X -= value.X;
+		//	this->Y -= value.Y;
+		//	return(*this);
+		//}	
+		//
+		//const VECTOR2D VECTOR2D::operator*(const Float		&value)
+		//{
+		//	return(VECTOR2D(this->X * value, this->Y * value));
+		//}
 
-		
-		const Float VECTOR2D::operator*(const VECTOR2D		&value)
-		{
-			return((this->X * value.X) + (this->Y * value.Y));
-		}
-		
-		const VECTOR2D &VECTOR2D::operator*=(const Float		&value)
-		{
-			this->X *= value;
-			this->Y *= value;
-			return(*this);
-		}
+		//
+		//const Float VECTOR2D::operator*(const VECTOR2D		&value)
+		//{
+		//	return((this->X * value.X) + (this->Y * value.Y));
+		//}
+		//
+		//const VECTOR2D &VECTOR2D::operator*=(const Float		&value)
+		//{
+		//	this->X *= value;
+		//	this->Y *= value;
+		//	return(*this);
+		//}
 
-		const VECTOR2D &VECTOR2D::operator/= (const Float		&value)
-		{
-			this->X /= value;
-			this->Y /= value;
-			return(*this);
-		}
-        
-        const VECTOR2D VECTOR2D::operator/(const Float		&value) const
-        {
-            return(VECTOR2D(this->X / value, this->Y / value));
-        }
-        
-        const VECTOR2D VECTOR2D::operator*(const MATRIX2X2		&value)
-        {
-            return(VECTOR2D(	this->X * value.M11 + this->Y * value.M21,
-                                this->X * value.M12 + this->Y * value.M22));
-        }
-        
-        const VECTOR2D &VECTOR2D::operator*=(const MATRIX2X2		&value)
-        {
-            this->X = this->X * value.M11 + this->Y * value.M21;
-            this->Y = this->X * value.M12 + this->Y * value.M22;
+		//const VECTOR2D &VECTOR2D::operator/= (const Float		&value)
+		//{
+		//	this->X /= value;
+		//	this->Y /= value;
+		//	return(*this);
+		//}
+  //      
+  //      const VECTOR2D VECTOR2D::operator/(const Float		&value) const
+  //      {
+  //          return(VECTOR2D(this->X / value, this->Y / value));
+  //      }
+  //      
+  //      const VECTOR2D VECTOR2D::operator*(const MATRIX2X2		&value)
+  //      {
+  //          return(VECTOR2D(	this->X * value.M11 + this->Y * value.M21,
+  //                              this->X * value.M12 + this->Y * value.M22));
+  //      }
+  //      
+  //      const VECTOR2D &VECTOR2D::operator*=(const MATRIX2X2		&value)
+  //      {
+  //          this->X = this->X * value.M11 + this->Y * value.M21;
+  //          this->Y = this->X * value.M12 + this->Y * value.M22;
 
-            return(*this);
-        }
+  //          return(*this);
+  //      }
 
-		void VECTOR2D::ZeroVector()
-		{
-			this->X = this->Y = 0.0f;
-		}
-        
-        void VECTOR2D::Limit(	const Float &limit)
-        {
-			if (this->X > limit) {
-				this->X = limit;
-            }
-            
-			if (this->Y > limit) {
-				this->Y = limit;
-            }
+		//void VECTOR2D::ZeroVector()
+		//{
+		//	this->X = this->Y = 0.0f;
+		//}
+  //      
+  //      void VECTOR2D::Limit(	const Float &limit)
+  //      {
+		//	if (this->X > limit) {
+		//		this->X = limit;
+  //          }
+  //          
+		//	if (this->Y > limit) {
+		//		this->Y = limit;
+  //          }
 
-			if (this->X < -limit) {
-				this->X = -limit;
-			}
+		//	if (this->X < -limit) {
+		//		this->X = -limit;
+		//	}
 
-			if (this->Y < -limit) {
-				this->Y = -limit;
-			}
-        }
+		//	if (this->Y < -limit) {
+		//		this->Y = -limit;
+		//	}
+  //      }
 
-		bool VECTOR2D::operator==(const VECTOR2D &value)
-		{
-			bool isEqual = false;
+		//bool VECTOR2D::operator==(const VECTOR2D &value)
+		//{
+		//	bool isEqual = false;
 
-			if(this->X == value.X && this->Y == value.Y)
-				isEqual = true;
+		//	if(this->X == value.X && this->Y == value.Y)
+		//		isEqual = true;
 
-			return(isEqual);
-		}
+		//	return(isEqual);
+		//}
 
-		bool VECTOR2D::operator!=(const VECTOR2D &value)
-		{
-			bool isEqual = false;
+		//bool VECTOR2D::operator!=(const VECTOR2D &value)
+		//{
+		//	bool isEqual = false;
 
-			if(this->X != value.X && this->Y != value.Y)
-				isEqual = true;
+		//	if(this->X != value.X && this->Y != value.Y)
+		//		isEqual = true;
 
-			return(isEqual);
-		}
+		//	return(isEqual);
+		//}
 
-		bool VECTOR2D::IsZero() const
-		{
-			bool isZero = false;
+		//bool VECTOR2D::IsZero() const
+		//{
+		//	bool isZero = false;
 
-			if(this->X == 0 && this->Y == 0)
-				isZero = true;
+		//	if(this->X == 0 && this->Y == 0)
+		//		isZero = true;
 
-			return(isZero);
-		}
+		//	return(isZero);
+		//}
 
-		VECTOR2D VECTOR2D::GetZeroVector(void)
-		{
-			return(VECTOR2D(0,0));
-		}
+		//VECTOR2D VECTOR2D::GetZeroVector(void)
+		//{
+		//	return(VECTOR2D(0,0));
+		//}
 
-		float VECTOR2D::Magnitude() const
-		{
-			return(sqrt(this->X*this->X + this->Y*this->Y));
-		}
+		//float VECTOR2D::Magnitude() const
+		//{
+		//	return(sqrt(this->X*this->X + this->Y*this->Y));
+		//}
 
-		void VECTOR2D::Normalize()
-		{
-			float magnitude = this->Magnitude();
-			if (magnitude != 0)
-				*this /= magnitude;
-		}
+		//void VECTOR2D::Normalize()
+		//{
+		//	float magnitude = this->Magnitude();
+		//	if (magnitude != 0)
+		//		*this /= magnitude;
+		//}
 
-		Aurora::Math::VECTOR2D VECTOR2D::Clone() const
-		{
-			return(VECTOR2D(this->X, this->Y));
-		}
+		//Aurora::Math::VECTOR2D VECTOR2D::Clone() const
+		//{
+		//	return(VECTOR2D(this->X, this->Y));
+		//}
 
-		float VECTOR2D::Heading()
-		{
-			return(atan2f(Y,X));
-		}
+		//float VECTOR2D::Heading()
+		//{
+		//	return(atan2f(Y,X));
+		//}
 
 // VECTOR3D -----------------------------------------------------------
 		VECTOR3D::VECTOR3D()  : X(0), Y(0), Z(0)

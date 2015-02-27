@@ -176,120 +176,120 @@ class mPOLYGON4D
  *
  */
 /* Holds a single object data as multiple polygons. */
-class mOBJECT4D
-{
-	public:
-		/**
-		 *
-		 * \return 
-		 */
-		mOBJECT4D();									
-		/**
-		 *
-		 * \param VertexAmount 
-		 * \param PolygonAmount 
-		 * \return 
-		 */
-		mOBJECT4D(int VertexAmount, int PolygonAmount);	
-		/**
-		 *
-		 * \return 
-		 */
-		~mOBJECT4D();									
-
-		int Identification;								/*!< .*/
-		VERTEX4D WorldPosition;							/*!< .*/
-
-		VECTOR4D Dir;									/*!< .*/
-
-		VECTOR4D ux, uy, uz;							/*!< .*/
-
-		int VertexAmount;								/*!< .*/
-
-		VERTEX4D	*Local_VertexList;					/*!< .*/
-		VERTEX4D	*Transformed_VertexList;			/*!< .*/
-
-		int PolygonAmount;								/*!< .*/
-
-		mPOLYGON4D *PolygonList;						/*!< .*/
-		mPOLYGON4D *TransformedPolygonList;				/*!< .*/
-
-		/**
-		 *
-		 * \param VertexAmount 
-		 */
-		void AllocateMemoryToLocalVertexList(int VertexAmount);
-		/**
-		 *
-		 * \param void 
-		 */
-		void AllocateMemoryToTransformedVertexList(void);
-		/**
-		 *
-		 * \param PolygonAmount 
-		 */
-		void AllocateMemoryToPolygonList(int PolygonAmount);
-		/**
-		 *
-		 * \param void 
-		 */
-		void AllocateMemoryToTransformedPolygonList(void);
-};
-
-/**
- * \ingroup modelLoader
- *
- *
- * \par requirements
- * win98 or later\n
- * win2k or later\n
- * MFC\n
- *
- * \version 1.0
- * first version
- *
- * \date 06-30-2005
- *
- * \author Adrian
- *
- * \par license
- * This code is absolutely free to use and modify. The code is provided "as is" with
- * no expressed or implied warranty. The author accepts no liability if it causes
- * any damage to your computer, causes your pet to fall ill, increases baldness
- * or makes your car start emitting strange noises when you start it up.
- * This code has no bugs, just undocumented features!
- * 
- * \todo 
- *
- * \bug 
- *
- */
-class mMODEL4D
-{
-	public:
-		/**
-		 *
-		 * \return 
-		 */
-		mMODEL4D();
-		/**
-		 *
-		 * \return 
-		 */
-		~mMODEL4D();
-
-		int ObjectsAmount;						/*!< .*/
-		mOBJECT4D *ObjectList;					/*!< .*/
-		//mOBJECT4D *TransformedObjectList;		/*!< .*/
-
-		/**
-		 *
-		 * \param ObjectsAmount 
-		 */
-		void AllocateMemoryForObjectsList(int ObjectsAmount);
-		//void AllocateMemoryForTransformedObjectsList(void);
-
-};
+//class mOBJECT4D
+//{
+//	public:
+//		/**
+//		 *
+//		 * \return 
+//		 */
+//		mOBJECT4D();									
+//		/**
+//		 *
+//		 * \param VertexAmount 
+//		 * \param PolygonAmount 
+//		 * \return 
+//		 */
+//		mOBJECT4D(int VertexAmount, int PolygonAmount);	
+//		/**
+//		 *
+//		 * \return 
+//		 */
+//		~mOBJECT4D();									
+//
+//		int Identification;								/*!< .*/
+//		VERTEX4D WorldPosition;							/*!< .*/
+//
+//		VECTOR4D Dir;									/*!< .*/
+//
+//		VECTOR4D ux, uy, uz;							/*!< .*/
+//
+//		int VertexAmount;								/*!< .*/
+//
+//		VERTEX4D	*Local_VertexList;					/*!< .*/
+//		VERTEX4D	*Transformed_VertexList;			/*!< .*/
+//
+//		int PolygonAmount;								/*!< .*/
+//
+//		mPOLYGON4D *PolygonList;						/*!< .*/
+//		mPOLYGON4D *TransformedPolygonList;				/*!< .*/
+//
+//		/**
+//		 *
+//		 * \param VertexAmount 
+//		 */
+//		void AllocateMemoryToLocalVertexList(int VertexAmount);
+//		/**
+//		 *
+//		 * \param void 
+//		 */
+//		void AllocateMemoryToTransformedVertexList(void);
+//		/**
+//		 *
+//		 * \param PolygonAmount 
+//		 */
+//		void AllocateMemoryToPolygonList(int PolygonAmount);
+//		/**
+//		 *
+//		 * \param void 
+//		 */
+//		void AllocateMemoryToTransformedPolygonList(void);
+//};
+//
+///**
+// * \ingroup modelLoader
+// *
+// *
+// * \par requirements
+// * win98 or later\n
+// * win2k or later\n
+// * MFC\n
+// *
+// * \version 1.0
+// * first version
+// *
+// * \date 06-30-2005
+// *
+// * \author Adrian
+// *
+// * \par license
+// * This code is absolutely free to use and modify. The code is provided "as is" with
+// * no expressed or implied warranty. The author accepts no liability if it causes
+// * any damage to your computer, causes your pet to fall ill, increases baldness
+// * or makes your car start emitting strange noises when you start it up.
+// * This code has no bugs, just undocumented features!
+// * 
+// * \todo 
+// *
+// * \bug 
+// *
+// */
+//class mMODEL4D
+//{
+//	public:
+//		/**
+//		 *
+//		 * \return 
+//		 */
+//		mMODEL4D();
+//		/**
+//		 *
+//		 * \return 
+//		 */
+//		~mMODEL4D();
+//
+//		int ObjectsAmount;						/*!< .*/
+//		mOBJECT4D *ObjectList;					/*!< .*/
+//		//mOBJECT4D *TransformedObjectList;		/*!< .*/
+//
+//		/**
+//		 *
+//		 * \param ObjectsAmount 
+//		 */
+//		void AllocateMemoryForObjectsList(int ObjectsAmount);
+//		//void AllocateMemoryForTransformedObjectsList(void);
+//
+//};
 
 };
 };

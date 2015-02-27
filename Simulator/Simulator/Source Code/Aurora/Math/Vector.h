@@ -19,6 +19,9 @@ namespace Aurora
 	*/
 	namespace Math
 	{
+
+		
+
 		//TODO: Non-member Operators for implicit conversions with STD:move
 		/*
 		sample:
@@ -40,156 +43,156 @@ namespace Aurora
 		  
 		 
 		*/
-		class VECTOR2D
-		{
-			public:
-				/*!
-					\brief 
-					\return 
-				*/
-				VECTOR2D();
-				/*!
-					\brief 
-					\param x 
-					\param y 
-					\return 
-				*/
-				VECTOR2D(Float x, Float y);
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				VECTOR2D(const VECTOR2D &value);
-				virtual ~VECTOR2D();
-				VECTOR2D(VECTOR2D &&value);
-				VECTOR2D & operator=(VECTOR2D && value);
-				VECTOR2D &operator=(const VECTOR2D		&value);
+		//class VECTOR2D
+		//{
+		//	public:
+		//		/*!
+		//			\brief 
+		//			\return 
+		//		*/
+		//		VECTOR2D();
+		//		/*!
+		//			\brief 
+		//			\param x 
+		//			\param y 
+		//			\return 
+		//		*/
+		//		VECTOR2D(Float x, Float y);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		VECTOR2D(const VECTOR2D &value);
+		//		virtual ~VECTOR2D();
+		//		VECTOR2D(VECTOR2D &&value);
+		//		VECTOR2D & operator=(VECTOR2D && value);
+		//		VECTOR2D &operator=(const VECTOR2D		&value);
 
-				float X;
-				float Y;
-				// ADDITION - OPERATIONS
-				//--------------------------------------------------------
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				const VECTOR2D operator+(const Float			&value);
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				const VECTOR2D operator+(const VECTOR2D		&value);
+		//		float X;
+		//		float Y;
+		//		// ADDITION - OPERATIONS
+		//		//--------------------------------------------------------
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		const VECTOR2D operator+(const Float			&value);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		const VECTOR2D operator+(const VECTOR2D		&value);
 
-				// NEGATION - OPERATIONS
-				//--------------------------------------------------------
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				const VECTOR2D operator-(const Float			&value);
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				const VECTOR2D operator-(const VECTOR2D		&value);
+		//		// NEGATION - OPERATIONS
+		//		//--------------------------------------------------------
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		const VECTOR2D operator-(const Float			&value);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		const VECTOR2D operator-(const VECTOR2D		&value);
 
-				// ASSIGNMENT - OPERATIONS
-				//--------------------------------------------------------
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				VECTOR2D &operator=(const Float			&value);
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				
+		//		// ASSIGNMENT - OPERATIONS
+		//		//--------------------------------------------------------
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		VECTOR2D &operator=(const Float			&value);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		
 
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				VECTOR2D &operator+=(const Float		&value);
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				VECTOR2D &operator+=(const VECTOR2D		&value);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		VECTOR2D &operator+=(const Float		&value);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		VECTOR2D &operator+=(const VECTOR2D		&value);
 
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				const VECTOR2D &operator-=(const Float		&value);
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				const VECTOR2D &operator-=(const VECTOR2D		&value);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		const VECTOR2D &operator-=(const Float		&value);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		const VECTOR2D &operator-=(const VECTOR2D		&value);
 
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				const VECTOR2D operator*(const Float		&value);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		const VECTOR2D operator*(const Float		&value);
 
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				const Float operator*(const VECTOR2D		&value);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		const Float operator*(const VECTOR2D		&value);
 
-				/*!
-					\brief 
-					\param &value 
-					\return 
-				*/
-				const VECTOR2D &operator*=(const Float		&value);
-            
-                const VECTOR2D operator/(const Float		&value) const;
-				const VECTOR2D &operator/=(const Float		&value);
+		//		/*!
+		//			\brief 
+		//			\param &value 
+		//			\return 
+		//		*/
+		//		const VECTOR2D &operator*=(const Float		&value);
+  //          
+  //              const VECTOR2D operator/(const Float		&value) const;
+		//		const VECTOR2D &operator/=(const Float		&value);
 
-                const VECTOR2D &operator*=(const MATRIX2X2		&value);
-            
-                const VECTOR2D operator*(const MATRIX2X2		&value);
+  //              const VECTOR2D &operator*=(const MATRIX2X2		&value);
+  //          
+  //              const VECTOR2D operator*(const MATRIX2X2		&value);
 
-				bool operator==(const VECTOR2D		&value);
+		//		bool operator==(const VECTOR2D		&value);
 
-				bool operator!=(const VECTOR2D		&value);
+		//		bool operator!=(const VECTOR2D		&value);
 
-				/*!
-					\brief Zeros a vector
-					\param void 
-				*/
-				void ZeroVector(void);
+		//		/*!
+		//			\brief Zeros a vector
+		//			\param void 
+		//		*/
+		//		void ZeroVector(void);
 
-				static VECTOR2D GetZeroVector(void);
-            
-				void Limit(const Float &limit);
-				bool IsZero() const;
-				float Magnitude() const;
-				void Normalize();
-				float Heading();
+		//		static VECTOR2D GetZeroVector(void);
+  //          
+		//		void Limit(const Float &limit);
+		//		bool IsZero() const;
+		//		float Magnitude() const;
+		//		void Normalize();
+		//		float Heading();
 
-				VECTOR2D Clone() const;
+		//		VECTOR2D Clone() const;
 
-			protected:
+		//	protected:
 
-		};
+		//};
 
 		/*!
 		\brief A class that can hold vector data and perform vector sepecific operations. For a more specific documentation see VECTOR4D text. Both classes work in the same way(same as VECTOR2D). The only difference are the scalar values in the vector classes.
@@ -510,9 +513,9 @@ namespace Aurora
 
 		};
 
-		typedef VECTOR2D VERTEX2D;	/*!< An alias for the VECTOR2D class so that use may use it to give you a better representation of a vertex or a point if needed. */
-		typedef VECTOR3D VERTEX3D;	/*!< An alias for the VECTOR3D class so that use may use it to give you a better representation of a vertex or a point if needed. */
-		typedef VECTOR4D VERTEX4D;	/*!< An alias for the VECTOR4D class so that use may use it to give you a better representation of a vertex or a point if needed. */
+		//typedef VECTOR2D VECTOR2D<Type>;	/*!< An alias for the VECTOR2D class so that use may use it to give you a better representation of a vertex or a point if needed. */
+		//typedef VECTOR3D VERTEX3D;	/*!< An alias for the VECTOR3D class so that use may use it to give you a better representation of a vertex or a point if needed. */
+		//typedef VECTOR4D VERTEX4D;	/*!< An alias for the VECTOR4D class so that use may use it to give you a better representation of a vertex or a point if needed. */
 	}; // END OF NAMESPACE MATH
 }; // END OF NAMESPACE Aurora
 

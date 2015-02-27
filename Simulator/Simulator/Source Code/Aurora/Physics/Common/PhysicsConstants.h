@@ -12,7 +12,7 @@ namespace Aurora
 		class PhysicsConstants
 		{
 		public:
-			const static  VECTOR2D EarthGravity;
+			const static  VECTOR2D<double> EarthGravity;
 			const static float NormalSurfaceFrictionCoefficient;
 			const static std::string Callbacks_NormalFrictionCalculations_FunctionName;
 			const static std::string Callbacks_NormalEarthGravityCalculations_FunctionName;

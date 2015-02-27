@@ -16,115 +16,115 @@ namespace Aurora
 	*/
 	namespace Math
 	{
-		mQUATERNION4D::mQUATERNION4D()
-		{
-			this->q0 = 0;
-		}
+		//mQUATERNION4D::mQUATERNION4D()
+		//{
+		//	this->q0 = 0;
+		//}
 
-		mQUATERNION4D::mQUATERNION4D(Float q0, VECTOR3D qv)
-		{
-			this->q0 = q0;
-			this->qV = qv;
-		}
+		//mQUATERNION4D::mQUATERNION4D(Float q0, VECTOR3D qv)
+		//{
+		//	this->q0 = q0;
+		//	this->qV = qv;
+		//}
 
-		mQUATERNION4D::mQUATERNION4D(const mQUATERNION4D &value)
-		{
-			this->q0 = value.q0;
-			this->qV = value.qV;
-		}
+		//mQUATERNION4D::mQUATERNION4D(const mQUATERNION4D &value)
+		//{
+		//	this->q0 = value.q0;
+		//	this->qV = value.qV;
+		//}
 
-		mQUATERNION4D::~mQUATERNION4D()
-		{
-			
-		}
+		//mQUATERNION4D::~mQUATERNION4D()
+		//{
+		//	
+		//}
 
-		mQUATERNION4D &mQUATERNION4D::operator=(const mQUATERNION4D		&value)
-		{
-			if(this == &value) { return(*this); }
-			this->q0 = value.q0;
-			this->qV = value.qV;
-			return(*this);
-		}
+		//mQUATERNION4D &mQUATERNION4D::operator=(const mQUATERNION4D		&value)
+		//{
+		//	if(this == &value) { return(*this); }
+		//	this->q0 = value.q0;
+		//	this->qV = value.qV;
+		//	return(*this);
+		//}
 
-		mQUATERNION4D mQUATERNION4D::operator+(const mQUATERNION4D		&value)
-		{
-			return(mQUATERNION4D(this->q0 + value.q0, VECTOR3D(this->qV.X + value.qV.X, this->qV.Y + value.qV.Y, this->qV.Z + value.qV.Z)));
-		}
+		//mQUATERNION4D mQUATERNION4D::operator+(const mQUATERNION4D		&value)
+		//{
+		//	return(mQUATERNION4D(this->q0 + value.q0, VECTOR3D(this->qV.X + value.qV.X, this->qV.Y + value.qV.Y, this->qV.Z + value.qV.Z)));
+		//}
 
-		mQUATERNION4D mQUATERNION4D::operator-(const mQUATERNION4D		&value)
-		{
-			return(mQUATERNION4D(this->q0 - value.q0, VECTOR3D(this->qV.X - value.qV.X, this->qV.Y - value.qV.Y, this->qV.Z - value.qV.Z)));
-		}
+		//mQUATERNION4D mQUATERNION4D::operator-(const mQUATERNION4D		&value)
+		//{
+		//	return(mQUATERNION4D(this->q0 - value.q0, VECTOR3D(this->qV.X - value.qV.X, this->qV.Y - value.qV.Y, this->qV.Z - value.qV.Z)));
+		//}
 
-		mQUATERNION4D &mQUATERNION4D::operator+=(const mQUATERNION4D		&value)
-		{
-			if(this == &value) { return(*this); }
-			this->q0 += value.q0;
-			this->qV += value.qV;
-			return(*this);
-		}
+		//mQUATERNION4D &mQUATERNION4D::operator+=(const mQUATERNION4D		&value)
+		//{
+		//	if(this == &value) { return(*this); }
+		//	this->q0 += value.q0;
+		//	this->qV += value.qV;
+		//	return(*this);
+		//}
 
-		mQUATERNION4D &mQUATERNION4D::operator-=(const mQUATERNION4D		&value)
-		{
-			if(this == &value) { return(*this); }
-			this->q0 -= value.q0;
-			this->qV -= value.qV;
-			return(*this);
-		}
+		//mQUATERNION4D &mQUATERNION4D::operator-=(const mQUATERNION4D		&value)
+		//{
+		//	if(this == &value) { return(*this); }
+		//	this->q0 -= value.q0;
+		//	this->qV -= value.qV;
+		//	return(*this);
+		//}
 
-		mQUATERNION4D mQUATERNION4D::operator*(const Float		&value)
-		{
-			return(mQUATERNION4D(this->q0 * value, VECTOR3D(this->qV.X * value, this->qV.Y * value, this->qV.Z * value)));
-		}
+		//mQUATERNION4D mQUATERNION4D::operator*(const Float		&value)
+		//{
+		//	return(mQUATERNION4D(this->q0 * value, VECTOR3D(this->qV.X * value, this->qV.Y * value, this->qV.Z * value)));
+		//}
 
-		mQUATERNION4D &mQUATERNION4D::operator*=(const mQUATERNION4D		&value)
-		{
-			if(this == &value) { return(*this); }
-			this->q0 *= value.q0;
-			this->qV.X *= value.qV.X;
-			this->qV.Y *= value.qV.Y;
-			this->qV.Z *= value.qV.Z;
-			return(*this);
-		}
+		//mQUATERNION4D &mQUATERNION4D::operator*=(const mQUATERNION4D		&value)
+		//{
+		//	if(this == &value) { return(*this); }
+		//	this->q0 *= value.q0;
+		//	this->qV.X *= value.qV.X;
+		//	this->qV.Y *= value.qV.Y;
+		//	this->qV.Z *= value.qV.Z;
+		//	return(*this);
+		//}
 
-		void mQUATERNION4D::ZeroQuarternion()
-		{
-			this->q0 = 0.0f;
-			this->qV.ZeroVector();
-		}
+		//void mQUATERNION4D::ZeroQuarternion()
+		//{
+		//	this->q0 = 0.0f;
+		//	this->qV.ZeroVector();
+		//}
 
-		mPARAMETRICLINE2D::mPARAMETRICLINE2D(VERTEX2D &init, VERTEX2D &term)
-		{
-			this->point1 = init;
-			this->point2 = term;
-			this->v = term - init;
-		}
+		//mPARAMETRICLINE2D::mPARAMETRICLINE2D(VECTOR2D<Type> &init, VECTOR2D<Type> &term)
+		//{
+		//	this->point1 = init;
+		//	this->point2 = term;
+		//	this->v = term - init;
+		//}
 
-		mPARAMETRICLINE2D::~mPARAMETRICLINE2D()
-		{
+		//mPARAMETRICLINE2D::~mPARAMETRICLINE2D()
+		//{
 
-		}
+		//}
 
-		mPARAMETRICLINE3D::mPARAMETRICLINE3D(VERTEX3D &init, VERTEX3D &term)
-		{
-			this->point1 = init;
-			this->point2 = term;
-			this->v = term - init;
-		}
+		//mPARAMETRICLINE3D::mPARAMETRICLINE3D(VERTEX3D &init, VERTEX3D &term)
+		//{
+		//	this->point1 = init;
+		//	this->point2 = term;
+		//	this->v = term - init;
+		//}
 
-		mPLANE3D::mPLANE3D(const VECTOR3D &point, const VECTOR3D &normal, bool Normalize)
-		{
-			this->point = point;
-			if(!Normalize)
-			{ this->normal = normal; } else {
-                //NormalizeVector(&this->normal, normal);
-            }
-		}
+		//mPLANE3D::mPLANE3D(const VECTOR3D &point, const VECTOR3D &normal, bool Normalize)
+		//{
+		//	this->point = point;
+		//	if(!Normalize)
+		//	{ this->normal = normal; } else {
+  //              //NormalizeVector(&this->normal, normal);
+  //          }
+		//}
 
-		mPLANE3D::~mPLANE3D()
-		{
+		//mPLANE3D::~mPLANE3D()
+		//{
 
-		}
+		//}
 
 
 		mRECT::mRECT(int width, int height)

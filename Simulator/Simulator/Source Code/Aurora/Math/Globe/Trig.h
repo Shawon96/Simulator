@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "Geodetic2D.h"
 #include "Geodetic3D.h"
+#include <type_traits>
 #include <memory>
 #include "../../Math/MathOperations.h"
 #include "../../Globals/GlobalDatatypes.h"
@@ -39,18 +40,7 @@ namespace Aurora
 
 				static std::shared_ptr<Geodetic2D> ToDegrees(const Geodetic2D &geodetic);
 
-				template<typename GeodeticType>
-				static std::shared_ptr<Geodetic3D> ToRadians(const GeodeticType &&geodetic);
 			};
-
-			template<typename GeodeticType>
-			static std::shared_ptr<Geodetic3D>
-				Aurora::Math::Globe::Trig::ToRadians(const GeodeticType &&geodetic)
-			{
-				static_assert(!is_same<Geodetic3D, GeodeticType>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
-				auto geodeticAuto = std::forward<Geodetic3D>(geodetic);
-				return std::make_shared<Geodetic3D>(MathOperations::Degrees_To_Radians(geodeticAuto.Longitude()), MathOperations::Degrees_To_Radians(geodeticAuto.Latitude()), geodeticAuto.Height());
-			}
 
 		}
 	}

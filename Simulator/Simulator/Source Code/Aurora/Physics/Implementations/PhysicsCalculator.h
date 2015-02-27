@@ -10,34 +10,35 @@ using namespace Aurora::Math;
 namespace Aurora {
 	namespace Physics {
 		// Use Singleton?;Factory + Builder?
+		template<typename Type>
 		class PhysicsCalculator : public ICalculationsBase
 		{
 			protected:
-			static std::shared_ptr<PhysicsCalculator> instance;
+				static std::shared_ptr<PhysicsCalculator<Type>> instance;
 			virtual void init() override;
-			std::vector<VECTOR2D> constantForces;
-			std::map<PhysicsCalculationMode, std::shared_ptr<PhysicsCalculator>> physicsCalculatorInstances;
+			std::vector<VECTOR2D<Type>> constantForces;
+			std::map<PhysicsCalculationMode, std::shared_ptr<PhysicsCalculator<Type>>> physicsCalculatorInstances;
 			
 		public:
 			PhysicsCalculator() = default;
 			virtual ~PhysicsCalculator() = default;
 
-			template<typename ConstantForce>
-			void AddConstantForceToCalculator(ConstantForce &&constantForce);
+			/*template<typename ConstantForce>
+			void AddConstantForceToCalculator(ConstantForce &&constantForce);*/
 			
-			virtual void PerformCalculationsOnForce(ForceAlias value);
+			virtual void PerformCalculationsOnForce(std::shared_ptr < Force<Type> > value);
 
 			
 
 			virtual void DoCalculations() override;
 
-			static std::shared_ptr<PhysicsCalculator> GetInstance();
+			static std::shared_ptr<PhysicsCalculator<Type>> GetInstance();
 
 			std::shared_ptr<PhysicsCalculator> GetPhysicsCalculatorOption(PhysicsCalculationMode calculationMode);
 			void CreateInstanceOfPhysicsCalculatorOption(PhysicsCalculationMode calculationMode);
 		};
-
-		class NormalPhysicsCalculator : public PhysicsCalculator
+		template<typename Type>
+		class NormalPhysicsCalculator : public PhysicsCalculator<Type>
 		{
 		private:
 			virtual void init() override;
@@ -46,7 +47,7 @@ namespace Aurora {
 			NormalPhysicsCalculator() = default;
 			virtual ~NormalPhysicsCalculator() = default;
 
-			virtual void PerformCalculationsOnForce(ForceAlias value) override;
+			virtual void PerformCalculationsOnForce(std::shared_ptr < Force<Type> > value) override;
 
 			
 

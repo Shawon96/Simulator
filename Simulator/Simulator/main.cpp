@@ -17,6 +17,9 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
 int main(void)
 {    
+	Aurora::Physics::Force<double> force = Aurora::Physics::Force<double>();
+	Aurora::Random::Mover<double> mover = Aurora::Random::Mover<double>();
+
 	GLFWwindow* window;    
 	glfwSetErrorCallback(error_callback);    
 	if (!glfwInit())

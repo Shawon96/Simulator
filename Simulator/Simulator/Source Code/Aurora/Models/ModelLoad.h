@@ -45,28 +45,28 @@ int const EndOfData				= 20000;
  * \bug 
  *
  */
-class Loader
-{
-	public:
-		Loader();
-		~Loader();
-
-		/**
-		 *
-		 * \param *fileName 
-		 * \param *model 
-		 */
-		void LoadModel(char *fileName, mMODEL4D *model);
-		
-	protected:
-		/**
-		 *
-		 * \param &inA 
-		 * \param *model 
-		 */
-		void LoadObjectData(std::ifstream &inA, mMODEL4D *model);
-
-};
+//class Loader
+//{
+//	public:
+//		Loader();
+//		~Loader();
+//
+//		/**
+//		 *
+//		 * \param *fileName 
+//		 * \param *model 
+//		 */
+//		void LoadModel(char *fileName, mMODEL4D *model);
+//		
+//	protected:
+//		/**
+//		 *
+//		 * \param &inA 
+//		 * \param *model 
+//		 */
+//		void LoadObjectData(std::ifstream &inA, mMODEL4D *model);
+//
+//};
 	}; // END OF NAMESPACE MODEL
 }; // END OF NAMESPACE AURORA
 #endif

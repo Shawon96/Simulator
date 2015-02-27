@@ -8,7 +8,7 @@
 
 namespace Aurora {
 	namespace Physics {
-		using PhysicsCalculatorAlias = std::shared_ptr < PhysicsCalculator >;
+		//using PhysicsCalculatorAlias = std::shared_ptr < PhysicsCalculator >;
 		
 	};
 };

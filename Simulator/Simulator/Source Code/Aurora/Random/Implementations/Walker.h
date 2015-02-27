@@ -11,12 +11,13 @@ using namespace Aurora::Physics;
 namespace Aurora {
 	namespace Random {
 
-		class Walker : public RandomBaseComplete, public IPhysicsImplementor
+		template<typename Type>
+		class Walker : public RandomBaseComplete, public IPhysicsImplementor<Type>
 		{
 
 		private:
-			VECTOR2D position;
-			VECTOR2D target;
+			VECTOR2D<Type> position;
+			VECTOR2D<Type> target;
 			VECTOR3D perlinNoiseTime_PositionX;
 			VECTOR3D perlinNoiseTime_PositionY;
 			Float probalitityFactor;
@@ -35,28 +36,29 @@ namespace Aurora {
 
 			virtual void init() override;
 			virtual void init(const Walker &value);
-			virtual void init(const mRECT &areaSize, const VECTOR2D &walkerStartPosition);
+			virtual void init(const mRECT &areaSize, const VECTOR2D<Type> &walkerStartPosition);
 
 		public:
 			Walker();
 			Walker(const mRECT &areaSize);
 			Walker(const Walker &value);
-			Walker(const mRECT &areaSize, const VECTOR2D &walkerStartPosition);
+			Walker(const mRECT &areaSize, const VECTOR2D<Type> &walkerStartPosition);
 			~Walker();
 			Walker(Walker &&value);
 			Walker & operator=(Walker && value);
 			Walker& operator=(const Walker& value);
 
-			void SetTarget(const VECTOR2D &target);
-			const VECTOR2D GetCurentPosition() const;
-			void SetPosition(const VECTOR2D &position);
+			void SetTarget(const VECTOR2D<Type> &target);
+			const VECTOR2D<Type> GetCurentPosition() const;
+			void SetPosition(const VECTOR2D<Type> &position);
 			void SetProbalitiyFactor(Float probalitityFactor);
 
 			
 
 		};
 
-		class IWalkerImplementor : public IObjectBaseBasic, public IPhysicsAccessPoint
+		template<typename Type>
+		class IWalkerImplementor : public IObjectBaseBasic, public IPhysicsAccessPoint<Type>
 		{
 		private:
 			/*virtual void init() override;
@@ -76,11 +78,11 @@ namespace Aurora {
 			
 
 			virtual void SetWalkerRandomNumberMode(RandomNumberMode randomNumberMode);
-			virtual void RenderWalkerByPosition(const VECTOR2D &position);
-			virtual void SetWalkerTarget(const VECTOR2D &target);
+			virtual void RenderWalkerByPosition(const VECTOR2D<Type> &position);
+			virtual void SetWalkerTarget(const VECTOR2D<Type> &target);
 			virtual void StepWalker();
 
-			virtual std::shared_ptr<Physics::Force> AccessObjectPhysics() const override;
+			virtual std::shared_ptr<Physics::Force<Type>> AccessObjectPhysics() const override;
 
 			
 

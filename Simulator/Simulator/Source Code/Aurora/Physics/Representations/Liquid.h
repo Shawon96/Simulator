@@ -10,12 +10,13 @@ using namespace Aurora::Math;
 
 namespace Aurora {
 	namespace Physics {
-		class Liquid : public IPhysicsRepresentationBase
+		template<typename Type>
+		class Liquid : public IPhysicsRepresentationBase<Type>
 		{
 			protected:
 				virtual void init() override;
 				float coefficientDrag;
-				std::vector<VECTOR2D> liquidArea;
+				std::vector<VECTOR2D<Type>> liquidArea;
 				
 
 
@@ -26,15 +27,15 @@ namespace Aurora {
 			Liquid(float coefficientDrag);
 
 			
-			bool IsInside(const VECTOR2D &value);
+			bool IsInside(const VECTOR2D<Type> &value);
 
 			float CoefficientDrag() const { return coefficientDrag; }
 			template<typename T>
 			void CoefficientDrag(T &&value) { coefficientDrag = std::forward<T>(value); }
 			
-			std::vector<VECTOR2D> LiquidArea() const { return liquidArea; }
+			std::vector<VECTOR2D<Type>> LiquidArea() const { return liquidArea; }
 			
-			void AddEdgePoint(const VECTOR2D &value);
+			void AddEdgePoint(const VECTOR2D<Type> &value);
 
 		};
 		

@@ -12,13 +12,14 @@ using namespace Aurora::Physics;
 
 namespace Aurora {
 	namespace Random {
-		class Oscillator : public RandomBaseComplete, public IPhysicsImplementor
+		template<typename Type>
+		class Oscillator : public RandomBaseComplete, public IPhysicsImplementor<Type>
 		{
 			private:
-				VECTOR2D angle;
-				VECTOR2D velocity;
-				VECTOR2D amplitude;
-				VECTOR2D startPosition;
+				VECTOR2D<Type> angle;
+				VECTOR2D<Type> velocity;
+				VECTOR2D<Type> amplitude;
+				VECTOR2D<Type> startPosition;
 				
 				void init(const Oscillator & value);
 				void init(Oscillator && value);
@@ -35,20 +36,20 @@ namespace Aurora {
 				Oscillator(const mRECT &areaSize);
 
 
-				Aurora::Math::VECTOR2D Angle() const {
+				Aurora::Math::VECTOR2D<Type> Angle() const {
 					return angle;
 				}
 				template<typename T>
 				void Angle(T &&value) { angle = std::forward<T>(value); }
 
-				Aurora::Math::VECTOR2D Velocity() const {
+				Aurora::Math::VECTOR2D<Type> Velocity() const {
 					return velocity;
 				}
 
 				template<typename T>
 				void Velocity(T &&value) { velocity = std::forward<T>(value); }
 
-				Aurora::Math::VECTOR2D Amplitude() const {
+				Aurora::Math::VECTOR2D<Type> Amplitude() const {
 					return amplitude;
 				}
 
@@ -59,7 +60,7 @@ namespace Aurora {
 
 				void Oscillate();
 
-				Aurora::Math::VECTOR2D StartPosition() const {
+				Aurora::Math::VECTOR2D<Type> StartPosition() const {
 					return startPosition;
 				}
 				template<typename T>
@@ -74,8 +75,8 @@ namespace Aurora {
 		};
 		
 		
-
-		class IOscillatorImplementor : public IObjectBaseBasic, public IPhysicsAccessPoint
+		template<typename Type>
+		class IOscillatorImplementor : public IObjectBaseBasic, public IPhysicsAccessPoint<Type>
 		{
 			public:
 				IOscillatorImplementor() = default;
@@ -83,7 +84,7 @@ namespace Aurora {
 
 				virtual void Render() override;
 
-				virtual std::shared_ptr<Physics::Force> AccessObjectPhysics() const override;
+				virtual std::shared_ptr < Force<Type> > AccessObjectPhysics() const override;
 
 		};
 

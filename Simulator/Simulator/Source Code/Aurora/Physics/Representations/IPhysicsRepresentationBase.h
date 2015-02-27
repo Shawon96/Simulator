@@ -18,13 +18,14 @@ namespace Aurora {
 		 * \author Adrian Simionescu
 		 * \date February 2015
 		 */
+		template<typename Type>
 		class IPhysicsRepresentationBase : public IPhysicsBase
 		{
 		protected:
-			std::shared_ptr<Physics::Force> objectPhysics;
+			std::shared_ptr<Physics::Force<Type>> objectPhysics;
 			virtual void init() override
 			{
-				this->objectPhysics = std::make_shared<Physics::Force>();
+				this->objectPhysics = std::make_shared<Physics::Force<Type>>();
 			}
 		public:
 			IPhysicsRepresentationBase();
@@ -35,7 +36,7 @@ namespace Aurora {
 			IPhysicsRepresentationBase &operator=(IPhysicsRepresentationBase && value);
 			IPhysicsRepresentationBase& operator=(const IPhysicsRepresentationBase& value);
 
-			std::shared_ptr<Physics::Force> ObjectPhysics() const { 
+			std::shared_ptr<Physics::Force<Type>> ObjectPhysics() const {
 				if (this->objectPhysics == nullptr)
 					throw std::bad_function_call(Aurora::Errors::ErrorMessages::PhysicsForceEmptyObject.c_str());
 

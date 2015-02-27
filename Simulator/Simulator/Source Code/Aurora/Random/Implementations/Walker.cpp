@@ -3,7 +3,8 @@
 namespace Aurora {
 	namespace Random {
 
-		void Walker::Constrain()
+		template<typename Type>
+		void Walker<Type>::Constrain()
 		{
 			RandomBaseComplete::Constrain();
 			if(this->position.X < 0)
@@ -25,7 +26,8 @@ namespace Aurora {
 			}
 		}
 
-		void Walker::UniformCalculations()
+		template<typename Type>
+		void Walker<Type>::UniformCalculations()
 		{
 			RandomBaseComplete::UniformCalculations();
 			VECTOR2D emptyVector;
@@ -63,12 +65,14 @@ namespace Aurora {
 			}
 		}
 
-		void Walker::GaussianCalculations()
+		template<typename Type>
+		void Walker<Type>::GaussianCalculations()
 		{
 			RandomBaseComplete::GaussianCalculations();
 		}
 
-		void Walker::PerlinNoiseCalculations()
+		template<typename Type>
+		void Walker<Type>::PerlinNoiseCalculations()
 		{
 			RandomBaseComplete::PerlinNoiseCalculations();
 			auto tempX = this->perlinNoiseCalculator->GetValue(this->perlinNoiseTime_PositionX.X, this->perlinNoiseTime_PositionX.Y, this->perlinNoiseTime_PositionX.Z);
@@ -98,32 +102,38 @@ namespace Aurora {
 			}
 		}
 
-		void Walker::NormalCalculations()
+		template<typename Type>
+		void Walker<Type>::NormalCalculations()
 		{
 			RandomBaseComplete::NormalCalculations();
 		}
 
-		Walker::Walker(const mRECT &areaSize) : RandomBaseComplete()
+		template<typename Type>
+		Walker<Type>::Walker(const mRECT &areaSize) : RandomBaseComplete()
 		{
 			this->init(areaSize, VECTOR2D::GetZeroVector());
 		}
 
-		Walker::Walker(const mRECT &areaSize, const VECTOR2D &walkerStartPosition) : RandomBaseComplete(), position(walkerStartPosition)
+		template<typename Type>
+		Walker<Type>::Walker(const mRECT &areaSize, const VECTOR2D<Type> &walkerStartPosition) : RandomBaseComplete(), position(walkerStartPosition)
 		{
 			this->init(areaSize, walkerStartPosition);
 		}
 
-		Walker::Walker() : RandomBaseComplete()
+		template<typename Type>
+		Walker<Type>::Walker() : RandomBaseComplete()
 		{
 			this->init();
 		}
 
-		Walker::Walker(const Walker &value) : RandomBaseComplete(value)
+		template<typename Type>
+		Walker<Type>::Walker(const Walker &value) : RandomBaseComplete(value)
 		{
 			this->init(value);
 		}
 
-		Walker::Walker(Walker &&value) : RandomBaseComplete(std::move(value))
+		template<typename Type>
+		Walker<Type>::Walker(Walker &&value) : RandomBaseComplete(std::move(value))
 		{
 			this->position = std::move(value.position);
 			this->probalitityFactor = value.probalitityFactor;
@@ -132,14 +142,15 @@ namespace Aurora {
 			this->target = std::move(value.target);
 		}
 
-
-		Walker::~Walker()
+		template<typename Type>
+		Walker<Type>::~Walker()
 		{
 			RandomBaseComplete::~RandomBaseComplete();
 			IPhysicsImplementor::~IPhysicsImplementor();
 		}
 
-		void Walker::MoveWalkerTowardsTarget()
+		template<typename Type>
+		void Walker<Type>::MoveWalkerTowardsTarget()
 		{
 			Float choice = RandomNumberGenerator::GetRandomPositiveFloat(0,1);
 
@@ -168,27 +179,32 @@ namespace Aurora {
 			this->target = VECTOR2D::GetZeroVector();
 		}
 
-		void Walker::SetTarget(const VECTOR2D &target)
+		template<typename Type>
+		void Walker<Type>::SetTarget(const VECTOR2D<Type> &target)
 		{
 			this->target = target;
 		}
 
-		const VECTOR2D  Walker::GetCurentPosition() const
+		template<typename Type>
+		const VECTOR2D<Type>  Walker<Type>::GetCurentPosition() const
 		{
 			return(this->position);
 		}
 
-		void Walker::SetProbalitiyFactor(Float probalitityFactor)
+		template<typename Type>
+		void Walker<Type>::SetProbalitiyFactor(Float probalitityFactor)
 		{
 			this->probalitityFactor = probalitityFactor;
 		}
 
-		void Walker::SetPosition(const VECTOR2D &position)
+		template<typename Type>
+		void Walker<Type>::SetPosition(const VECTOR2D<Type> &position)
 		{
 			this->position = position;
 		}
 
-		Walker& Walker::operator=(const Walker& value)
+		template<typename Type>
+		Walker<Type>& Walker<Type>::operator=(const Walker& value)
 		{
 			if(this == &value) { return(*this); }
 			RandomBaseComplete::operator=(value);
@@ -198,7 +214,8 @@ namespace Aurora {
 			return(*this);
 		}
 
-		Walker & Walker::operator=(Walker && value)
+		template<typename Type>
+		Walker<Type> & Walker<Type>::operator=(Walker && value)
 		{
 			if (this == &value)
 				return *this;
@@ -214,7 +231,8 @@ namespace Aurora {
 			return(*this);
 		}
 
-		void Walker::init()
+		template<typename Type>
+		void Walker<Type>::init()
 		{
 			this->SetConstrainsRange(mRECT(0,0));
 			this->target.ZeroVector();
@@ -225,7 +243,8 @@ namespace Aurora {
 			this->SetRandomNumberMode(RandomNumberMode::Uniform);
 		}
 
-		void Walker::init(const Walker &value)
+		template<typename Type>
+		void Walker<Type>::init(const Walker &value)
 		{
 			this->SetConstrainsRange(value.GetConstrainsRange());
 			//this->PerlinNoiseCalculator = value.PerlinNoiseCalculator;
@@ -237,7 +256,8 @@ namespace Aurora {
 			this->target = value.target;
 		}
 
-		void Walker::init(const mRECT &areaSize, const VECTOR2D &walkerStartPosition)
+		template<typename Type>
+		void Walker<Type>::init(const mRECT &areaSize, const VECTOR2D<Type> &walkerStartPosition)
 		{
 			this->target.ZeroVector();
 			this->perlinNoiseTime_PositionX = VECTOR3D(0,0,0);
@@ -253,33 +273,37 @@ namespace Aurora {
 			this->SetRandomNumberMode(RandomNumberMode::Uniform);
 		}
 
-
-		void IWalkerImplementor::Render()
+		template<typename Type>
+		void IWalkerImplementor<Type>::Render()
 		{
 
 		}
 
-		void IWalkerImplementor::SetWalkerRandomNumberMode(RandomNumberMode randomNumberMode)
+		template<typename Type>
+		void IWalkerImplementor<Type>::SetWalkerRandomNumberMode(RandomNumberMode randomNumberMode)
 		{
 
 		}
 
-		void IWalkerImplementor::RenderWalkerByPosition(const VECTOR2D &position)
+		template<typename Type>
+		void IWalkerImplementor<Type>::RenderWalkerByPosition(const VECTOR2D<Type> &position)
 		{
 
 		}
 
-		void IWalkerImplementor::SetWalkerTarget(const VECTOR2D &target)
+		template<typename Type>
+		void IWalkerImplementor<Type>::SetWalkerTarget(const VECTOR2D<Type> &target)
 		{
 
 		}
 
-		void IWalkerImplementor::StepWalker()
+		template<typename Type>
+		void IWalkerImplementor<Type>::StepWalker()
 		{
 
 		}
-
-		std::shared_ptr<Physics::Force> IWalkerImplementor::AccessObjectPhysics() const
+		template<typename Type>
+		std::shared_ptr<Physics::Force<Type>> IWalkerImplementor<Type>::AccessObjectPhysics() const
 		{
 			return nullptr;
 		}

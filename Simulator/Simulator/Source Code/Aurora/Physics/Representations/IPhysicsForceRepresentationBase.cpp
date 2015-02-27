@@ -3,27 +3,29 @@
 namespace Aurora {
 	namespace Physics {
 
-		Aurora::Physics::IPhysicsForceRepresentationBase::IPhysicsForceRepresentationBase()
+		template<typename Type>
+		Aurora::Physics::IPhysicsForceRepresentationBase<Type>::IPhysicsForceRepresentationBase()
 		{
 			this->init();
 		}
 
-		Aurora::Physics::IPhysicsForceRepresentationBase::IPhysicsForceRepresentationBase(const IPhysicsForceRepresentationBase &value) : objectPhysics(value.objectPhysics)
+		template<typename Type>
+		Aurora::Physics::IPhysicsForceRepresentationBase<Type>::IPhysicsForceRepresentationBase(const IPhysicsForceRepresentationBase &value) : objectPhysics(value.objectPhysics)
 		{
 			this->init();
 		}
-
-		Aurora::Physics::IPhysicsForceRepresentationBase::IPhysicsForceRepresentationBase(IPhysicsForceRepresentationBase &&value) : objectPhysics(std::move(value.objectPhysics))
+		template<typename Type>
+		Aurora::Physics::IPhysicsForceRepresentationBase<Type>::IPhysicsForceRepresentationBase(IPhysicsForceRepresentationBase &&value) : objectPhysics(std::move(value.objectPhysics))
 		{
 			value.objectPhysics = nullptr;
 		}
-
-		Aurora::Physics::IPhysicsForceRepresentationBase::~IPhysicsForceRepresentationBase()
+		template<typename Type>
+		Aurora::Physics::IPhysicsForceRepresentationBase<Type>::~IPhysicsForceRepresentationBase()
 		{
 
 		}
-
-		IPhysicsForceRepresentationBase &Aurora::Physics::IPhysicsForceRepresentationBase::operator=(IPhysicsForceRepresentationBase && value)
+		template<typename Type>
+		IPhysicsForceRepresentationBase<Type> &Aurora::Physics::IPhysicsForceRepresentationBase<Type>::operator=(IPhysicsForceRepresentationBase && value)
 		{
 			if (this == &value)
 				return *this;
@@ -34,21 +36,21 @@ namespace Aurora {
 
 			return *this;
 		}
-
-		void Aurora::Physics::IPhysicsForceRepresentationBase::init()
+		template<typename Type>
+		void Aurora::Physics::IPhysicsForceRepresentationBase<Type>::init()
 		{
-			this->objectPhysics = std::make_shared<Physics::Force>();
+			this->objectPhysics = std::make_shared<Physics::Force<Type>>();
 		}
-
-		IPhysicsForceRepresentationBase& IPhysicsForceRepresentationBase::operator=(const IPhysicsForceRepresentationBase& value)
+		template<typename Type>
+		IPhysicsForceRepresentationBase<Type>& IPhysicsForceRepresentationBase<Type>::operator=(const IPhysicsForceRepresentationBase& value)
 		{
 			if (this == &value) { return(*this); }
 			this->init(value);
 
 			return *this;
 		}
-
-		void IPhysicsForceRepresentationBase::init(const IPhysicsForceRepresentationBase &value)
+		template<typename Type>
+		void IPhysicsForceRepresentationBase<Type>::init(const IPhysicsForceRepresentationBase &value)
 		{
 			this->objectPhysics = value.objectPhysics;
 		}

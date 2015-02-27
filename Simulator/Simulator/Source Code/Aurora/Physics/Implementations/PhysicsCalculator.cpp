@@ -3,53 +3,56 @@
 namespace Aurora {
 	namespace Physics {
 
-		std::shared_ptr<PhysicsCalculator> PhysicsCalculator::instance = nullptr;
+		template<typename Type>
+		std::shared_ptr<PhysicsCalculator<Type>> PhysicsCalculator<Type>::instance = nullptr;
 
-		void PhysicsCalculator::PerformCalculationsOnForce(ForceAlias value)
+		template<typename Type>
+		void PhysicsCalculator<Type>::PerformCalculationsOnForce(std::shared_ptr < Force<Type> > value)
+		{
+
+		}
+		template<typename Type>
+		void PhysicsCalculator<Type>::init()
+		{
+
+		}
+		template<typename Type>
+		void PhysicsCalculator<Type>::DoCalculations()
 		{
 
 		}
 
-		void PhysicsCalculator::init()
+
+		/*template<typename ConstantForce, typename Type>
+		void Aurora::Physics::PhysicsCalculator<Type>::AddConstantForceToCalculator(ConstantForce &&constantForce)
 		{
+			this->constantForces.push_back(std::forward<VECTOR2D<Type>>(constantForce));
+		}*/
 
-		}
-
-		void PhysicsCalculator::DoCalculations()
-		{
-
-		}
-
-
-		template<typename ConstantForce>
-		void Aurora::Physics::PhysicsCalculator::AddConstantForceToCalculator(ConstantForce &&constantForce)
-		{
-			this->constantForces.push_back(std::forward<VECTOR2D>(constantForce));
-		}
-
-
-		std::shared_ptr<PhysicsCalculator> PhysicsCalculator::GetInstance()
+		template<typename Type>
+		std::shared_ptr<PhysicsCalculator<Type>> PhysicsCalculator<Type>::GetInstance()
 		{
 			if (instance == nullptr)
 			{
-				instance = std::make_shared<PhysicsCalculator>();
+				instance = std::make_shared<PhysicsCalculator<Type>>();
 			}
 			/**/
 			return instance;
 		}
 
-		void PhysicsCalculator::CreateInstanceOfPhysicsCalculatorOption(PhysicsCalculationMode calculationMode)
+		template<typename Type>
+		void PhysicsCalculator<Type>::CreateInstanceOfPhysicsCalculatorOption(PhysicsCalculationMode calculationMode)
 		{
 			//this->_callbacks.emplace(name, std::make_shared<Callback>());
 			std::string enumName = "";
 			switch (calculationMode)
 			{
 			case Aurora::Physics::PhysicsCalculationMode::Base:
-				this->physicsCalculatorInstances.emplace(calculationMode, std::make_shared<PhysicsCalculator>());
+				this->physicsCalculatorInstances.emplace(calculationMode, std::make_shared<PhysicsCalculator<Type>>());
 				enumName = "Base";
 				break;
 			case Aurora::Physics::PhysicsCalculationMode::Normal:
-				this->physicsCalculatorInstances.emplace(calculationMode, std::make_shared<NormalPhysicsCalculator>());
+				this->physicsCalculatorInstances.emplace(calculationMode, std::make_shared<NormalPhysicsCalculator<Type>>());
 				enumName = "Normal";
 				break;
 			default:
@@ -60,9 +63,10 @@ namespace Aurora {
 			}
 		}
 
-		std::shared_ptr<PhysicsCalculator> PhysicsCalculator::GetPhysicsCalculatorOption(PhysicsCalculationMode calculationMode)
+		template<typename Type>
+		std::shared_ptr<PhysicsCalculator<Type>> PhysicsCalculator<Type>::GetPhysicsCalculatorOption(PhysicsCalculationMode calculationMode)
 		{
-			std::shared_ptr<PhysicsCalculator> calculator = nullptr;
+			std::shared_ptr<PhysicsCalculator<Type>> calculator = nullptr;
 			
 			if (this->physicsCalculatorInstances.find(calculationMode) == this->physicsCalculatorInstances.end())
 			{
@@ -72,11 +76,12 @@ namespace Aurora {
 			return this->physicsCalculatorInstances.at(calculationMode);
 		}
 
-		void NormalPhysicsCalculator::PerformCalculationsOnForce(ForceAlias value)
+		template<typename Type>
+		void NormalPhysicsCalculator<Type>::PerformCalculationsOnForce(std::shared_ptr < Force<Type> > value)
 		{
 			PhysicsCalculator::PerformCalculationsOnForce(value);
-			VECTOR2D gravityForce = CommonCalculations::NormalEarthGravityCalculations(PhysicsConstants::EarthGravity, value->Mass());
-			VECTOR2D frictionForce = FrictionCalculations::NormalFrictionCalculations(value->Velocity(), PhysicsConstants::NormalSurfaceFrictionCoefficient, value->Normal());
+			VECTOR2D<Type> gravityForce = CommonCalculations::NormalEarthGravityCalculations(PhysicsConstants::EarthGravity, value->Mass());
+			VECTOR2D<Type> frictionForce = FrictionCalculations::NormalFrictionCalculations(value->Velocity(), PhysicsConstants::NormalSurfaceFrictionCoefficient, value->Normal());
 			/*VECTOR2D gravityForce = cc->Calculations->call(PhysicsConstants::Callbacks_NormalEarthGravityCalculations_FunctionName, VECTOR2D::GetZeroVector(), PhysicsConstants::EarthGravity, this->moverPhysic->Mass());
 			VECTOR2D friction = VECTOR2D::GetZeroVector();
 			VECTOR2D gravityForce2 = cc->Calculations->call(PhysicsConstants::Callbacks_NormalEarthGravityCalculations_FunctionName, VECTOR2D::GetZeroVector(), friction, this->moverPhysic->Mass());*/
@@ -84,16 +89,18 @@ namespace Aurora {
 
 			// TO BE REMOVED TEST PURPOSES: Adds gravity simulation, NOTICE the mass multiplication to simulate gravity
 			value->ApplyForce(frictionForce);
-			value->ApplyForce(VECTOR2D(0.01f, 0));
+			value->ApplyForce(VECTOR2D<Type>(0.01f, 0));
 			value->ApplyForce(gravityForce);
 		}
 
-		void NormalPhysicsCalculator::init()
+		template<typename Type>
+		void NormalPhysicsCalculator<Type>::init()
 		{
 			throw std::logic_error("The method or operation is not implemented.");
 		}
 
-		void NormalPhysicsCalculator::DoCalculations()
+		template<typename Type>
+		void NormalPhysicsCalculator<Type>::DoCalculations()
 		{
 			throw std::logic_error("The method or operation is not implemented.");
 		}

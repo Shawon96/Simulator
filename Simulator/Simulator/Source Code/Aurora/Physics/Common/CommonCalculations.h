@@ -14,9 +14,38 @@ namespace Aurora {
 		class CommonCalculations 
 		{
 		public:
-			const static std::function<Aurora::Math::VECTOR2D(const Aurora::Math::VECTOR2D&, float)> NormalEarthGravityCalculations;
-			const static std::function < Aurora::Math::VECTOR2D(float, const Aurora::Math::VECTOR2D&, float, const Aurora::Math::VECTOR2D&, float, float, float)> GravitationalAttractionCalculations;
+			template<typename Type>
+			static Aurora::Math::VECTOR2D<Type> NormalEarthGravityCalculations(const VECTOR2D<Type> &gravity, float mass);
+
+			template<typename Type>
+			static Aurora::Math::VECTOR2D<Type> GravitationalAttractionCalculations(float objectGraviationalAttractionConstant, const Aurora::Math::VECTOR2D<Type>& attractor, float attractorMass, const Aurora::Math::VECTOR2D<Type>& toBeAttracted, float toBeAttractedMass, float distanceMinValue, float distanceMaxValue);
 		};
+
+		template<typename Type>
+		static Aurora::Math::VECTOR2D<Type>
+			Aurora::Physics::CommonCalculations::GravitationalAttractionCalculations(float objectGraviationalAttractionConstant, const Aurora::Math::VECTOR2D<Type>& attractor, float attractorMass, const Aurora::Math::VECTOR2D<Type>& toBeAttracted, float toBeAttractedMass, float distanceMinValue, float distanceMaxValue)
+		{
+			VECTOR2D<Type> attractionForce = attractor.Clone() - toBeAttracted;
+			float distance = attractionForce.Magnitude();
+			if (distance < distanceMinValue)
+				distance = distanceMinValue;
+			else if (distance > distanceMaxValue)
+				distance = distanceMaxValue;
+
+			attractionForce.Normalize();
+			float strength = (objectGraviationalAttractionConstant * attractorMass * toBeAttractedMass) / (distance * distance);
+			attractionForce *= strength;
+
+			return attractionForce;
+		}
+
+		template<typename Type>
+		static Aurora::Math::VECTOR2D<Type>
+			Aurora::Physics::CommonCalculations::NormalEarthGravityCalculations(const VECTOR2D<Type> &gravity, float mass)
+		{
+			return VECTOR2D<Type>(gravity.X, gravity.Y * mass);
+		}
+
 	}; // END OF NAMESPACE Random
 }; // END OF NAMESPACE Aurora
 
