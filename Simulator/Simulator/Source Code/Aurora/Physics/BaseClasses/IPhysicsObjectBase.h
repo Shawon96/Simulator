@@ -11,7 +11,7 @@ namespace Aurora {
 	namespace Physics {
 
 
-		class IPhysicsObjectBase : public IPhysicsBase
+		class IPhysicsObjectBase : public IPhysicsBase<float>
 		{
 		protected:
 			

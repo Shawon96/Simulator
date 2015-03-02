@@ -2,10 +2,9 @@
 #define MATHOPERATIONS_H
 
 #include <utility>    // std::swap
-#include "Vector.h"
-#include "Matrix.h"
+//#include "Vector.h"
 #include "MathDataTypes.h"
-#include "VectorExtended.h"
+
 //#include <Transformations.h>
 using namespace Aurora::DataTypes;
 /*!

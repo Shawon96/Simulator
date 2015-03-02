@@ -11,28 +11,28 @@ using namespace Aurora::Math;
 namespace Aurora {
 	namespace Physics {
 
-		
+		template<typename Type>
 		class IPhysicsBase 
 		{
 		protected:
-			mRECT areaSize;
-			VECTOR2D<double> position;
-			Float mass;
+			mRECT<Type> areaSize;
+			VECTOR2D<Type> position;
+			Type mass;
 			
 		public:
 			IPhysicsBase() = default;
 			virtual ~IPhysicsBase() = default;
 			virtual void init() = 0;
 			
-			Aurora::Math::mRECT AreaSize() const { return areaSize; }
+			Aurora::Math::mRECT<Type> AreaSize() const { return areaSize; }
 			template<typename T>
 			void AreaSize(T &&value) { areaSize = std::forward<T>(value); }
 
-			Aurora::Math::VECTOR2D<double> Position() const { return position; }
+			Aurora::Math::VECTOR2D<Type> Position() const { return position; }
 			template<typename T>
 			void Position(T &&value) { position = std::forward<T>(value); }
 
-			Aurora::DataTypes::Float Mass() const { return mass; }
+			Type Mass() const { return mass; }
 			template<typename T>
 			void Mass(T &&value) { mass = std::forward<T>(value); }
 		};

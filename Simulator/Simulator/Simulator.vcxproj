@@ -87,9 +87,12 @@
     <ClInclude Include="Source Code\Aurora\Math\Globe\Trig.h" />
     <ClInclude Include="Source Code\Aurora\Math\MathDataTypes.h" />
     <ClInclude Include="Source Code\Aurora\Math\MathOperations.h" />
-    <ClInclude Include="Source Code\Aurora\Math\Matrix.h" />
-    <ClInclude Include="Source Code\Aurora\Math\Vector.h" />
-    <ClInclude Include="Source Code\Aurora\Math\VectorExtended.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Matrix2D.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Matrix3D.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Matrix4D.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Vector3D.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Vector4D.h" />
+    <ClInclude Include="Source Code\Aurora\Math\Vector2D.h" />
     <ClInclude Include="Source Code\Aurora\Models\ModelDefines.h" />
     <ClInclude Include="Source Code\Aurora\Models\ModelLoad.h" />
     <ClInclude Include="Source Code\Aurora\Models\Transformations.h" />
@@ -171,9 +174,6 @@
     <ClCompile Include="Source Code\Aurora\Math\Globe\Trig.cpp" />
     <ClCompile Include="Source Code\Aurora\Math\MathDataTypes.cpp" />
     <ClCompile Include="Source Code\Aurora\Math\MathOperations.cpp" />
-    <ClCompile Include="Source Code\Aurora\Math\Matrix.cpp" />
-    <ClCompile Include="Source Code\Aurora\Math\Vector.cpp" />
-    <ClCompile Include="Source Code\Aurora\Math\VectorExtended.cpp" />
     <ClCompile Include="Source Code\Aurora\Models\ModelDefines.cpp" />
     <ClCompile Include="Source Code\Aurora\Models\ModelLoad.cpp" />
     <ClCompile Include="Source Code\Aurora\Models\Transformations.cpp" />

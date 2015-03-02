@@ -19,7 +19,7 @@ namespace Aurora {
 		 * \date February 2015
 		 */
 		template<typename Type>
-		class IPhysicsRepresentationBase : public IPhysicsBase
+		class IPhysicsRepresentationBase : public IPhysicsBase<Type>
 		{
 		protected:
 			std::shared_ptr<Physics::Force<Type>> objectPhysics;

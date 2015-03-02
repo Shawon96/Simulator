@@ -11,15 +11,14 @@ using namespace Aurora::Physics;
 namespace Aurora {
 	namespace Random {
 
-		template<typename Type>
-		class Walker : public RandomBaseComplete, public IPhysicsImplementor<Type>
+		class Walker : public RandomBaseComplete, public IPhysicsImplementor<float>
 		{
 
 		private:
-			VECTOR2D<Type> position;
-			VECTOR2D<Type> target;
-			VECTOR3D perlinNoiseTime_PositionX;
-			VECTOR3D perlinNoiseTime_PositionY;
+			VECTOR2D<float> position;
+			VECTOR2D<float> target;
+			VECTOR3D<float> perlinNoiseTime_PositionX;
+			VECTOR3D<float> perlinNoiseTime_PositionY;
 			Float probalitityFactor;
 
 			void MoveWalkerTowardsTarget();
@@ -36,29 +35,29 @@ namespace Aurora {
 
 			virtual void init() override;
 			virtual void init(const Walker &value);
-			virtual void init(const mRECT &areaSize, const VECTOR2D<Type> &walkerStartPosition);
+			virtual void init(const mRECT<float> &areaSize, const VECTOR2D<float> &walkerStartPosition);
 
 		public:
 			Walker();
-			Walker(const mRECT &areaSize);
+			Walker(const mRECT<float> &areaSize);
 			Walker(const Walker &value);
-			Walker(const mRECT &areaSize, const VECTOR2D<Type> &walkerStartPosition);
+			Walker(const mRECT<float> &areaSize, const VECTOR2D<float> &walkerStartPosition);
 			~Walker();
 			Walker(Walker &&value);
 			Walker & operator=(Walker && value);
 			Walker& operator=(const Walker& value);
 
-			void SetTarget(const VECTOR2D<Type> &target);
-			const VECTOR2D<Type> GetCurentPosition() const;
-			void SetPosition(const VECTOR2D<Type> &position);
+			void SetTarget(const VECTOR2D<float> &target);
+			const VECTOR2D<float> GetCurentPosition() const;
+			void SetPosition(const VECTOR2D<float> &position);
 			void SetProbalitiyFactor(Float probalitityFactor);
 
 			
 
 		};
 
-		template<typename Type>
-		class IWalkerImplementor : public IObjectBaseBasic, public IPhysicsAccessPoint<Type>
+		
+		class IWalkerImplementor : public IObjectBaseBasic, public IPhysicsAccessPoint<float>
 		{
 		private:
 			/*virtual void init() override;
@@ -78,11 +77,11 @@ namespace Aurora {
 			
 
 			virtual void SetWalkerRandomNumberMode(RandomNumberMode randomNumberMode);
-			virtual void RenderWalkerByPosition(const VECTOR2D<Type> &position);
-			virtual void SetWalkerTarget(const VECTOR2D<Type> &target);
+			virtual void RenderWalkerByPosition(const VECTOR2D<float> &position);
+			virtual void SetWalkerTarget(const VECTOR2D<float> &target);
 			virtual void StepWalker();
 
-			virtual std::shared_ptr<Physics::Force<Type>> AccessObjectPhysics() const override;
+			virtual std::shared_ptr<Physics::Force<float>> AccessObjectPhysics() const override;
 
 			
 

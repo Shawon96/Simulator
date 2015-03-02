@@ -12,14 +12,13 @@ using namespace Aurora::Physics;
 
 namespace Aurora {
 	namespace Random {
-		template<typename Type>
-		class Oscillator : public RandomBaseComplete, public IPhysicsImplementor<Type>
+		class Oscillator : public RandomBaseComplete, public IPhysicsImplementor<float>
 		{
 			private:
-				VECTOR2D<Type> angle;
-				VECTOR2D<Type> velocity;
-				VECTOR2D<Type> amplitude;
-				VECTOR2D<Type> startPosition;
+				VECTOR2D<float> angle;
+				VECTOR2D<float> velocity;
+				VECTOR2D<float> amplitude;
+				VECTOR2D<float> startPosition;
 				
 				void init(const Oscillator & value);
 				void init(Oscillator && value);
@@ -33,23 +32,23 @@ namespace Aurora {
 				Oscillator(Oscillator &&value);
 				Oscillator &operator=(Oscillator && value);
 				Oscillator& operator=(const Oscillator& value);
-				Oscillator(const mRECT &areaSize);
+				Oscillator(const mRECT<float> &areaSize);
 
 
-				Aurora::Math::VECTOR2D<Type> Angle() const {
+				Aurora::Math::VECTOR2D<float> Angle() const {
 					return angle;
 				}
 				template<typename T>
 				void Angle(T &&value) { angle = std::forward<T>(value); }
 
-				Aurora::Math::VECTOR2D<Type> Velocity() const {
+				Aurora::Math::VECTOR2D<float> Velocity() const {
 					return velocity;
 				}
 
 				template<typename T>
 				void Velocity(T &&value) { velocity = std::forward<T>(value); }
 
-				Aurora::Math::VECTOR2D<Type> Amplitude() const {
+				Aurora::Math::VECTOR2D<float> Amplitude() const {
 					return amplitude;
 				}
 
@@ -60,7 +59,7 @@ namespace Aurora {
 
 				void Oscillate();
 
-				Aurora::Math::VECTOR2D<Type> StartPosition() const {
+				Aurora::Math::VECTOR2D<float> StartPosition() const {
 					return startPosition;
 				}
 				template<typename T>
@@ -75,8 +74,7 @@ namespace Aurora {
 		};
 		
 		
-		template<typename Type>
-		class IOscillatorImplementor : public IObjectBaseBasic, public IPhysicsAccessPoint<Type>
+		class IOscillatorImplementor : public IObjectBaseBasic, public IPhysicsAccessPoint<float>
 		{
 			public:
 				IOscillatorImplementor() = default;
@@ -84,7 +82,7 @@ namespace Aurora {
 
 				virtual void Render() override;
 
-				virtual std::shared_ptr < Force<Type> > AccessObjectPhysics() const override;
+				virtual std::shared_ptr < Force<float> > AccessObjectPhysics() const override;
 
 		};
 

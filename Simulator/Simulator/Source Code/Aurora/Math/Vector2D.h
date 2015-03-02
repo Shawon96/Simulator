@@ -1,7 +1,7 @@
 #ifndef VectorExtended_H
 #define VectorExtended_H
 
-#include "Matrix.h"
+#include "Matrix2D.h"
 
 using namespace Aurora::DataTypes;
 /*!
@@ -37,43 +37,43 @@ namespace Aurora
 #pragma region AdditionAndSubstractionOperators
 			const VECTOR2D<VectorType> operator+(const VectorType			&value);
 
-			const VECTOR2D<VectorType> operator+(const VECTOR2D		&value);
+			const VECTOR2D<VectorType> operator+(const VECTOR2D<VectorType>		&value);
 
 			const VECTOR2D<VectorType> operator-(const VectorType			&value);
 
-			const VECTOR2D<VectorType> operator-(const VECTOR2D		&value);
+			const VECTOR2D<VectorType> operator-(const VECTOR2D<VectorType>		&value);
 
 			VECTOR2D<VectorType> &operator=(const VectorType			&value);
 
 			VECTOR2D<VectorType> &operator+=(const VectorType		&value);
 
-			VECTOR2D<VectorType> &operator+=(const VECTOR2D		&value);
+			VECTOR2D<VectorType> &operator+=(const VECTOR2D<VectorType>		&value);
 
 			const VECTOR2D<VectorType> &operator-=(const VectorType		&value);
 
-			const VECTOR2D<VectorType> &operator-=(const VECTOR2D		&value);
+			const VECTOR2D<VectorType> &operator-=(const VECTOR2D<VectorType>		&value);
 #pragma endregion AdditionAndSubstractionOperators
 
 #pragma region DivisionAndMultiplicationOperators
 
 			const VECTOR2D<VectorType> operator*(const VectorType		&value);
 
-			const VectorType operator*(const VECTOR2D		&value);
+			const VectorType operator*(const VECTOR2D<VectorType>		&value);
 
 			const VECTOR2D<VectorType> &operator*=(const VectorType		&value);
 
 			const VECTOR2D<VectorType> operator/(const VectorType		&value) const;
 			const VECTOR2D<VectorType> &operator/=(const VectorType		&value);
 
-			const VECTOR2D<VectorType> &operator*=(const MATRIX2X2		&value);
+			const VECTOR2D<VectorType> &operator*=(const MATRIX2X2<VectorType>		&value);
 
-			const VECTOR2D<VectorType> operator*(const MATRIX2X2		&value);
+			const VECTOR2D<VectorType> operator*(const MATRIX2X2<VectorType>		&value);
 #pragma endregion DivisionAndMultiplicationOperators
 
 #pragma region ComparisonOperators
-			bool operator==(const VECTOR2D		&value);
+			bool operator==(const VECTOR2D<VectorType>		&value);
 
-			bool operator!=(const VECTOR2D		&value);
+			bool operator!=(const VECTOR2D<VectorType>		&value);
 #pragma endregion ComparisonOperators
 
 			void ZeroVector(void);
@@ -83,14 +83,14 @@ namespace Aurora
 			void Normalize();
 			VectorType Heading();
 			VECTOR2D<VectorType> Clone() const;
-			void Normalize(const VECTOR2D &value);
+			void Normalize(const VECTOR2D<VectorType> &value);
 
 			static VECTOR2D<VectorType> GetZeroVector(void);
 
 		};
 
 		template<typename VectorType>
-		void Aurora::Math::VECTOR2D<VectorType>::Normalize(const VECTOR2D &value)
+		void Aurora::Math::VECTOR2D<VectorType>::Normalize(const VECTOR2D<VectorType> &value)
 		{
 			VectorType magnitude = value.Magnitude();
 			if (magnitude != 0)
@@ -189,14 +189,14 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::operator*(const MATRIX2X2 &value)
+		const VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::operator*(const MATRIX2X2<VectorType> &value)
 		{
 			return(VECTOR2D<VectorType>(this->X * value.M11 + this->Y * value.M21,
 				this->X * value.M12 + this->Y * value.M22));
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator*=(const MATRIX2X2 &value)
+		const VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator*=(const MATRIX2X2<VectorType> &value)
 		{
 			this->X = this->X * value.M11 + this->Y * value.M21;
 			this->Y = this->X * value.M12 + this->Y * value.M22;

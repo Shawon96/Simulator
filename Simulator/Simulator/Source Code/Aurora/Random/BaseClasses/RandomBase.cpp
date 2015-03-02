@@ -45,12 +45,12 @@ namespace Aurora {
 			IRandomBase::~IRandomBase();
 		}
 
-		void IRandomBaseBasic::SetConstrainsRange(const mRECT &areaSize)
+		void IRandomBaseBasic::SetConstrainsRange(const mRECT<float> &areaSize)
 		{
 			this->areaSize = areaSize;
 		}
 
-		const mRECT IRandomBaseBasic::GetConstrainsRange() const
+		const mRECT<float> IRandomBaseBasic::GetConstrainsRange() const
 		{
 			return(this->areaSize);
 		}
@@ -135,11 +135,11 @@ namespace Aurora {
 
 		void RandomBase::init()
 		{
-			this->init(mRECT(0, 0), RandomNumberMode::Normal);
+			this->init(mRECT<float>(0, 0), RandomNumberMode::Normal);
 		}
 
 
-		void RandomBase::init(const mRECT &areaSize, RandomNumberMode randomNumberMode)
+		void RandomBase::init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode)
 		{
 			this->SetConstrainsRange(areaSize);
 			this->SetRandomNumberMode(randomNumberMode);
@@ -266,7 +266,7 @@ namespace Aurora {
 			this->perlinNoiseCalculator = std::make_shared <module::Perlin> ();
 		}
 
-		void RandomBaseComplete::init(const mRECT &areaSize, RandomNumberMode randomNumberMode)
+		void RandomBaseComplete::init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode)
 		{
 			RandomBase::init(areaSize, randomNumberMode);
 			this->perlinNoiseCalculator = std::make_shared <module::Perlin>();
@@ -340,7 +340,7 @@ namespace Aurora {
 			this->perlinNoiseCalculator = std::make_shared <module::Perlin>();
 		}
 
-		void RandomBasePerlinNoise::init(const mRECT &areaSize, RandomNumberMode randomNumberMode)
+		void RandomBasePerlinNoise::init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode)
 		{
 			RandomBase::init(areaSize, randomNumberMode);
 			this->perlinNoiseCalculator = std::make_shared <module::Perlin>();
@@ -408,7 +408,7 @@ namespace Aurora {
 			this->SetRandomNumberMode(RandomNumberMode::Gaussian);
 		}
 
-		void RandomBaseGaussian::init(const mRECT &areaSize, RandomNumberMode randomNumberMode)
+		void RandomBaseGaussian::init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode)
 		{
 			RandomBase::init(areaSize, randomNumberMode);
 		}
@@ -475,7 +475,7 @@ namespace Aurora {
 			this->SetRandomNumberMode(RandomNumberMode::Uniform);
 		}
 
-		void RandomBaseUniform::init(const mRECT &areaSize, RandomNumberMode randomNumberMode)
+		void RandomBaseUniform::init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode)
 		{
 			RandomBase::init(areaSize, randomNumberMode);
 		}
@@ -540,7 +540,7 @@ namespace Aurora {
 			this->SetRandomNumberMode(RandomNumberMode::Normal);
 		}
 
-		void RandomBaseNormal::init(const mRECT &areaSize, RandomNumberMode randomNumberMode)
+		void RandomBaseNormal::init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode)
 		{
 			RandomBase::init(areaSize, randomNumberMode);
 		}

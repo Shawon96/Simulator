@@ -10,7 +10,7 @@ namespace Aurora {
 	namespace Physics {
 		
 		template<typename Type>
-		class Force : public IPhysicsBase
+		class Force : public IPhysicsBase<Type>
 		{
 		protected:
 
@@ -128,11 +128,11 @@ namespace Aurora {
 		template<typename Type>
 		void Force<Type>::init()
 		{
-			this->acceleration = VECTOR2D<double>::GetZeroVector();
+			this->acceleration = VECTOR2D<Type>::GetZeroVector();
 			this->maximiunVelocity = 2;
 			this->mass = 10;
-			this->position = VECTOR2D<double>::GetZeroVector();
-			this->velocity = VECTOR2D<double>::GetZeroVector();
+			this->position = VECTOR2D<Type>::GetZeroVector();
+			this->velocity = VECTOR2D<Type>::GetZeroVector();
 			this->normal = 1;
 			this->frictionCoefficient = 0.01f;
 			this->angle = 0;
@@ -220,7 +220,7 @@ namespace Aurora {
 			this->velocity += this->acceleration;
 			this->velocity.Limit(maximiunVelocity);
 			this->position += velocity;
-			this->acceleration = VECTOR2D::GetZeroVector();
+			this->acceleration = VECTOR2D<Type>::GetZeroVector();
 
 			this->ConstrainToAreaSize();
 		}

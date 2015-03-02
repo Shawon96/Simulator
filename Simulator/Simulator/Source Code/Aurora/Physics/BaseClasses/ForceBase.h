@@ -10,11 +10,11 @@ using namespace Aurora::Math;
 namespace Aurora {
 	namespace Physics {
 
-		
+		template<typename Type>
 		class IPhysicsBase 
 		{
 		protected:
-			mRECT areaSize;
+			mRECT<Type> areaSize;
 
 			
 			
@@ -24,8 +24,8 @@ namespace Aurora {
 			virtual void init() = 0;
 			
 			Aurora::Math::mRECT AreaSize() const { return areaSize; }
-			void AreaSize(const Aurora::Math::mRECT &value) { areaSize = value; }
-			void AreaSize(Aurora::Math::mRECT &&value) { areaSize = std::move(value); }
+			void AreaSize(const mRECT<Type> &value) { areaSize = value; }
+			void AreaSize(mRECT<Type> &&value) { areaSize = std::move(value); }
 
 		};
 

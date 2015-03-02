@@ -47,7 +47,7 @@ namespace Aurora {
         class IRandomBaseBasic : public IRandomBase
         {
 			private:
-                mRECT areaSize;
+                mRECT<float> areaSize;
 
             public:
 				IRandomBaseBasic();
@@ -57,8 +57,8 @@ namespace Aurora {
 				IRandomBaseBasic(IRandomBaseBasic &&value);
 				IRandomBaseBasic & operator=(IRandomBaseBasic && value);
 
-                void SetConstrainsRange(const mRECT &areaSize);
-				const mRECT GetConstrainsRange() const;
+                void SetConstrainsRange(const mRECT<float> &areaSize);
+				const mRECT<float> GetConstrainsRange() const;
                 virtual void DoCalculations() = 0;
                 virtual void Constrain() = 0;
 
@@ -118,7 +118,7 @@ namespace Aurora {
 		private:
 			protected:
 			virtual void init() override;
-			virtual void init(const mRECT &areaSize, RandomNumberMode randomNumberMode);
+			virtual void init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode);
         public:
             RandomBase();
 			RandomBase(const RandomBase &value);
@@ -141,7 +141,7 @@ namespace Aurora {
 				std::shared_ptr<module::Perlin> perlinNoiseCalculator;
 				
 				virtual void init() override;
-				virtual void init(const mRECT &areaSize, RandomNumberMode randomNumberMode);
+				virtual void init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode);
 		public:
 			RandomBaseComplete();
 			RandomBaseComplete(const RandomBaseComplete &value);
@@ -176,7 +176,7 @@ namespace Aurora {
 		protected:
 			std::shared_ptr<module::Perlin> perlinNoiseCalculator;
 			virtual void init() override;
-			virtual void init(const mRECT &areaSize, RandomNumberMode randomNumberMode);
+			virtual void init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode);
 		public:
 			
 			std::shared_ptr<module::Perlin> PerlinNoiseCalculator() const {
@@ -205,7 +205,7 @@ namespace Aurora {
 
 		protected:
 			virtual void init() override;
-			virtual void init(const mRECT &areaSize, RandomNumberMode randomNumberMode);
+			virtual void init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode);
 		public:
 			RandomBaseGaussian();
 			RandomBaseGaussian(const RandomBaseGaussian &value);
@@ -224,7 +224,7 @@ namespace Aurora {
 
 		protected:
 			virtual void init() override;
-			virtual void init(const mRECT &areaSize, RandomNumberMode randomNumberMode);
+			virtual void init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode);
 		public:
 			RandomBaseUniform();
 			RandomBaseUniform(const RandomBaseUniform &value);
@@ -242,7 +242,7 @@ namespace Aurora {
 		private:
 		protected:
 			virtual void init() override;
-			virtual void init(const mRECT &areaSize, RandomNumberMode randomNumberMode);
+			virtual void init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode);
 		public:
 			RandomBaseNormal();
 			RandomBaseNormal(const RandomBaseNormal &value);

@@ -42,12 +42,6 @@
     <ClInclude Include="Source Code\Aurora\Math\MathOperations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Math\Matrix.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Math\Vector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source Code\Aurora\Models\ModelDefines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -288,7 +282,22 @@
     <ClInclude Include="Source Code\Aurora\Math\Globe\Trig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Math\VectorExtended.h">
+    <ClInclude Include="Source Code\Aurora\Math\Matrix4D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Vector3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Vector4D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Matrix3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Matrix2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -303,12 +312,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source Code\Aurora\Math\MathOperations.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source Code\Aurora\Math\Matrix.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source Code\Aurora\Math\Vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source Code\Aurora\Models\ModelDefines.cpp">
@@ -489,9 +492,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source Code\Aurora\Math\Globe\Trig.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source Code\Aurora\Math\VectorExtended.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
