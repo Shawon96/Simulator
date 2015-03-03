@@ -3,6 +3,7 @@
 
 #include <functional>
 #include <stdlib.h> 
+#include "Geodetic2D.h"
 
 namespace Aurora
 {
@@ -28,6 +29,7 @@ namespace Aurora
 				Geodetic3D(Geodetic3D &&value);
 				Geodetic3D &operator=(Geodetic3D && value);
 				Geodetic3D& operator=(const Geodetic3D& value);
+				Geodetic3D(const Geodetic2D &geodetic2D, double height);
 
 				Geodetic3D(double longitude, double latitude);
 				Geodetic3D(double longitude, double latitude, double height);

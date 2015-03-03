@@ -57,6 +57,13 @@ namespace Aurora
 				this->height = height;
 			}
 
+			Geodetic3D::Geodetic3D(const Geodetic2D &geodetic2D, double height)
+			{
+				longitude = geodetic2D.Longitude();
+				latitude = geodetic2D.Latitude();
+				height = height;
+			}
+
 			Geodetic3D::~Geodetic3D()
 			{
 

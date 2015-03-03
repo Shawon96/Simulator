@@ -13,6 +13,8 @@ namespace Aurora {
 			static std::string DivisionByZero;
 			static std::string TypeMismatch;
 			static std::string EmptyObjectFound;
+			static std::string RadiiEllipsoidError;
+			static std::string EllipsoidGranularityError;
 		};
 
 	};

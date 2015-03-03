@@ -3,7 +3,7 @@
 
 #include <functional>
 #include <stdlib.h>
-#include "Geodetic2D.h"
+#include "GeodeticExtent.h"
 #include "Geodetic3D.h"
 #include <type_traits>
 #include <memory>

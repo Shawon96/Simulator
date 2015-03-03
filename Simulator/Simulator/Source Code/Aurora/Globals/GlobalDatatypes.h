@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <math.h>
+#include "../../../Libraries/Includes/half.hpp"
 
 /*!
 Namespace: Aurora

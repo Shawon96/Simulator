@@ -30,7 +30,7 @@ namespace Aurora {
 		void Walker::UniformCalculations()
 		{
 			RandomBaseComplete::UniformCalculations();
-			VECTOR2D<float> emptyVector;
+			Vector2D<float> emptyVector;
 
 			if(this->target == emptyVector)
 			{
@@ -94,7 +94,7 @@ namespace Aurora {
 			this->perlinNoiseTime_PositionX += 0.1f;
 			this->perlinNoiseTime_PositionY += 0.1f;
 
-			VECTOR2D<float> emptyVector;
+			Vector2D<float> emptyVector;
 
 			if(this->target != emptyVector)
 			{
@@ -111,11 +111,11 @@ namespace Aurora {
 		
 		Walker::Walker(const mRECT<float> &areaSize) : RandomBaseComplete()
 		{
-			this->init(areaSize, VECTOR2D<float>::GetZeroVector());
+			this->init(areaSize, Vector2D<float>::GetZero());
 		}
 
 		
-		Walker::Walker(const mRECT<float> &areaSize, const VECTOR2D<float> &walkerStartPosition) : RandomBaseComplete(), position(walkerStartPosition)
+		Walker::Walker(const mRECT<float> &areaSize, const Vector2D<float> &walkerStartPosition) : RandomBaseComplete(), position(walkerStartPosition)
 		{
 			this->init(areaSize, walkerStartPosition);
 		}
@@ -176,17 +176,17 @@ namespace Aurora {
 				this->position.X += RandomNumberGenerator::GetRandomFloat(2);
 				this->position.Y += RandomNumberGenerator::GetRandomFloat(2);
 			}
-			this->target = VECTOR2D<float>::GetZeroVector();
+			this->target = Vector2D<float>::GetZero();
 		}
 
 		
-		void Walker::SetTarget(const VECTOR2D<float> &target)
+		void Walker::SetTarget(const Vector2D<float> &target)
 		{
 			this->target = target;
 		}
 
 		
-		const VECTOR2D<float>  Walker::GetCurentPosition() const
+		const Vector2D<float>  Walker::GetCurentPosition() const
 		{
 			return(this->position);
 		}
@@ -198,7 +198,7 @@ namespace Aurora {
 		}
 
 		
-		void Walker::SetPosition(const VECTOR2D<float> &position)
+		void Walker::SetPosition(const Vector2D<float> &position)
 		{
 			this->position = position;
 		}
@@ -235,11 +235,11 @@ namespace Aurora {
 		void Walker::init()
 		{
 			this->SetConstrainsRange(mRECT<float>(0, 0));
-			this->target.ZeroVector();
-			this->perlinNoiseTime_PositionX = VECTOR3D<float>(0, 0, 0);
-			this->perlinNoiseTime_PositionY = VECTOR3D<float>(10000, 10000, 10000);
+			this->target.Zero();
+			this->perlinNoiseTime_PositionX = Vector3D<float>(0, 0, 0);
+			this->perlinNoiseTime_PositionY = Vector3D<float>(10000, 10000, 10000);
 			this->probalitityFactor = 0.9f;
-			this->position.ZeroVector();
+			this->position.Zero();
 			this->SetRandomNumberMode(RandomNumberMode::Uniform);
 		}
 
@@ -257,11 +257,11 @@ namespace Aurora {
 		}
 
 		
-		void Walker::init(const mRECT<float> &areaSize, const VECTOR2D<float> &walkerStartPosition)
+		void Walker::init(const mRECT<float> &areaSize, const Vector2D<float> &walkerStartPosition)
 		{
-			this->target.ZeroVector();
-			this->perlinNoiseTime_PositionX = VECTOR3D<float>(0, 0, 0);
-			this->perlinNoiseTime_PositionY = VECTOR3D<float>(10000, 10000, 10000);
+			this->target.Zero();
+			this->perlinNoiseTime_PositionX = Vector3D<float>(0, 0, 0);
+			this->perlinNoiseTime_PositionY = Vector3D<float>(10000, 10000, 10000);
 			this->probalitityFactor = 0.9f;
 
 			if(!areaSize.IsZero())
@@ -286,13 +286,13 @@ namespace Aurora {
 		}
 
 		
-		void IWalkerImplementor::RenderWalkerByPosition(const VECTOR2D<float> &position)
+		void IWalkerImplementor::RenderWalkerByPosition(const Vector2D<float> &position)
 		{
 
 		}
 
 		
-		void IWalkerImplementor::SetWalkerTarget(const VECTOR2D<float> &target)
+		void IWalkerImplementor::SetWalkerTarget(const Vector2D<float> &target)
 		{
 
 		}

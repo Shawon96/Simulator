@@ -15,17 +15,17 @@ namespace Aurora {
 		{
 		public:
 			template<typename Type>
-			static Aurora::Math::VECTOR2D<Type> NormalEarthGravityCalculations(const VECTOR2D<Type> &gravity, float mass);
+			static Aurora::Math::Vector2D<Type> NormalEarthGravityCalculations(const Vector2D<Type> &gravity, float mass);
 
 			template<typename Type>
-			static Aurora::Math::VECTOR2D<Type> GravitationalAttractionCalculations(float objectGraviationalAttractionConstant, const Aurora::Math::VECTOR2D<Type>& attractor, float attractorMass, const Aurora::Math::VECTOR2D<Type>& toBeAttracted, float toBeAttractedMass, float distanceMinValue, float distanceMaxValue);
+			static Aurora::Math::Vector2D<Type> GravitationalAttractionCalculations(float objectGraviationalAttractionConstant, const Aurora::Math::Vector2D<Type>& attractor, float attractorMass, const Aurora::Math::Vector2D<Type>& toBeAttracted, float toBeAttractedMass, float distanceMinValue, float distanceMaxValue);
 		};
 
 		template<typename Type>
-		static Aurora::Math::VECTOR2D<Type>
-			Aurora::Physics::CommonCalculations::GravitationalAttractionCalculations(float objectGraviationalAttractionConstant, const Aurora::Math::VECTOR2D<Type>& attractor, float attractorMass, const Aurora::Math::VECTOR2D<Type>& toBeAttracted, float toBeAttractedMass, float distanceMinValue, float distanceMaxValue)
+		static Aurora::Math::Vector2D<Type>
+			Aurora::Physics::CommonCalculations::GravitationalAttractionCalculations(float objectGraviationalAttractionConstant, const Aurora::Math::Vector2D<Type>& attractor, float attractorMass, const Aurora::Math::Vector2D<Type>& toBeAttracted, float toBeAttractedMass, float distanceMinValue, float distanceMaxValue)
 		{
-			VECTOR2D<Type> attractionForce = attractor.Clone() - toBeAttracted;
+			Vector2D<Type> attractionForce = attractor.Clone() - toBeAttracted;
 			float distance = attractionForce.Magnitude();
 			if (distance < distanceMinValue)
 				distance = distanceMinValue;
@@ -40,10 +40,10 @@ namespace Aurora {
 		}
 
 		template<typename Type>
-		static Aurora::Math::VECTOR2D<Type>
-			Aurora::Physics::CommonCalculations::NormalEarthGravityCalculations(const VECTOR2D<Type> &gravity, float mass)
+		static Aurora::Math::Vector2D<Type>
+			Aurora::Physics::CommonCalculations::NormalEarthGravityCalculations(const Vector2D<Type> &gravity, float mass)
 		{
-			return VECTOR2D<Type>(gravity.X, gravity.Y * mass);
+			return Vector2D<Type>(gravity.X, gravity.Y * mass);
 		}
 
 	}; // END OF NAMESPACE Random

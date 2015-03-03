@@ -80,8 +80,8 @@ namespace Aurora {
 		void NormalPhysicsCalculator<Type>::PerformCalculationsOnForce(std::shared_ptr < Force<Type> > value)
 		{
 			PhysicsCalculator::PerformCalculationsOnForce(value);
-			VECTOR2D<Type> gravityForce = CommonCalculations::NormalEarthGravityCalculations(PhysicsConstants::EarthGravity, value->Mass());
-			VECTOR2D<Type> frictionForce = FrictionCalculations::NormalFrictionCalculations(value->Velocity(), PhysicsConstants::NormalSurfaceFrictionCoefficient, value->Normal());
+			Vector2D<Type> gravityForce = CommonCalculations::NormalEarthGravityCalculations(PhysicsConstants::EarthGravity, value->Mass());
+			Vector2D<Type> frictionForce = FrictionCalculations::NormalFrictionCalculations(value->Velocity(), PhysicsConstants::NormalSurfaceFrictionCoefficient, value->Normal());
 			/*VECTOR2D gravityForce = cc->Calculations->call(PhysicsConstants::Callbacks_NormalEarthGravityCalculations_FunctionName, VECTOR2D::GetZeroVector(), PhysicsConstants::EarthGravity, this->moverPhysic->Mass());
 			VECTOR2D friction = VECTOR2D::GetZeroVector();
 			VECTOR2D gravityForce2 = cc->Calculations->call(PhysicsConstants::Callbacks_NormalEarthGravityCalculations_FunctionName, VECTOR2D::GetZeroVector(), friction, this->moverPhysic->Mass());*/
@@ -89,7 +89,7 @@ namespace Aurora {
 
 			// TO BE REMOVED TEST PURPOSES: Adds gravity simulation, NOTICE the mass multiplication to simulate gravity
 			value->ApplyForce(frictionForce);
-			value->ApplyForce(VECTOR2D<Type>(0.01f, 0));
+			value->ApplyForce(Vector2D<Type>(0.01f, 0));
 			value->ApplyForce(gravityForce);
 		}
 

@@ -20,117 +20,257 @@ namespace Aurora
 	namespace Math
 	{
 		template<typename VectorType>
-		class VECTOR2D
+		class Vector2D
 		{
 		public:
 			VectorType X;
 			VectorType Y;
-			VECTOR2D();
-			VECTOR2D(VectorType x, VectorType y);
-			VECTOR2D(const VECTOR2D<VectorType> &value);
-			virtual ~VECTOR2D();
-			VECTOR2D(VECTOR2D<VectorType> &&value);
-			VECTOR2D<VectorType> & operator=(VECTOR2D<VectorType> && value);
-			VECTOR2D<VectorType> &operator=(const VECTOR2D		&value);
+			Vector2D();
+			Vector2D(VectorType x, VectorType y);
+			Vector2D(const Vector2D<VectorType> &value);
+			virtual ~Vector2D();
+			Vector2D(Vector2D<VectorType> &&value);
+			Vector2D<VectorType> & operator=(Vector2D<VectorType> && value);
+			Vector2D<VectorType> &operator=(const Vector2D		&value);
 
 
 #pragma region AdditionAndSubstractionOperators
-			const VECTOR2D<VectorType> operator+(const VectorType			&value);
+			const Vector2D<VectorType> operator+(const VectorType			&value);
 
-			const VECTOR2D<VectorType> operator+(const VECTOR2D<VectorType>		&value);
+			const Vector2D<VectorType> operator+(const Vector2D<VectorType>		&value);
 
-			const VECTOR2D<VectorType> operator-(const VectorType			&value);
+			const Vector2D<VectorType> operator-(const VectorType			&value);
 
-			const VECTOR2D<VectorType> operator-(const VECTOR2D<VectorType>		&value);
+			const Vector2D<VectorType> operator-(const Vector2D<VectorType>		&value);
 
-			VECTOR2D<VectorType> &operator=(const VectorType			&value);
+			Vector2D<VectorType> &operator=(const VectorType			&value);
 
-			VECTOR2D<VectorType> &operator+=(const VectorType		&value);
+			Vector2D<VectorType> &operator+=(const VectorType		&value);
 
-			VECTOR2D<VectorType> &operator+=(const VECTOR2D<VectorType>		&value);
+			Vector2D<VectorType> &operator+=(const Vector2D<VectorType>		&value);
 
-			const VECTOR2D<VectorType> &operator-=(const VectorType		&value);
+			const Vector2D<VectorType> &operator-=(const VectorType		&value);
 
-			const VECTOR2D<VectorType> &operator-=(const VECTOR2D<VectorType>		&value);
+			const Vector2D<VectorType> &operator-=(const Vector2D<VectorType>		&value);
+
+			Vector2D<VectorType> Add(const Vector2D<VectorType>		&value);
+
+			Vector2D<VectorType> Subtract(const Vector2D<VectorType>		&value);
 #pragma endregion AdditionAndSubstractionOperators
 
 #pragma region DivisionAndMultiplicationOperators
 
-			const VECTOR2D<VectorType> operator*(const VectorType		&value);
+			const Vector2D<VectorType> operator*(const VectorType		&value);
 
-			const VectorType operator*(const VECTOR2D<VectorType>		&value);
+			const VectorType operator*(const Vector2D<VectorType>		&value);
 
-			const VECTOR2D<VectorType> &operator*=(const VectorType		&value);
+			const Vector2D<VectorType> &operator*=(const VectorType		&value);
 
-			const VECTOR2D<VectorType> operator/(const VectorType		&value) const;
-			const VECTOR2D<VectorType> &operator/=(const VectorType		&value);
+			const Vector2D<VectorType> operator/(const VectorType		&value) const;
+			const Vector2D<VectorType> &operator/=(const VectorType		&value);
 
-			const VECTOR2D<VectorType> &operator*=(const MATRIX2X2<VectorType>		&value);
+			const Vector2D<VectorType> &operator*=(const Matrix2D<VectorType>		&value);
 
-			const VECTOR2D<VectorType> operator*(const MATRIX2X2<VectorType>		&value);
+			const Vector2D<VectorType> operator*(const Matrix2D<VectorType>		&value);
+
+			Vector2D<VectorType> Multiply(const VectorType &scalar);
+
+			Vector2D<VectorType> MultiplyComponents(const Vector2D<VectorType>		&value);
+
+			Vector2D<VectorType> Divide(const VectorType &scalar);
 #pragma endregion DivisionAndMultiplicationOperators
 
 #pragma region ComparisonOperators
-			bool operator==(const VECTOR2D<VectorType>		&value);
+			bool operator==(const Vector2D<VectorType>		&value);
 
-			bool operator!=(const VECTOR2D<VectorType>		&value);
+			bool operator!=(const Vector2D<VectorType>		&value);
 #pragma endregion ComparisonOperators
 
-			void ZeroVector(void);
+			void Zero(void);
 			void Limit(const VectorType &limit);
 			bool IsZero() const;
 			VectorType Magnitude() const;
-			void Normalize();
+			Vector2D<VectorType> Normalize();
 			VectorType Heading();
-			VECTOR2D<VectorType> Clone() const;
-			void Normalize(const VECTOR2D<VectorType> &value);
+			Vector2D<VectorType> Clone() const;
+			Vector2D<VectorType> Normalize(const Vector2D<VectorType> &value);
 
-			static VECTOR2D<VectorType> GetZeroVector(void);
+			static Vector2D<VectorType> GetZero(void);
 
+			static Vector2D<VectorType> UnitX();
+
+			static Vector2D<VectorType> UnitY();
+
+			static Vector2D<VectorType> Undefined();
+
+			VectorType MagnitudeSquared() const;
+			bool IsUndefined() const;
+			Vector2D<VectorType> Normalize(VectorType &value);
+			Vector2D<VectorType> MostOrthogonalAxis() const;
+			Vector2D<VectorType> Negate() const;
+			bool EqualsEpsilon(const Vector2D<VectorType> &value, double epsilon);
+
+			std::string ToString() const;
+
+			int GetHashCode() const;
+
+			bool Equals(const Vector2D<VectorType> &value) const;
+
+			VectorType Dot(const Vector2D<VectorType> &value);
 		};
 
 		template<typename VectorType>
-		void Aurora::Math::VECTOR2D<VectorType>::Normalize(const VECTOR2D<VectorType> &value)
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Divide(const VectorType &scalar)
+		{
+			return this / scalar;
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::MultiplyComponents(const Vector2D<VectorType> &value)
+		{
+			return Vector2D<VectorType>(X * scale.X, Y * scale.Y);
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Multiply(const VectorType &scalar)
+		{
+			return this * scalar;
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Subtract(const Vector2D<VectorType> &value)
+		{
+			return this - value;
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Add(const Vector2D<VectorType> &value)
+		{
+			return this + value;
+		}
+
+		template<typename VectorType>
+		VectorType Aurora::Math::Vector2D<VectorType>::Dot(const Vector2D<VectorType> &value)
+		{
+			return X * value.X + Y * value.Y;
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector2D<VectorType>::Equals(const Vector2D<VectorType> &value) const
+		{
+			return(this->X == value.X && this->Y == value.Y);
+		}
+
+		template<typename VectorType>
+		int Aurora::Math::Vector2D<VectorType>::GetHashCode() const
+		{
+			std::hash<VectorType> hash;
+			return hash(this->X) ^ hash(this->Y);
+		}
+
+		template<typename VectorType>
+		std::string Aurora::Math::Vector2D<VectorType>::ToString() const
+		{
+			return("X:" + std::to_string(this->X) + " Y:" + std::to_string(this->Y))
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector2D<VectorType>::EqualsEpsilon(const Vector2D<VectorType> &value, double epsilon)
+		{
+			return  (abs(this->X - other.X) <= epsilon) &&
+					(abs(this->Y - other.Y) <= epsilon);
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Negate() const
+		{
+			return -this;
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Normalize(VectorType &value)
+		{
+			magnitude = this->Magnitude();
+			return this / magnitude;
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector2D<VectorType>::IsUndefined() const
+		{
+			return(isnan(this->X));
+		}
+
+		template<typename VectorType>
+		VectorType Aurora::Math::Vector2D<VectorType>::MagnitudeSquared() const
+		{
+			return this->X * this->X + this->Y * this->Y;
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Undefined()
+		{
+			double nanValue;
+			return Vector2D<VectorType>(nanValue, nanValue);
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::UnitY()
+		{
+			return Vector2D<VectorType>(0.0, 1.0);
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::UnitX()
+		{
+			return Vector2D<VectorType>(1.0, 0.0);
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Normalize(const Vector2D<VectorType> &value)
 		{
 			VectorType magnitude = value.Magnitude();
 			if (magnitude != 0)
 				*this = value / magnitude;
+
+			return(*this);
 		}
 
 		template<typename VectorType>
-		VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::GetZeroVector(void)
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::GetZero(void)
 		{
-			return(VECTOR2D<VectorType>(0, 0));
+			return(Vector2D<VectorType>(0, 0));
 		}
 
 		template<typename VectorType>
-		VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::Clone() const
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Clone() const
 		{
-			return(VECTOR2D<VectorType>(this->X, this->Y));
+			return(Vector2D<VectorType>(this->X, this->Y));
 		}
 
 		template<typename VectorType>
-		VectorType Aurora::Math::VECTOR2D<VectorType>::Heading()
+		VectorType Aurora::Math::Vector2D<VectorType>::Heading()
 		{
 			return(atan2(Y, X));
 		}
 
 		template<typename VectorType>
-		void Aurora::Math::VECTOR2D<VectorType>::Normalize()
+		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Normalize()
 		{
 			VectorType magnitude = this->Magnitude();
 			if (magnitude != 0)
 				*this /= magnitude;
+
+			return(*this);
 		}
 
 		template<typename VectorType>
-		VectorType Aurora::Math::VECTOR2D<VectorType>::Magnitude() const
+		VectorType Aurora::Math::Vector2D<VectorType>::Magnitude() const
 		{
 			return(sqrt(this->X*this->X + this->Y*this->Y));
 		}
 
 		template<typename VectorType>
-		bool Aurora::Math::VECTOR2D<VectorType>::IsZero() const
+		bool Aurora::Math::Vector2D<VectorType>::IsZero() const
 		{
 			bool isZero = false;
 
@@ -141,7 +281,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		void Aurora::Math::VECTOR2D<VectorType>::Limit(const VectorType &limit)
+		void Aurora::Math::Vector2D<VectorType>::Limit(const VectorType &limit)
 		{
 			if (this->X > limit) {
 				this->X = limit;
@@ -161,42 +301,32 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		void Aurora::Math::VECTOR2D<VectorType>::ZeroVector(void)
+		void Aurora::Math::Vector2D<VectorType>::Zero(void)
 		{
 			this->X = this->Y = 0;
 		}
 
 		template<typename VectorType>
-		bool Aurora::Math::VECTOR2D<VectorType>::operator!=(const VECTOR2D<VectorType> &value)
+		bool Aurora::Math::Vector2D<VectorType>::operator!=(const Vector2D<VectorType> &value)
 		{
-			bool isEqual = false;
-
-			if (this->X != value.X && this->Y != value.Y)
-				isEqual = true;
-
-			return(isEqual);
+			return(this->X != value.X && this->Y != value.Y);
 		}
 
 		template<typename VectorType>
-		bool Aurora::Math::VECTOR2D<VectorType>::operator==(const VECTOR2D<VectorType> &value)
+		bool Aurora::Math::Vector2D<VectorType>::operator==(const Vector2D<VectorType> &value)
 		{
-			bool isEqual = false;
-
-			if (this->X == value.X && this->Y == value.Y)
-				isEqual = true;
-
-			return(isEqual);
+			return(this->X == value.X && this->Y == value.Y);
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::operator*(const MATRIX2X2<VectorType> &value)
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator*(const Matrix2D<VectorType> &value)
 		{
-			return(VECTOR2D<VectorType>(this->X * value.M11 + this->Y * value.M21,
+			return(Vector2D<VectorType>(this->X * value.M11 + this->Y * value.M21,
 				this->X * value.M12 + this->Y * value.M22));
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator*=(const MATRIX2X2<VectorType> &value)
+		const Vector2D<VectorType> & Aurora::Math::Vector2D<VectorType>::operator*=(const Matrix2D<VectorType> &value)
 		{
 			this->X = this->X * value.M11 + this->Y * value.M21;
 			this->Y = this->X * value.M12 + this->Y * value.M22;
@@ -205,7 +335,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator/=(const VectorType &value)
+		const Vector2D<VectorType> & Aurora::Math::Vector2D<VectorType>::operator/=(const VectorType &value)
 		{
 			this->X /= value;
 			this->Y /= value;
@@ -213,13 +343,13 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::operator/(const VectorType &value) const
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator/(const VectorType &value) const
 		{
-			return(VECTOR2D<VectorType>(this->X / value, this->Y / value));
+			return(Vector2D<VectorType>(this->X / value, this->Y / value));
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator*=(const VectorType &value)
+		const Vector2D<VectorType> & Aurora::Math::Vector2D<VectorType>::operator*=(const VectorType &value)
 		{
 			this->X *= value;
 			this->Y *= value;
@@ -227,19 +357,19 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		const VectorType Aurora::Math::VECTOR2D<VectorType>::operator*(const VECTOR2D<VectorType> &value)
+		const VectorType Aurora::Math::Vector2D<VectorType>::operator*(const Vector2D<VectorType> &value)
 		{
 			return((this->X * value.X) + (this->Y * value.Y));
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::operator*(const VectorType &value)
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator*(const VectorType &value)
 		{
-			return(VECTOR2D<VectorType>(this->X * value, this->Y * value));
+			return(Vector2D<VectorType>(this->X * value, this->Y * value));
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator-=(const VECTOR2D<VectorType> &value)
+		const Vector2D<VectorType> & Aurora::Math::Vector2D<VectorType>::operator-=(const Vector2D<VectorType> &value)
 		{
 			if (this == &value) { return(*this); }
 			this->X -= value.X;
@@ -248,7 +378,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator-=(const VectorType &value)
+		const Vector2D<VectorType> & Aurora::Math::Vector2D<VectorType>::operator-=(const VectorType &value)
 		{
 			this->X -= value;
 			this->Y -= value;
@@ -256,7 +386,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator+=(const VECTOR2D<VectorType> &value)
+		Vector2D<VectorType> & Aurora::Math::Vector2D<VectorType>::operator+=(const Vector2D<VectorType> &value)
 		{
 			if (this == &value) { return(*this); }
 			this->X += value.X;
@@ -265,7 +395,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator+=(const VectorType &value)
+		Vector2D<VectorType> & Aurora::Math::Vector2D<VectorType>::operator+=(const VectorType &value)
 		{
 			this->X += value;
 			this->Y += value;
@@ -273,7 +403,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator=(const VectorType &value)
+		Vector2D<VectorType> & Aurora::Math::Vector2D<VectorType>::operator=(const VectorType &value)
 		{
 			this->X = value;
 			this->Y = value;
@@ -281,33 +411,33 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::operator-(const VECTOR2D<VectorType> &value)
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator-(const Vector2D<VectorType> &value)
 		{
-			return(VECTOR2D<VectorType>(this->X - value.X, this->Y - value.Y));
+			return(Vector2D<VectorType>(this->X - value.X, this->Y - value.Y));
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::operator-(const VectorType &value)
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator-(const VectorType &value)
 		{
-			return(VECTOR2D<VectorType>(this->X - value, this->Y - value));
+			return(Vector2D<VectorType>(this->X - value, this->Y - value));
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::operator+(const VECTOR2D<VectorType> &value)
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator+(const Vector2D<VectorType> &value)
 		{
-			return(VECTOR2D<VectorType>(this->X + value.X, this->Y + value.Y));
+			return(Vector2D<VectorType>(this->X + value.X, this->Y + value.Y));
 		}
 
 		template<typename VectorType>
-		const VECTOR2D<VectorType> Aurora::Math::VECTOR2D<VectorType>::operator+(const VectorType &value)
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator+(const VectorType &value)
 		{
 
-			return(VECTOR2D<VectorType>(this->X + value, this->Y + value));
+			return(Vector2D<VectorType>(this->X + value, this->Y + value));
 		}
 		
 
 		template<typename VectorType>
-		VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator=(const VECTOR2D<VectorType> &value)
+		Vector2D<VectorType> & Aurora::Math::Vector2D<VectorType>::operator=(const Vector2D<VectorType> &value)
 		{
 			if (this == &value)
 				return *this;
@@ -318,7 +448,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VECTOR2D<VectorType> & Aurora::Math::VECTOR2D<VectorType>::operator=(VECTOR2D<VectorType> && value)
+		Vector2D<VectorType> & Aurora::Math::Vector2D<VectorType>::operator=(Vector2D<VectorType> && value)
 		{
 			if (this == &value)
 				return *this;
@@ -329,30 +459,30 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		Aurora::Math::VECTOR2D<VectorType>::VECTOR2D(VECTOR2D<VectorType> &&value) : X(std::move(value.X)), Y(std::move(value.Y))
+		Aurora::Math::Vector2D<VectorType>::Vector2D(Vector2D<VectorType> &&value) : X(std::move(value.X)), Y(std::move(value.Y))
 		{
 
 		}
 
 		template<typename VectorType>
-		Aurora::Math::VECTOR2D<VectorType>::~VECTOR2D()
+		Aurora::Math::Vector2D<VectorType>::~Vector2D()
 		{
 
 		}
 
 		template<typename VectorType>
-		Aurora::Math::VECTOR2D<VectorType>::VECTOR2D(const VECTOR2D<VectorType> &value) : X(value.X), Y(value.Y)
+		Aurora::Math::Vector2D<VectorType>::Vector2D(const Vector2D<VectorType> &value) : X(value.X), Y(value.Y)
 		{
 
 		}
 
 		template<typename VectorType>
-		Aurora::Math::VECTOR2D<VectorType>::VECTOR2D(VectorType x, VectorType y) : X(x), Y(y)
+		Aurora::Math::Vector2D<VectorType>::Vector2D(VectorType x, VectorType y) : X(x), Y(y)
 		{
 		}
 
 		template<typename VectorType>
-		Aurora::Math::VECTOR2D<VectorType>::VECTOR2D() : X(0), Y(0)
+		Aurora::Math::Vector2D<VectorType>::Vector2D() : X(0), Y(0)
 		{
 
 		}

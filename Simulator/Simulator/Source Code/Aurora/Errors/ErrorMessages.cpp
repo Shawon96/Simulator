@@ -7,3 +7,7 @@ std::string Aurora::Errors::ErrorMessages::DivisionByZero = "Given argument can 
 std::string Aurora::Errors::ErrorMessages::TypeMismatch = "Passed argument type does not match with destination type. Please check you input.";
 
 std::string Aurora::Errors::ErrorMessages::EmptyObjectFound = "The object specified  is empty. You can not use this functionality. Please pass an object before usage.";
+
+std::string Aurora::Errors::ErrorMessages::RadiiEllipsoidError = "Radii ellipsoid error. Please that your values are smaller that 0.0 on each vector element X Y Z.";
+
+std::string Aurora::Errors::ErrorMessages::EllipsoidGranularityError = "";

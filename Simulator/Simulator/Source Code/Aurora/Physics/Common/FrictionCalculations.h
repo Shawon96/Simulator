@@ -14,32 +14,32 @@ namespace Aurora
 
 		public:
 			template<typename Type>
-			static VECTOR2D<Type> NormalFrictionCalculations(const VECTOR2D<Type>& velocity, float frictionCoefficient, float normal);
+			static Vector2D<Type> NormalFrictionCalculations(const Vector2D<Type>& velocity, float frictionCoefficient, float normal);
 
 			template<typename Type>
-			static VECTOR2D<Type> SimplifiedDragForceCalculations(const VECTOR2D<Type>& velocity, float coefficientDrag);
+			static Vector2D<Type> SimplifiedDragForceCalculations(const Vector2D<Type>& velocity, float coefficientDrag);
 			
 		};
 
 		template<typename Type>
-		static VECTOR2D<Type>
-			Aurora::Physics::FrictionCalculations::SimplifiedDragForceCalculations(const VECTOR2D<Type>& velocity, float coefficientDrag)
+		static Vector2D<Type>
+			Aurora::Physics::FrictionCalculations::SimplifiedDragForceCalculations(const Vector2D<Type>& velocity, float coefficientDrag)
 		{
 			float speed = velocity.Magnitude();
 			float dragMagnitude = coefficientDrag * speed * speed;
 
-			VECTOR2D<Type> drag = velocity.Clone();
+			Vector2D<Type> drag = velocity.Clone();
 			drag *= -1;
 			drag *= dragMagnitude;
 			return(drag);
 		}
 
 		template<typename Type>
-		static VECTOR2D<Type>
-			Aurora::Physics::FrictionCalculations::NormalFrictionCalculations(const VECTOR2D<Type>& velocity, float frictionCoefficient, float normal)
+		static Vector2D<Type>
+			Aurora::Physics::FrictionCalculations::NormalFrictionCalculations(const Vector2D<Type>& velocity, float frictionCoefficient, float normal)
 		{
 			float frictionMagnitude = frictionCoefficient * normal;
-			VECTOR2D<Type> friction = velocity.Clone();
+			Vector2D<Type> friction = velocity.Clone();
 			friction *= -1;
 			friction.Normalize();
 			friction *= frictionMagnitude;

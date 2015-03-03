@@ -4,6 +4,8 @@
 #include <utility>    // std::swap
 //#include "Vector.h"
 #include "MathDataTypes.h"
+#include "Globe\GlobeOperations.h"
+#include "Geometry\GeometryOperations.h"
 
 //#include <Transformations.h>
 using namespace Aurora::DataTypes;

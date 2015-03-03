@@ -6,7 +6,7 @@ namespace Aurora {
 		void Aurora::Random::Oscillator::DoCalculations()
 		{
 			this->Oscillate();
-			this->ImplementorObjectPhysics()->Position(VECTOR2D<float>(this->StartPosition().X + (sin(this->angle.X) * this->amplitude.X), this->StartPosition().Y + cos(this->angle.Y) * this->amplitude.Y));
+			this->ImplementorObjectPhysics()->Position(Vector2D<float>(this->StartPosition().X + (sin(this->angle.X) * this->amplitude.X), this->StartPosition().Y + cos(this->angle.Y) * this->amplitude.Y));
 		}
 		
 		Aurora::Random::Oscillator::Oscillator() : RandomBaseComplete()
@@ -62,9 +62,9 @@ namespace Aurora {
 		
 		void Oscillator::init()
 		{
-			this->angle = VECTOR2D<float>::GetZeroVector();
-			this->velocity = VECTOR2D<float>(RandomNumberGenerator::GetRandomFloat(-0.05, 0.05), RandomNumberGenerator::GetRandomFloat(-0.05, 0.05));
-			this->amplitude = VECTOR2D<float>(RandomNumberGenerator::GetRandomFloat(this->GetConstrainsRange().Width / 2), RandomNumberGenerator::GetRandomFloat(this->GetConstrainsRange().Height / 2));
+			this->angle = Vector2D<float>::GetZero();
+			this->velocity = Vector2D<float>(RandomNumberGenerator::GetRandomFloat(-0.05, 0.05), RandomNumberGenerator::GetRandomFloat(-0.05, 0.05));
+			this->amplitude = Vector2D<float>(RandomNumberGenerator::GetRandomFloat(this->GetConstrainsRange().Width / 2), RandomNumberGenerator::GetRandomFloat(this->GetConstrainsRange().Height / 2));
 		}
 		
 		void Oscillator::init(const Oscillator & value)

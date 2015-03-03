@@ -16,7 +16,7 @@ namespace Aurora {
 			protected:
 				virtual void init() override;
 				float coefficientDrag;
-				std::vector<VECTOR2D<Type>> liquidArea;
+				std::vector<Vector2D<Type>> liquidArea;
 				
 
 
@@ -27,15 +27,15 @@ namespace Aurora {
 			Liquid(float coefficientDrag);
 
 			
-			bool IsInside(const VECTOR2D<Type> &value);
+			bool IsInside(const Vector2D<Type> &value);
 
 			float CoefficientDrag() const { return coefficientDrag; }
 			template<typename T>
 			void CoefficientDrag(T &&value) { coefficientDrag = std::forward<T>(value); }
 			
-			std::vector<VECTOR2D<Type>> LiquidArea() const { return liquidArea; }
+			std::vector<Vector2D<Type>> LiquidArea() const { return liquidArea; }
 			
-			void AddEdgePoint(const VECTOR2D<Type> &value);
+			void AddEdgePoint(const Vector2D<Type> &value);
 
 		};
 		

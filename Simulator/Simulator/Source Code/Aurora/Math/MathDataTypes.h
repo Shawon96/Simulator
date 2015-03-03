@@ -1,7 +1,5 @@
 #ifndef MATHDATATYPES_H
 #define MATHDATATYPES_H
-#include "Vector2D.h"
-#include "Vector3D.h"
 #include "Vector4D.h"
 #include "..\Globals\GlobalOperations.h"
 #include <math.h>
@@ -56,11 +54,11 @@ namespace Aurora
 			class mPARAMETRICLINE2D
 			{
 				public:
-					mPARAMETRICLINE2D(VECTOR2D<Type> &init, VECTOR2D<Type> &term);
+					mPARAMETRICLINE2D(Vector2D<Type> &init, Vector2D<Type> &term);
 					~mPARAMETRICLINE2D();
-					VECTOR2D<Type> point1;		/*!< Start point of parametric line					*/
-					VECTOR2D<Type> point2;		/*!< End point of parametric line					*/
-					VECTOR2D<Type> v;				/*!< Direction vector of line segment |v|=|p0->p1|.	*/
+					Vector2D<Type> point1;		/*!< Start point of parametric line					*/
+					Vector2D<Type> point2;		/*!< End point of parametric line					*/
+					Vector2D<Type> v;				/*!< Direction vector of line segment |v|=|p0->p1|.	*/
 			};
 
 			/*!
@@ -70,11 +68,11 @@ namespace Aurora
 			class mPARAMETRICLINE3D
 			{
 				public:
-					mPARAMETRICLINE3D(VECTOR3D<Type> &init, VECTOR3D<Type> &term);
+					mPARAMETRICLINE3D(Vector3D<Type> &init, Vector3D<Type> &term);
 					~mPARAMETRICLINE3D();
-					VECTOR3D<Type> point1;		/*!< Start point of parametric line			*/
-					VECTOR3D<Type> point2;		/*!< End point of parametric line			*/
-					VECTOR3D<Type> v;				/*!< Direction vector of line segment		*/
+					Vector3D<Type> point1;		/*!< Start point of parametric line			*/
+					Vector3D<Type> point2;		/*!< End point of parametric line			*/
+					Vector3D<Type> v;				/*!< Direction vector of line segment		*/
 			};
 
 			/*!
@@ -84,10 +82,10 @@ namespace Aurora
 			class mPLANE3D
 			{
 				public:
-					mPLANE3D(const VECTOR3D<Type> &point, const VECTOR3D<Type> &normal, bool Normalize);
+					mPLANE3D(const Vector3D<Type> &point, const Vector3D<Type> &normal, bool Normalize);
 					~mPLANE3D();
-					VECTOR3D<Type> point;			/*!< Point on the plane.									*/
-					VECTOR3D<Type> normal;		/*!< Normal to the plane. (not necessarily a unit vector)	*/
+					Vector3D<Type> point;			/*!< Point on the plane.									*/
+					Vector3D<Type> normal;		/*!< Normal to the plane. (not necessarily a unit vector)	*/
 			};
 
 			/*!
@@ -136,7 +134,7 @@ namespace Aurora
 		{
 			public:
 				mQUATERNION4D();
-				mQUATERNION4D(Type q0, VECTOR3D<Type> qv);
+				mQUATERNION4D(Type q0, Vector3D<Type> qv);
 				mQUATERNION4D(const mQUATERNION4D<Type> &value);
 				~mQUATERNION4D();
 				mQUATERNION4D<Type> &operator=(const mQUATERNION4D<Type>		&value);
@@ -149,7 +147,7 @@ namespace Aurora
 				mQUATERNION4D<Type> &operator*=(const Type				&value);
 				mQUATERNION4D<Type> &operator*=(const mQUATERNION4D<Type>		&value);
 				Type		q0;			/*!< The real part.						*/
-				VECTOR3D<Type>	qV;			/*!< The imaginary part xi+yj+zk.		*/
+				Vector3D<Type>	qV;			/*!< The imaginary part xi+yj+zk.		*/
 				void ZeroQuarternion(void);
 		};
 
@@ -159,7 +157,7 @@ namespace Aurora
 			this->q0 = 0;
 		}
 		template<typename Type>
-		mQUATERNION4D<Type>::mQUATERNION4D(Type q0, VECTOR3D<Type> qv)
+		mQUATERNION4D<Type>::mQUATERNION4D(Type q0, Vector3D<Type> qv)
 		{
 			this->q0 = q0;
 			this->qV = qv;
@@ -186,12 +184,12 @@ namespace Aurora
 		template<typename Type>
 		mQUATERNION4D<Type> mQUATERNION4D<Type>::operator+(const mQUATERNION4D<Type>		&value)
 		{
-			return(mQUATERNION4D(this->q0 + value.q0, VECTOR3D(this->qV.X + value.qV.X, this->qV.Y + value.qV.Y, this->qV.Z + value.qV.Z)));
+			return(mQUATERNION4D(this->q0 + value.q0, Vector3D(this->qV.X + value.qV.X, this->qV.Y + value.qV.Y, this->qV.Z + value.qV.Z)));
 		}
 		template<typename Type>
 		mQUATERNION4D<Type> mQUATERNION4D<Type>::operator-(const mQUATERNION4D<Type>		&value)
 		{
-			return(mQUATERNION4D(this->q0 - value.q0, VECTOR3D(this->qV.X - value.qV.X, this->qV.Y - value.qV.Y, this->qV.Z - value.qV.Z)));
+			return(mQUATERNION4D(this->q0 - value.q0, Vector3D(this->qV.X - value.qV.X, this->qV.Y - value.qV.Y, this->qV.Z - value.qV.Z)));
 		}
 		template<typename Type>
 		mQUATERNION4D<Type> &mQUATERNION4D<Type>::operator+=(const mQUATERNION4D<Type>		&value)
@@ -212,7 +210,7 @@ namespace Aurora
 		template<typename Type>
 		mQUATERNION4D<Type> mQUATERNION4D<Type>::operator*(const Type		&value)
 		{
-			return(mQUATERNION4D<Type>(this->q0 * value, VECTOR3D<Type>(this->qV.X * value, this->qV.Y * value, this->qV.Z * value)));
+			return(mQUATERNION4D<Type>(this->q0 * value, Vector3D<Type>(this->qV.X * value, this->qV.Y * value, this->qV.Z * value)));
 		}
 		template<typename Type>
 		mQUATERNION4D<Type> &mQUATERNION4D<Type>::operator*=(const mQUATERNION4D<Type>		&value)
@@ -228,10 +226,10 @@ namespace Aurora
 		void mQUATERNION4D<Type>::ZeroQuarternion()
 		{
 			this->q0 = 0.0;
-			this->qV.ZeroVector();
+			this->qV.Zero();
 		}
 		template<typename Type>
-		mPARAMETRICLINE2D<Type>::mPARAMETRICLINE2D(VECTOR2D<Type> &init, VECTOR2D<Type> &term)
+		mPARAMETRICLINE2D<Type>::mPARAMETRICLINE2D(Vector2D<Type> &init, Vector2D<Type> &term)
 		{
 			this->point1 = init;
 			this->point2 = term;
@@ -243,7 +241,7 @@ namespace Aurora
 
 		}
 		template<typename Type>
-		mPARAMETRICLINE3D<Type>::mPARAMETRICLINE3D(VECTOR3D<Type> &init, VECTOR3D<Type> &term)
+		mPARAMETRICLINE3D<Type>::mPARAMETRICLINE3D(Vector3D<Type> &init, Vector3D<Type> &term)
 		{
 			this->point1 = init;
 			this->point2 = term;
@@ -251,7 +249,7 @@ namespace Aurora
 		}
 
 		template<typename Type>
-		mPLANE3D<Type>::mPLANE3D(const VECTOR3D<Type> &point, const VECTOR3D<Type> &normal, bool Normalize)
+		mPLANE3D<Type>::mPLANE3D(const Vector3D<Type> &point, const Vector3D<Type> &normal, bool Normalize)
 		{
 			this->point = point;
 			if (!Normalize)

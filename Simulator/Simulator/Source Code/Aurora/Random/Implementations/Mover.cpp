@@ -33,19 +33,19 @@ namespace Aurora {
 		}
 
 		
-		void Mover::SetTarget(const VECTOR2D<float> &target)
+		void Mover::SetTarget(const Vector2D<float> &target)
 		{
 			this->target = target;
 		}
 
 		
-		const VECTOR2D<float> Mover::GetCurentPosition() const
+		const Vector2D<float> Mover::GetCurentPosition() const
 		{
 			return(this->ImplementorObjectPhysics()->Position());
 		}
 
 		
-		const VECTOR2D<float>  Mover::GetCurentTarget() const
+		const Vector2D<float>  Mover::GetCurentTarget() const
 		{
 			return(this->target);
 		}
@@ -54,17 +54,17 @@ namespace Aurora {
 		void Mover::Constrain()
 		{
 			if (this->ImplementorObjectPhysics()->Position().X > this->GetConstrainsRange().Width) {
-				this->ImplementorObjectPhysics()->Position(VECTOR2D<float>(0, this->ImplementorObjectPhysics()->Position().Y));
+				this->ImplementorObjectPhysics()->Position(Vector2D<float>(0, this->ImplementorObjectPhysics()->Position().Y));
 			}
 			else if (this->ImplementorObjectPhysics()->Position().X < 0) {
-				this->ImplementorObjectPhysics()->Position(VECTOR2D<float>(this->GetConstrainsRange().Width, this->ImplementorObjectPhysics()->Position().Y));
+				this->ImplementorObjectPhysics()->Position(Vector2D<float>(this->GetConstrainsRange().Width, this->ImplementorObjectPhysics()->Position().Y));
 			}
 
 			if (this->ImplementorObjectPhysics()->Position().Y > this->GetConstrainsRange().Height) {
-				this->ImplementorObjectPhysics()->Position(VECTOR2D<float>(this->ImplementorObjectPhysics()->Position().X, 0));
+				this->ImplementorObjectPhysics()->Position(Vector2D<float>(this->ImplementorObjectPhysics()->Position().X, 0));
 			}
 			else if (this->ImplementorObjectPhysics()->Position().Y < 0) {
-				this->ImplementorObjectPhysics()->Position(VECTOR2D<float>(this->ImplementorObjectPhysics()->Position().X, this->GetConstrainsRange().Height));
+				this->ImplementorObjectPhysics()->Position(Vector2D<float>(this->ImplementorObjectPhysics()->Position().X, this->GetConstrainsRange().Height));
 			}
 		}
 
@@ -72,8 +72,8 @@ namespace Aurora {
 		void Mover::MoveTowardsTarget()
 		{
 			Float choice = RandomNumberGenerator::GetRandomPositiveFloat(0, 1);
-			VECTOR2D<float> distanceBetweenTargetAndPosition = this->target - this->ImplementorObjectPhysics()->Position();
-			VECTOR2D<float> normalizedDistancetweenTargetAndPosition = distanceBetweenTargetAndPosition;
+			Vector2D<float> distanceBetweenTargetAndPosition = this->target - this->ImplementorObjectPhysics()->Position();
+			Vector2D<float> normalizedDistancetweenTargetAndPosition = distanceBetweenTargetAndPosition;
 			normalizedDistancetweenTargetAndPosition.Normalize();
 
 			if (choice < this->probalitityFactor)
@@ -102,7 +102,7 @@ namespace Aurora {
 				// Notice that if a targe is specified the mover must move towards that target untill it has reached it then only we can null the target and allow the mover to go on randomly
 				if (this->MoveAutomatically && (distanceBetweenTargetAndPosition.Magnitude() <= 10))
 				{
-					this->target = VECTOR2D<float>::GetZeroVector();
+					this->target = Vector2D<float>::GetZero();
 					//CCLOG("Mover towards target has been reached. Automatic movement stopped!");
 				}
 
@@ -110,11 +110,11 @@ namespace Aurora {
 			}
 			else
 			{
-				this->ImplementorObjectPhysics()->Acceleration(VECTOR2D<float>(RandomNumberGenerator::GetRandomFloat(2), RandomNumberGenerator::GetRandomFloat(2)));
+				this->ImplementorObjectPhysics()->Acceleration(Vector2D<float>(RandomNumberGenerator::GetRandomFloat(2), RandomNumberGenerator::GetRandomFloat(2)));
 			}
 
 			if (!this->MoveAutomatically)
-				this->target = VECTOR2D<float>::GetZeroVector();
+				this->target = Vector2D<float>::GetZero();
 
 		}
 
@@ -122,7 +122,7 @@ namespace Aurora {
 		void Mover::DoCalculations()
 		{
 			RandomBaseComplete::DoCalculations();
-			VECTOR2D<float> emptyVector;
+			Vector2D<float> emptyVector;
 			if (this->target != emptyVector)
 			{
 				MoveTowardsTarget();
@@ -262,8 +262,8 @@ namespace Aurora {
 		void Mover::init()
 		{
 			this->probalitityFactor = 0.9f;
-			this->perlinNoiseTime_PositionX = VECTOR3D<float>(0, 0, 0);
-			this->perlinNoiseTime_PositionY = VECTOR3D<float>(10000, 10000, 10000);
+			this->perlinNoiseTime_PositionX = Vector3D<float>(0, 0, 0);
+			this->perlinNoiseTime_PositionY = Vector3D<float>(10000, 10000, 10000);
 		}
 
 		

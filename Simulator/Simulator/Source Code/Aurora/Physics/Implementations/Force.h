@@ -14,11 +14,11 @@ namespace Aurora {
 		{
 		protected:
 
-			VECTOR2D<Type> velocity;
+			Vector2D<Type> velocity;
 			
-			VECTOR2D<Type> acceleration;
+			Vector2D<Type> acceleration;
 
-			VECTOR2D<Type> friction;
+			Vector2D<Type> friction;
 			
 			Type frictionCoefficient;
 			
@@ -60,15 +60,15 @@ namespace Aurora {
 
 #pragma region Encapsulated Properties
 
-			Aurora::Math::VECTOR2D<Type> Velocity() const { return velocity; }
+			Aurora::Math::Vector2D<Type> Velocity() const { return velocity; }
 			template<typename T>
 			void Velocity(T &&value) { velocity = std::forward<T>(value); }
 
-			Aurora::Math::VECTOR2D<Type> Acceleration() const { return acceleration; }
+			Aurora::Math::Vector2D<Type> Acceleration() const { return acceleration; }
 			template<typename T>
 			void Acceleration(T &&value) { acceleration = std::forward<T>(value); }
 			
-			Aurora::Math::VECTOR2D<Type> Friction() const { return friction; }
+			Aurora::Math::Vector2D<Type> Friction() const { return friction; }
 			template<typename T>
 			void Friction(T &&value) { friction = std::forward<T>(value); }
 
@@ -114,7 +114,7 @@ namespace Aurora {
 			
 #pragma endregion Encapsulated Properties
 
-			void ApplyForce(const VECTOR2D<Type> &value);
+			void ApplyForce(const Vector2D<Type> &value);
 			
 			void Update();
 
@@ -128,11 +128,11 @@ namespace Aurora {
 		template<typename Type>
 		void Force<Type>::init()
 		{
-			this->acceleration = VECTOR2D<Type>::GetZeroVector();
+			this->acceleration = Vector2D<Type>::GetZero();
 			this->maximiunVelocity = 2;
 			this->mass = 10;
-			this->position = VECTOR2D<Type>::GetZeroVector();
-			this->velocity = VECTOR2D<Type>::GetZeroVector();
+			this->position = Vector2D<Type>::GetZero();
+			this->velocity = Vector2D<Type>::GetZero();
 			this->normal = 1;
 			this->frictionCoefficient = 0.01f;
 			this->angle = 0;
@@ -208,7 +208,7 @@ namespace Aurora {
 			return(*this);
 		}
 		template<typename Type>
-		void Force<Type>::ApplyForce(const VECTOR2D<Type> &value)
+		void Force<Type>::ApplyForce(const Vector2D<Type> &value)
 		{
 			this->acceleration += (value / this->mass);
 			//this->acceleration += value;
@@ -220,7 +220,7 @@ namespace Aurora {
 			this->velocity += this->acceleration;
 			this->velocity.Limit(maximiunVelocity);
 			this->position += velocity;
-			this->acceleration = VECTOR2D<Type>::GetZeroVector();
+			this->acceleration = Vector2D<Type>::GetZero();
 
 			this->ConstrainToAreaSize();
 		}

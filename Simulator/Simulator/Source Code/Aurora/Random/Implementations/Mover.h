@@ -19,9 +19,9 @@ namespace Aurora {
 			//std::shared_ptr<Physics::Force> objectPhysics;
 			
 
-			mutable VECTOR2D<float> target;
-			mutable VECTOR3D<float> perlinNoiseTime_PositionX;
-			mutable VECTOR3D<float> perlinNoiseTime_PositionY;
+			mutable Vector2D<float> target;
+			mutable Vector3D<float> perlinNoiseTime_PositionX;
+			mutable Vector3D<float> perlinNoiseTime_PositionY;
 
 			/*Float maximiunVelocity;
 			Float minimumVelocity;*/
@@ -57,11 +57,11 @@ namespace Aurora {
 			Mover & operator=(Mover && value);
 			void DoCalculations() override;
 
-			void SetTarget(const VECTOR2D<float> &target);
+			void SetTarget(const Vector2D<float> &target);
 			//void SetPosition(const VECTOR2D &position);
 			void SetVelocityRange(const Float moverMaximumVelocity, const Float moverMinimumVelocity);
-			const VECTOR2D<float> GetCurentPosition() const;
-			const VECTOR2D<float> GetCurentTarget() const;
+			const Vector2D<float> GetCurentPosition() const;
+			const Vector2D<float> GetCurentTarget() const;
 
 			const float GetMoverMass() const;
 

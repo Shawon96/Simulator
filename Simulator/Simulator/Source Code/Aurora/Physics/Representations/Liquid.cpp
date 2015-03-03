@@ -10,7 +10,7 @@ namespace Aurora {
 			
 		}
 		template<typename Type>
-		bool Liquid<Type>::IsInside(const VECTOR2D<Type> &value)
+		bool Liquid<Type>::IsInside(const Vector2D<Type> &value)
 		{
 			bool isInside = false;
 
@@ -35,7 +35,7 @@ namespace Aurora {
 			this->coefficientDrag = coefficientDrag;
 		}
 		template<typename Type>
-		void Liquid<Type>::AddEdgePoint(const VECTOR2D<Type> &value)
+		void Liquid<Type>::AddEdgePoint(const Vector2D<Type> &value)
 		{
 			this->liquidArea.push_back(value);
 		}

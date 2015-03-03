@@ -81,7 +81,7 @@ public:
 	 */
 	void AllocateMemoryForVertex(int vertexAmount);
 	int vertexAmount;		/*!< .*/
-	VECTOR4D<float> *VertexData;	/*!< .*/
+	Vector4D<float> *VertexData;	/*!< .*/
 
 
 };

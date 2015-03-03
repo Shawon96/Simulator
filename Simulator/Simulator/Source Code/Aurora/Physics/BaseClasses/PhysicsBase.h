@@ -16,7 +16,7 @@ namespace Aurora {
 		{
 		protected:
 			mRECT<Type> areaSize;
-			VECTOR2D<Type> position;
+			Vector2D<Type> position;
 			Type mass;
 			
 		public:
@@ -28,7 +28,7 @@ namespace Aurora {
 			template<typename T>
 			void AreaSize(T &&value) { areaSize = std::forward<T>(value); }
 
-			Aurora::Math::VECTOR2D<Type> Position() const { return position; }
+			Aurora::Math::Vector2D<Type> Position() const { return position; }
 			template<typename T>
 			void Position(T &&value) { position = std::forward<T>(value); }
 

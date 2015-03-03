@@ -14,62 +14,62 @@ namespace Aurora
 	namespace Math
 	{
 		template<typename MatrixType>
-		class MATRIX3X3
+		class Matrix3D
 		{
 		public:
-			MATRIX3X3();
-			MATRIX3X3(MatrixType m00, MatrixType m01, MatrixType m02, MatrixType m10, MatrixType m11, MatrixType m12, MatrixType m20, MatrixType m21, MatrixType m22);
-			MATRIX3X3(const MATRIX3X3<MatrixType> &mat);
-			~MATRIX3X3();
+			Matrix3D();
+			Matrix3D(MatrixType m00, MatrixType m01, MatrixType m02, MatrixType m10, MatrixType m11, MatrixType m12, MatrixType m20, MatrixType m21, MatrixType m22);
+			Matrix3D(const Matrix3D<MatrixType> &mat);
+			~Matrix3D();
 			MatrixType M11, M12, M13;
 			MatrixType M21, M22, M23;
 			MatrixType M31, M32, M33;
 
-			MATRIX3X3<MatrixType> operator+(const MatrixType				&value);
-			MATRIX3X3<MatrixType> operator+(const MATRIX3X3<MatrixType>			&value);
+			Matrix3D<MatrixType> operator+(const MatrixType				&value);
+			Matrix3D<MatrixType> operator+(const Matrix3D<MatrixType>			&value);
 
-			MATRIX3X3<MatrixType> operator-(const MatrixType				&value);
-			MATRIX3X3<MatrixType> operator-(const MATRIX3X3<MatrixType>			&value);
+			Matrix3D<MatrixType> operator-(const MatrixType				&value);
+			Matrix3D<MatrixType> operator-(const Matrix3D<MatrixType>			&value);
 
-			MATRIX3X3<MatrixType> &operator=(const MATRIX3X3<MatrixType>		&value);
+			Matrix3D<MatrixType> &operator=(const Matrix3D<MatrixType>		&value);
 
-			MATRIX3X3<MatrixType> &operator+=(const MatrixType			&value);
-			MATRIX3X3<MatrixType> &operator+=(const MATRIX3X3<MatrixType>		&value);
+			Matrix3D<MatrixType> &operator+=(const MatrixType			&value);
+			Matrix3D<MatrixType> &operator+=(const Matrix3D<MatrixType>		&value);
 
-			MATRIX3X3<MatrixType> &operator-=(const MatrixType			&value);
-			MATRIX3X3<MatrixType> &operator-=(const MATRIX3X3<MatrixType>		&value);
+			Matrix3D<MatrixType> &operator-=(const MatrixType			&value);
+			Matrix3D<MatrixType> &operator-=(const Matrix3D<MatrixType>		&value);
 
-			MATRIX3X3<MatrixType> operator*(const MatrixType				&value);
-			MATRIX3X3<MatrixType> operator*(const MATRIX3X3<MatrixType>			&value);
+			Matrix3D<MatrixType> operator*(const MatrixType				&value);
+			Matrix3D<MatrixType> operator*(const Matrix3D<MatrixType>			&value);
 
-			MATRIX3X3<MatrixType> &operator*=(const MatrixType			&value);
-			MATRIX3X3<MatrixType> &operator*=(const MATRIX3X3<MatrixType>		&value);
+			Matrix3D<MatrixType> &operator*=(const MatrixType			&value);
+			Matrix3D<MatrixType> &operator*=(const Matrix3D<MatrixType>		&value);
 
 		protected:
 		};
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType>::MATRIX3X3()
+		Matrix3D<MatrixType>::Matrix3D()
 		{
 			this->M11 = 0;			this->M12 = 0;			this->M13 = 0;
 			this->M21 = 0;			this->M22 = 0;			this->M23 = 0;
 			this->M31 = 0;			this->M32 = 0;			this->M33 = 0;
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType>::MATRIX3X3(MatrixType m00, MatrixType m01, MatrixType m02, MatrixType m10, MatrixType m11, MatrixType m12, MatrixType m20, MatrixType m21, MatrixType m22)
+		Matrix3D<MatrixType>::Matrix3D(MatrixType m00, MatrixType m01, MatrixType m02, MatrixType m10, MatrixType m11, MatrixType m12, MatrixType m20, MatrixType m21, MatrixType m22)
 		{
 			this->M11 = m00;		this->M12 = m01;		this->M13 = m02;
 			this->M21 = m10;		this->M22 = m11;		this->M23 = m12;
 			this->M31 = m20;		this->M32 = m21;		this->M33 = m22;
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType>::MATRIX3X3(const MATRIX3X3 &mat)
+		Matrix3D<MatrixType>::Matrix3D(const Matrix3D &mat)
 		{
 			this->M11 = mat.M11;	this->M12 = mat.M12;	this->M13 = mat.M13;
 			this->M21 = mat.M21;	this->M22 = mat.M22;	this->M23 = mat.M23;
 			this->M31 = mat.M31;	this->M32 = mat.M32;	this->M33 = mat.M33;
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType>::~MATRIX3X3()
+		Matrix3D<MatrixType>::~Matrix3D()
 		{
 
 		}
@@ -80,9 +80,9 @@ namespace Aurora
 		m20		m21		m22
 		*/
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> MATRIX3X3<MatrixType>::operator+(const MatrixType			&value)
+		Matrix3D<MatrixType> Matrix3D<MatrixType>::operator+(const MatrixType			&value)
 		{
-			return(MATRIX3X3(this->M11 + value,	// m00
+			return(Matrix3D(this->M11 + value,	// m00
 				this->M12 + value,	// m01
 				this->M13 + value,	// m02
 				this->M21 + value,	// m10
@@ -94,9 +94,9 @@ namespace Aurora
 				));
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> MATRIX3X3<MatrixType>::operator+(const MATRIX3X3<MatrixType>		&value)
+		Matrix3D<MatrixType> Matrix3D<MatrixType>::operator+(const Matrix3D<MatrixType>		&value)
 		{
-			return(MATRIX3X3(this->M11 + value.M11,	// m00
+			return(Matrix3D(this->M11 + value.M11,	// m00
 				this->M12 + value.M12,	// m01
 				this->M13 + value.M13,	// m02
 				this->M21 + value.M21,	// m10
@@ -108,9 +108,9 @@ namespace Aurora
 				));
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> MATRIX3X3<MatrixType>::operator-(const MatrixType			&value)
+		Matrix3D<MatrixType> Matrix3D<MatrixType>::operator-(const MatrixType			&value)
 		{
-			return(MATRIX3X3(this->M11 - value,	// m00
+			return(Matrix3D(this->M11 - value,	// m00
 				this->M12 - value,	// m01
 				this->M13 - value,	// m02
 				this->M21 - value,	// m10
@@ -122,9 +122,9 @@ namespace Aurora
 				));
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> MATRIX3X3<MatrixType>::operator-(const MATRIX3X3<MatrixType>		&value)
+		Matrix3D<MatrixType> Matrix3D<MatrixType>::operator-(const Matrix3D<MatrixType>		&value)
 		{
-			return(MATRIX3X3(this->M11 - value.M11,	// m00
+			return(Matrix3D(this->M11 - value.M11,	// m00
 				this->M12 - value.M12,	// m01
 				this->M13 - value.M13,	// m02
 				this->M21 - value.M21,	// m10
@@ -136,7 +136,7 @@ namespace Aurora
 				));
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> &MATRIX3X3<MatrixType>::operator=(const MATRIX3X3<MatrixType>		&value)
+		Matrix3D<MatrixType> &Matrix3D<MatrixType>::operator=(const Matrix3D<MatrixType>		&value)
 		{
 			if (this == &value) { return(*this); }
 			this->M11 = value.M11;				this->M12 = value.M12;			this->M13 = value.M13;
@@ -145,7 +145,7 @@ namespace Aurora
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> &MATRIX3X3<MatrixType>::operator+=(const MatrixType		&value)
+		Matrix3D<MatrixType> &Matrix3D<MatrixType>::operator+=(const MatrixType		&value)
 		{
 			this->M11 += value;					this->M12 += value;				this->M13 += value;
 			this->M21 += value;					this->M22 += value;				this->M23 += value;
@@ -153,7 +153,7 @@ namespace Aurora
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> &MATRIX3X3<MatrixType>::operator+=(const MATRIX3X3<MatrixType>	&value)
+		Matrix3D<MatrixType> &Matrix3D<MatrixType>::operator+=(const Matrix3D<MatrixType>	&value)
 		{
 			if (this == &value) { return(*this); }
 			this->M11 += value.M11;				this->M12 += value.M12;			this->M13 += value.M13;
@@ -162,7 +162,7 @@ namespace Aurora
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> &MATRIX3X3<MatrixType>::operator-=(const MatrixType		&value)
+		Matrix3D<MatrixType> &Matrix3D<MatrixType>::operator-=(const MatrixType		&value)
 		{
 			this->M11 -= value;					this->M12 -= value;				this->M13 -= value;
 			this->M21 -= value;					this->M22 -= value;				this->M23 -= value;
@@ -170,7 +170,7 @@ namespace Aurora
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> &MATRIX3X3<MatrixType>::operator-=(const MATRIX3X3<MatrixType>	&value)
+		Matrix3D<MatrixType> &Matrix3D<MatrixType>::operator-=(const Matrix3D<MatrixType>	&value)
 		{
 			if (this == &value) { return(*this); }
 			this->M11 -= value.M11;				this->M12 -= value.M12;			this->M13 -= value.M13;
@@ -179,9 +179,9 @@ namespace Aurora
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> MATRIX3X3<MatrixType>::operator*(const MatrixType			&value)
+		Matrix3D<MatrixType> Matrix3D<MatrixType>::operator*(const MatrixType			&value)
 		{
-			return(MATRIX3X3(this->M11 * value,	// m00
+			return(Matrix3D(this->M11 * value,	// m00
 				this->M12 * value,	// m01
 				this->M13 * value,	// m02
 				this->M21 * value,	// m10
@@ -193,7 +193,7 @@ namespace Aurora
 				));
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> MATRIX3X3<MatrixType>::operator*(const MATRIX3X3<MatrixType>		&value)
+		Matrix3D<MatrixType> Matrix3D<MatrixType>::operator*(const Matrix3D<MatrixType>		&value)
 		{
 			/*MATRIX3X3 mat;
 			mat.M11 = this->M11 * value.M11 + this->M12 * value.M21 + this->M13 * value.M31;
@@ -207,7 +207,7 @@ namespace Aurora
 			mat.M31 = this->M31 * value.M11 + this->M32 * value.M21 + this->M33 * value.M31;
 			mat.M32 = this->M31 * value.M12 + this->M32 * value.M22 + this->M33 * value.M32;
 			mat.M33 = this->M31 * value.M13 + this->M32 * value.M23 + this->M33 * value.M33;*/
-			return(MATRIX3X3(this->M11 * value.M11 + this->M12 * value.M21 + this->M13 * value.M31,		// m00
+			return(Matrix3D(this->M11 * value.M11 + this->M12 * value.M21 + this->M13 * value.M31,		// m00
 				this->M11 * value.M12 + this->M12 * value.M22 + this->M13 * value.M32,		// m01
 				this->M11 * value.M13 + this->M12 * value.M23 + this->M13 * value.M33,		// m02
 				this->M21 * value.M11 + this->M22 * value.M21 + this->M23 * value.M31,		// m10
@@ -222,7 +222,7 @@ namespace Aurora
 
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> &MATRIX3X3<MatrixType>::operator*=(const MatrixType			&value)
+		Matrix3D<MatrixType> &Matrix3D<MatrixType>::operator*=(const MatrixType			&value)
 		{
 			this->M11 *= value;	this->M12 *= value; this->M13 *= value;
 			this->M21 *= value; this->M22 *= value; this->M23 *= value;
@@ -230,9 +230,9 @@ namespace Aurora
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX3X3<MatrixType> &MATRIX3X3<MatrixType>::operator*=(const MATRIX3X3<MatrixType>		&value)
+		Matrix3D<MatrixType> &Matrix3D<MatrixType>::operator*=(const Matrix3D<MatrixType>		&value)
 		{
-			MATRIX3X3 mat = *this;
+			Matrix3D mat = *this;
 			this->M11 = mat.M11 * value.M11 + mat.M12 * value.M21 + mat.M13 * value.M31;
 			this->M12 = mat.M11 * value.M12 + mat.M12 * value.M22 + mat.M13 * value.M32;
 			this->M13 = mat.M11 * value.M13 + mat.M12 * value.M23 + mat.M13 * value.M33;

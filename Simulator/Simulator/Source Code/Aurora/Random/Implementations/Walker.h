@@ -15,10 +15,10 @@ namespace Aurora {
 		{
 
 		private:
-			VECTOR2D<float> position;
-			VECTOR2D<float> target;
-			VECTOR3D<float> perlinNoiseTime_PositionX;
-			VECTOR3D<float> perlinNoiseTime_PositionY;
+			Vector2D<float> position;
+			Vector2D<float> target;
+			Vector3D<float> perlinNoiseTime_PositionX;
+			Vector3D<float> perlinNoiseTime_PositionY;
 			Float probalitityFactor;
 
 			void MoveWalkerTowardsTarget();
@@ -35,21 +35,21 @@ namespace Aurora {
 
 			virtual void init() override;
 			virtual void init(const Walker &value);
-			virtual void init(const mRECT<float> &areaSize, const VECTOR2D<float> &walkerStartPosition);
+			virtual void init(const mRECT<float> &areaSize, const Vector2D<float> &walkerStartPosition);
 
 		public:
 			Walker();
 			Walker(const mRECT<float> &areaSize);
 			Walker(const Walker &value);
-			Walker(const mRECT<float> &areaSize, const VECTOR2D<float> &walkerStartPosition);
+			Walker(const mRECT<float> &areaSize, const Vector2D<float> &walkerStartPosition);
 			~Walker();
 			Walker(Walker &&value);
 			Walker & operator=(Walker && value);
 			Walker& operator=(const Walker& value);
 
-			void SetTarget(const VECTOR2D<float> &target);
-			const VECTOR2D<float> GetCurentPosition() const;
-			void SetPosition(const VECTOR2D<float> &position);
+			void SetTarget(const Vector2D<float> &target);
+			const Vector2D<float> GetCurentPosition() const;
+			void SetPosition(const Vector2D<float> &position);
 			void SetProbalitiyFactor(Float probalitityFactor);
 
 			
@@ -77,8 +77,8 @@ namespace Aurora {
 			
 
 			virtual void SetWalkerRandomNumberMode(RandomNumberMode randomNumberMode);
-			virtual void RenderWalkerByPosition(const VECTOR2D<float> &position);
-			virtual void SetWalkerTarget(const VECTOR2D<float> &target);
+			virtual void RenderWalkerByPosition(const Vector2D<float> &position);
+			virtual void SetWalkerTarget(const Vector2D<float> &target);
 			virtual void StepWalker();
 
 			virtual std::shared_ptr<Physics::Force<float>> AccessObjectPhysics() const override;

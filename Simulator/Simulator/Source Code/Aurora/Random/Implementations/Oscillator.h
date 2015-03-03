@@ -15,10 +15,10 @@ namespace Aurora {
 		class Oscillator : public RandomBaseComplete, public IPhysicsImplementor<float>
 		{
 			private:
-				VECTOR2D<float> angle;
-				VECTOR2D<float> velocity;
-				VECTOR2D<float> amplitude;
-				VECTOR2D<float> startPosition;
+				Vector2D<float> angle;
+				Vector2D<float> velocity;
+				Vector2D<float> amplitude;
+				Vector2D<float> startPosition;
 				
 				void init(const Oscillator & value);
 				void init(Oscillator && value);
@@ -35,20 +35,20 @@ namespace Aurora {
 				Oscillator(const mRECT<float> &areaSize);
 
 
-				Aurora::Math::VECTOR2D<float> Angle() const {
+				Aurora::Math::Vector2D<float> Angle() const {
 					return angle;
 				}
 				template<typename T>
 				void Angle(T &&value) { angle = std::forward<T>(value); }
 
-				Aurora::Math::VECTOR2D<float> Velocity() const {
+				Aurora::Math::Vector2D<float> Velocity() const {
 					return velocity;
 				}
 
 				template<typename T>
 				void Velocity(T &&value) { velocity = std::forward<T>(value); }
 
-				Aurora::Math::VECTOR2D<float> Amplitude() const {
+				Aurora::Math::Vector2D<float> Amplitude() const {
 					return amplitude;
 				}
 
@@ -59,7 +59,7 @@ namespace Aurora {
 
 				void Oscillate();
 
-				Aurora::Math::VECTOR2D<float> StartPosition() const {
+				Aurora::Math::Vector2D<float> StartPosition() const {
 					return startPosition;
 				}
 				template<typename T>

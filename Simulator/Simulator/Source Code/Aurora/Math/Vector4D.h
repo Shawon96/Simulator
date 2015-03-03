@@ -2,6 +2,7 @@
 #define Vector4D_H
 
 #include "Matrix4D.h"
+#include "Vector3D.h"
 
 using namespace Aurora::DataTypes;
 /*!
@@ -20,121 +21,325 @@ namespace Aurora
 	namespace Math
 	{
 		template<typename VectorType>
-		class VECTOR4D
+		class Vector4D
 		{
 		public:
 			VectorType X;
 			VectorType Y;
 			VectorType Z;
 			VectorType W;
-			VECTOR4D();
-			VECTOR4D(VectorType x, VectorType y, VectorType z, VectorType w);
-			VECTOR4D(const VECTOR4D<VectorType> &value);
-			virtual ~VECTOR4D();
-			VECTOR4D(VECTOR4D<VectorType> &&value);
-			VECTOR4D<VectorType> & operator=(VECTOR4D<VectorType> && value);
-			VECTOR4D<VectorType> &operator=(const VECTOR4D<VectorType>		&value);
+			Vector4D();
+			Vector4D(Vector3D<VectorType>, VectorType w);
+			Vector4D(Vector2D<VectorType>, VectorType z, VectorType w);
+			Vector4D(VectorType x, VectorType y, VectorType z, VectorType w);
+			Vector4D(const Vector4D<VectorType> &value);
+			virtual ~Vector4D();
+			Vector4D(Vector4D<VectorType> &&value);
+			Vector4D<VectorType> & operator=(Vector4D<VectorType> && value);
+			Vector4D<VectorType> &operator=(const Vector4D<VectorType>		&value);
 
 
 #pragma region AdditionAndSubstractionOperators
-			const VECTOR4D<VectorType> operator+(const VectorType			&value);
+			const Vector4D<VectorType> operator+(const VectorType			&value);
 
-			const VECTOR4D<VectorType> operator+(const VECTOR4D<VectorType>		&value);
+			const Vector4D<VectorType> operator+(const Vector4D<VectorType>		&value);
 
-			const VECTOR4D<VectorType> operator-(const VectorType			&value);
+			const Vector4D<VectorType> operator-(const VectorType			&value);
 
-			const VECTOR4D<VectorType> operator-(const VECTOR4D<VectorType>		&value);
+			const Vector4D<VectorType> operator-(const Vector4D<VectorType>		&value);
 
-			VECTOR4D<VectorType> &operator=(const VectorType			&value);
+			Vector4D<VectorType> &operator=(const VectorType			&value);
 
-			VECTOR4D<VectorType> &operator+=(const VectorType		&value);
+			Vector4D<VectorType> &operator+=(const VectorType		&value);
 
-			VECTOR4D<VectorType> &operator+=(const VECTOR4D<VectorType>		&value);
+			Vector4D<VectorType> &operator+=(const Vector4D<VectorType>		&value);
 
-			const VECTOR4D<VectorType> &operator-=(const VectorType		&value);
+			const Vector4D<VectorType> &operator-=(const VectorType		&value);
 
-			const VECTOR4D<VectorType> &operator-=(const VECTOR4D<VectorType>		&value);
+			const Vector4D<VectorType> &operator-=(const Vector4D<VectorType>		&value);
+
+			Vector4D<VectorType> Add(const Vector4D<VectorType>		&value);
+
+			Vector4D<VectorType> Subtract(const Vector4D<VectorType>		&value);
 #pragma endregion AdditionAndSubstractionOperators
 
 #pragma region DivisionAndMultiplicationOperators
 
-			const VECTOR4D<VectorType> operator*(const VectorType		&value);
+			const Vector4D<VectorType> operator*(const VectorType		&value);
 
-			const VectorType operator*(const VECTOR4D<VectorType>		&value);
+			const VectorType operator*(const Vector4D<VectorType>		&value);
 
-			const VECTOR4D<VectorType> &operator*=(const VectorType		&value);
+			const Vector4D<VectorType> &operator*=(const VectorType		&value);
 
-			const VECTOR4D<VectorType> operator/(const VectorType		&value) const;
-			const VECTOR4D<VectorType> &operator/=(const VectorType		&value);
+			const Vector4D<VectorType> operator/(const VectorType		&value) const;
+			const Vector4D<VectorType> &operator/=(const VectorType		&value);
 
-			const VECTOR4D<VectorType> &operator*=(const MATRIX2X2<VectorType>		&value);
+			const Vector4D<VectorType> &operator*=(const Matrix4D<VectorType>		&value);
 
-			const VECTOR4D<VectorType> operator*(const MATRIX2X2<VectorType>		&value);
+			const Vector4D<VectorType> operator*(const Matrix4D<VectorType>		&value);
+
+			Vector4D<VectorType> Multiply(const VectorType &scalar);
+
+			Vector4D<VectorType> MultiplyComponents(const Vector4D<VectorType>		&value);
+
+			Vector4D<VectorType> Divide(const VectorType &scalar);
+
 #pragma endregion DivisionAndMultiplicationOperators
 
 #pragma region ComparisonOperators
-			bool operator==(const VECTOR4D<VectorType>		&value);
+			bool operator==(const Vector4D<VectorType>		&value);
 
-			bool operator!=(const VECTOR4D<VectorType>		&value);
+			bool operator!=(const Vector4D<VectorType>		&value);
 #pragma endregion ComparisonOperators
 
-			void ZeroVector(void);
+			void Zero(void);
 			void Limit(const VectorType &limit);
 			bool IsZero() const;
 			VectorType Magnitude() const;
-			void Normalize();
+			Vector4D<VectorType> Normalize();
 			VectorType Heading();
-			VECTOR4D<VectorType> Clone() const;
-			void Normalize(const VECTOR4D<VectorType> &value);
+			Vector4D<VectorType> Clone() const;
+			Vector4D<VectorType> Normalize(const Vector4D<VectorType> &value);
 
-			static VECTOR4D<VectorType> GetZeroVector(void);
+			static Vector4D<VectorType> GetZero(void);
 
+
+
+			static Vector4D<VectorType> UnitX();
+
+			static Vector4D<VectorType> UnitY();
+
+			static Vector4D<VectorType> UnitZ();
+
+			static Vector4D<VectorType> UnitW();
+
+			static Vector4D<VectorType> Undefined();
+
+
+			Vector2D<VectorType> XY() const;
+			Vector3D<VectorType> XYZ() const;
+			VectorType MagnitudeSquared() const;
+			bool IsUndefined() const;
+			Vector4D<VectorType> Normalize(VectorType &value);
+			Vector4D<VectorType> MostOrthogonalAxis() const;
+			Vector4D<VectorType> Negate() const;
+			bool EqualsEpsilon(const Vector4D<VectorType> &value, double epsilon);
+
+			std::string ToString() const;
+
+			int GetHashCode() const;
+
+			bool Equals(const Vector4D<VectorType> &value) const;
+
+			VectorType Dot(const Vector4D<VectorType> &value);
 		};
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Divide(const VectorType &scalar)
+		{
+			return this / scalar;
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::MultiplyComponents(const Vector4D<VectorType> &value)
+		{
+			return Vector4D<VectorType>(X * scale.X, Y * scale.Y, Z * scale.Z, W * scale.W);
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Multiply(const VectorType &scalar)
+		{
+			return this * scalar;
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Subtract(const Vector4D<VectorType> &value)
+		{
+			return this - value;
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Add(const Vector4D<VectorType> &value)
+		{
+			return this + value;
+		}
+
+		template<typename VectorType>
+		VectorType Aurora::Math::Vector4D<VectorType>::Dot(const Vector4D<VectorType> &value)
+		{
+			return X * value.X + Y * value.Y + Z * value.Z + W * value.W;
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector4D<VectorType>::Equals(const Vector4D<VectorType> &value) const
+		{
+			return(this->X == value.X && this->Y == value.Y && this->Z == value.Z  && this->W == value.W);
+		}
+
+		template<typename VectorType>
+		int Aurora::Math::Vector4D<VectorType>::GetHashCode() const
+		{
+			std::hash<VectorType> hash;
+			return hash(this->X) ^ hash(this->Y) ^ hash(this->Z) ^ hash(this->W);
+		}
+
+		template<typename VectorType>
+		std::string Aurora::Math::Vector4D<VectorType>::ToString() const
+		{
+			return("X:" + std::to_string(this->X) + " Y:" + std::to_string(this->Y) + " Z:" + std::to_string(this->Z) + " W:" + std::to_string(this->W))
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector4D<VectorType>::EqualsEpsilon(const Vector4D<VectorType> &value, double epsilon)
+		{
+			return  (abs(this->X - other.X) <= epsilon) &&
+					(abs(this->Y - other.Y) <= epsilon) &&
+					(abs(this->Z - other.Z) <= epsilon) &&
+					(abs(this->W - other.W) <= epsilon);
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Negate() const
+		{
+			return -this;
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::MostOrthogonalAxis() const
+		{
+			double x = abs(X);
+			double y = abs(Y);
+			double z = abs(Z);
+			double w = abs(W);
+
+			if ((x < y) && (x < z) && (x < w))
+			{
+				return UnitX;
+			}
+			else if ((y < x) && (y < z) && (y < w))
+			{
+				return UnitY;
+			}
+			else if ((z < x) && (z < y) && (z < w))
+			{
+				return UnitZ;
+			}
+			else
+			{
+				return UnitW;
+			}
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Normalize(VectorType &value)
+		{
+			magnitude = this->Magnitude();
+			return this / magnitude;
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector4D<VectorType>::IsUndefined() const
+		{
+			return(isnan(this->X));
+		}
+
+		template<typename VectorType>
+		VectorType Aurora::Math::Vector4D<VectorType>::MagnitudeSquared() const
+		{
+			return this->X * this->X + this->Y * this->Y + this->Z * this->Z + this->W * this->W;
+		}
+
+		template<typename VectorType>
+		Vector3D<VectorType> Aurora::Math::Vector4D<VectorType>::XYZ() const
+		{
+			return Vector3D<VectorType>(X, Y, Z);
+		}
+
+		template<typename VectorType>
+		Vector2D<VectorType> Aurora::Math::Vector4D<VectorType>::XY() const
+		{
+			return Vector2D<VectorType>(X, Y);
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Undefined()
+		{
+			double nanValue;
+			return Vector4D<VectorType>(nanValue, nanValue, nanValue, nanValue);
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::UnitW()
+		{
+			return Vector4D<VectorType>(0.0, 0.0, 0.0, 1.0);
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::UnitZ()
+		{
+			return Vector4D<VectorType>(0.0, 0.0, 1.0, 0.0);
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::UnitY()
+		{
+			return Vector4D<VectorType>(0.0, 1.0, 0.0, 0.0);
+		}
+
+		template<typename VectorType>
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::UnitX()
+		{
+			return Vector4D<VectorType>(1.0, 0.0, 0.0, 0.0);
+		}
 
 
 
 		template<typename VectorType>
-		void Aurora::Math::VECTOR4D<VectorType>::Normalize(const VECTOR4D<VectorType> &value)
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Normalize(const Vector4D<VectorType> &value)
 		{
 			VectorType magnitude = value.Magnitude();
 			if (magnitude != 0)
 				*this = value / magnitude;
+
+			return(*this);
 		}
 
 		template<typename VectorType>
-		VECTOR4D<VectorType> Aurora::Math::VECTOR4D<VectorType>::GetZeroVector(void)
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::GetZero(void)
 		{
-			return(VECTOR4D<VectorType>(0, 0, 0, 0));
+			return(Vector4D<VectorType>(0, 0, 0, 0));
 		}
 
 		template<typename VectorType>
-		VECTOR4D<VectorType> Aurora::Math::VECTOR4D<VectorType>::Clone() const
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Clone() const
 		{
-			return(VECTOR4D<VectorType>(this->X, this->Y, this->Z, this->W));
+			return(Vector4D<VectorType>(this->X, this->Y, this->Z, this->W));
 		}
 
 		template<typename VectorType>
-		VectorType Aurora::Math::VECTOR4D<VectorType>::Heading()
+		VectorType Aurora::Math::Vector4D<VectorType>::Heading()
 		{
 			return(atan(Y, X));
 		}
 
 		template<typename VectorType>
-		void Aurora::Math::VECTOR4D<VectorType>::Normalize()
+		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Normalize()
 		{
 			VectorType magnitude = this->Magnitude();
 			if (magnitude != 0)
 				*this /= magnitude;
+
+			return(*this);
 		}
 
 		template<typename VectorType>
-		VectorType Aurora::Math::VECTOR4D<VectorType>::Magnitude() const
+		VectorType Aurora::Math::Vector4D<VectorType>::Magnitude() const
 		{
 			return(sqrt(this->X*this->X + this->Y*this->Y + this->Z*this->Z + this->W*this->W));
 		}
 
 		template<typename VectorType>
-		bool Aurora::Math::VECTOR4D<VectorType>::IsZero() const
+		bool Aurora::Math::Vector4D<VectorType>::IsZero() const
 		{
 			bool isZero = false;
 
@@ -145,7 +350,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		void Aurora::Math::VECTOR4D<VectorType>::Limit(const VectorType &limit)
+		void Aurora::Math::Vector4D<VectorType>::Limit(const VectorType &limit)
 		{
 			if (this->X > limit) {
 				this->X = limit;
@@ -182,51 +387,44 @@ namespace Aurora
 
 
 		template<typename VectorType>
-		void Aurora::Math::VECTOR4D<VectorType>::ZeroVector(void)
+		void Aurora::Math::Vector4D<VectorType>::Zero(void)
 		{
 			this->X = this->Y = this->Z = this->W = 0;
 		}
 
 		template<typename VectorType>
-		bool Aurora::Math::VECTOR4D<VectorType>::operator!=(const VECTOR4D<VectorType> &value)
+		bool Aurora::Math::Vector4D<VectorType>::operator!=(const Vector4D<VectorType> &value)
 		{
-			bool isEqual = false;
-
-			if (this->X != value.X && this->Y != value.Y && this->Z != value.Z  && this->W != value.W)
-				isEqual = true;
-
-			return(isEqual);
+			return(this->X != value.X && this->Y != value.Y && this->Z != value.Z  && this->W != value.W);
 		}
 
 		template<typename VectorType>
-		bool Aurora::Math::VECTOR4D<VectorType>::operator==(const VECTOR4D<VectorType> &value)
+		bool Aurora::Math::Vector4D<VectorType>::operator==(const Vector4D<VectorType> &value)
 		{
-			bool isEqual = false;
-
-			if (this->X == value.X && this->Y == value.Y && this->Z == value.Z  && this->W == value.W)
-				isEqual = true;
-
-			return(isEqual);
+			return(this->X == value.X && this->Y == value.Y && this->Z == value.Z  && this->W == value.W);
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> Aurora::Math::VECTOR4D<VectorType>::operator*(const MATRIX2X2<VectorType> &value)
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator*(const Matrix4D<VectorType> &value)
 		{
-			return(VECTOR4D<VectorType>(this->X * value.M11 + this->Y * value.M21,
-				this->X * value.M12 + this->Y * value.M22));
+			return(Vector4D<VectorType>(	this->X * value.M11 + this->Y * value.M21 + this->Z * value.M31 + this->W * value.M41,
+								this->X * value.M12 + this->Y * value.M22 + this->Z * value.M32 + this->W * value.M42,
+								this->X * value.M13 + this->Y * value.M23 + this->Z * value.M33 + this->W * value.M43,
+								this->X * value.M14 + this->Y * value.M24 + this->Z * value.M34 + this->W * value.M44));
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> & Aurora::Math::VECTOR4D<VectorType>::operator*=(const MATRIX2X2<VectorType> &value)
+		const Vector4D<VectorType> & Aurora::Math::Vector4D<VectorType>::operator*=(const Matrix4D<VectorType> &value)
 		{
-			this->X = this->X * value.M11 + this->Y * value.M21;
-			this->Y = this->X * value.M12 + this->Y * value.M22;
-
+			this->X = this->X * value.M11 + this->Y * value.M21 + this->Z * value.M31 + this->W * value.M41;
+			this->Y = this->X * value.M12 + this->Y * value.M22 + this->Z * value.M32 + this->W * value.M42;
+			this->Z = this->X * value.M13 + this->Y * value.M23 + this->Z * value.M33 + this->W * value.M43;
+			this->W = this->X * value.M14 + this->Y * value.M24 + this->Z * value.M34 + this->W * value.M44;
 			return(*this);
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> & Aurora::Math::VECTOR4D<VectorType>::operator/=(const VectorType &value)
+		const Vector4D<VectorType> & Aurora::Math::Vector4D<VectorType>::operator/=(const VectorType &value)
 		{
 			this->X /= value;
 			this->Y /= value;
@@ -236,13 +434,13 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> Aurora::Math::VECTOR4D<VectorType>::operator/(const VectorType &value) const
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator/(const VectorType &value) const
 		{
-			return(VECTOR4D<VectorType>(this->X / value, this->Y / value, this->Z / value, this->W / value));
+			return(Vector4D<VectorType>(this->X / value, this->Y / value, this->Z / value, this->W / value));
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> & Aurora::Math::VECTOR4D<VectorType>::operator*=(const VectorType &value)
+		const Vector4D<VectorType> & Aurora::Math::Vector4D<VectorType>::operator*=(const VectorType &value)
 		{
 			this->X *= value;
 			this->Y *= value;
@@ -252,19 +450,19 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		const VectorType Aurora::Math::VECTOR4D<VectorType>::operator*(const VECTOR4D<VectorType> &value)
+		const VectorType Aurora::Math::Vector4D<VectorType>::operator*(const Vector4D<VectorType> &value)
 		{
 			return((this->X * value.X) + (this->Y * value.Y) + (this->Z * value.Z) + (this->W * value.W));
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> Aurora::Math::VECTOR4D<VectorType>::operator*(const VectorType &value)
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator*(const VectorType &value)
 		{
-			return(VECTOR4D<VectorType>(this->X * value, this->Y * value, this->Z * value, this->W * value));
+			return(Vector4D<VectorType>(this->X * value, this->Y * value, this->Z * value, this->W * value));
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> & Aurora::Math::VECTOR4D<VectorType>::operator-=(const VECTOR4D<VectorType> &value)
+		const Vector4D<VectorType> & Aurora::Math::Vector4D<VectorType>::operator-=(const Vector4D<VectorType> &value)
 		{
 			if (this == &value) { return(*this); }
 			this->X -= value.X;
@@ -275,7 +473,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> & Aurora::Math::VECTOR4D<VectorType>::operator-=(const VectorType &value)
+		const Vector4D<VectorType> & Aurora::Math::Vector4D<VectorType>::operator-=(const VectorType &value)
 		{
 			this->X -= value;
 			this->Y -= value;
@@ -285,7 +483,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VECTOR4D<VectorType> & Aurora::Math::VECTOR4D<VectorType>::operator+=(const VECTOR4D<VectorType> &value)
+		Vector4D<VectorType> & Aurora::Math::Vector4D<VectorType>::operator+=(const Vector4D<VectorType> &value)
 		{
 			if (this == &value) { return(*this); }
 			this->X += value.X;
@@ -296,7 +494,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VECTOR4D<VectorType> & Aurora::Math::VECTOR4D<VectorType>::operator+=(const VectorType &value)
+		Vector4D<VectorType> & Aurora::Math::Vector4D<VectorType>::operator+=(const VectorType &value)
 		{
 			this->X += value;
 			this->Y += value;
@@ -306,7 +504,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VECTOR4D<VectorType> & Aurora::Math::VECTOR4D<VectorType>::operator=(const VectorType &value)
+		Vector4D<VectorType> & Aurora::Math::Vector4D<VectorType>::operator=(const VectorType &value)
 		{
 			this->X = value;
 			this->Y = value;
@@ -317,33 +515,33 @@ namespace Aurora
 
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> Aurora::Math::VECTOR4D<VectorType>::operator-(const VECTOR4D<VectorType> &value)
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator-(const Vector4D<VectorType> &value)
 		{
-			return(VECTOR4D<VectorType>(this->X - value.X, this->Y - value.Y, this->Z - value.Z, this->W - value.W));
+			return(Vector4D<VectorType>(this->X - value.X, this->Y - value.Y, this->Z - value.Z, this->W - value.W));
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> Aurora::Math::VECTOR4D<VectorType>::operator-(const VectorType &value)
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator-(const VectorType &value)
 		{
-			return(VECTOR4D<VectorType>(this->X - value, this->Y - value, this->Z - value, this->W - value));
+			return(Vector4D<VectorType>(this->X - value, this->Y - value, this->Z - value, this->W - value));
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> Aurora::Math::VECTOR4D<VectorType>::operator+(const VECTOR4D<VectorType> &value)
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator+(const Vector4D<VectorType> &value)
 		{
-			return(VECTOR4D<VectorType>(this->X + value.X, this->Y + value.Y, this->Z + value.Z, this->W + value.W));
+			return(Vector4D<VectorType>(this->X + value.X, this->Y + value.Y, this->Z + value.Z, this->W + value.W));
 		}
 
 		template<typename VectorType>
-		const VECTOR4D<VectorType> Aurora::Math::VECTOR4D<VectorType>::operator+(const VectorType &value)
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator+(const VectorType &value)
 		{
 
-			return(VECTOR4D<VectorType>(this->X + value, this->Y + value, this->Z + value, this->W + valu));
+			return(Vector4D<VectorType>(this->X + value, this->Y + value, this->Z + value, this->W + valu));
 		}
 
 
 		template<typename VectorType>
-		VECTOR4D<VectorType> & Aurora::Math::VECTOR4D<VectorType>::operator=(const VECTOR4D<VectorType> &value)
+		Vector4D<VectorType> & Aurora::Math::Vector4D<VectorType>::operator=(const Vector4D<VectorType> &value)
 		{
 			if (this == &value)
 				return *this;
@@ -356,7 +554,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VECTOR4D<VectorType> & Aurora::Math::VECTOR4D<VectorType>::operator=(VECTOR4D<VectorType> && value)
+		Vector4D<VectorType> & Aurora::Math::Vector4D<VectorType>::operator=(Vector4D<VectorType> && value)
 		{
 			if (this == &value)
 				return *this;
@@ -369,30 +567,30 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		Aurora::Math::VECTOR4D<VectorType>::VECTOR4D(VECTOR4D<VectorType> &&value) : X(std::move(value.X)), Y(std::move(value.Y)), Z(std::move(value.Z)), W(std::move(value.W))
+		Aurora::Math::Vector4D<VectorType>::Vector4D(Vector4D<VectorType> &&value) : X(std::move(value.X)), Y(std::move(value.Y)), Z(std::move(value.Z)), W(std::move(value.W))
 		{
 
 		}
 
 		template<typename VectorType>
-		Aurora::Math::VECTOR4D<VectorType>::~VECTOR4D()
+		Aurora::Math::Vector4D<VectorType>::~Vector4D()
 		{
 
 		}
 
 		template<typename VectorType>
-		Aurora::Math::VECTOR4D<VectorType>::VECTOR4D(const VECTOR4D<VectorType> &value) : X(value.X), Y(value.Y), Z(value.Z), W(value.W)
+		Aurora::Math::Vector4D<VectorType>::Vector4D(const Vector4D<VectorType> &value) : X(value.X), Y(value.Y), Z(value.Z), W(value.W)
 		{
 
 		}
 
 		template<typename VectorType>
-		Aurora::Math::VECTOR4D<VectorType>::VECTOR4D(VectorType x, VectorType y, VectorType z, VectorType w) : X(x), Y(y), Z(z), W(w)
+		Aurora::Math::Vector4D<VectorType>::Vector4D(VectorType x, VectorType y, VectorType z, VectorType w) : X(x), Y(y), Z(z), W(w)
 		{
 		}
 
 		template<typename VectorType>
-		Aurora::Math::VECTOR4D<VectorType>::VECTOR4D() : X(0), Y(0), Z(0), W(0)
+		Aurora::Math::Vector4D<VectorType>::Vector4D() : X(0), Y(0), Z(0), W(0)
 		{
 
 		}

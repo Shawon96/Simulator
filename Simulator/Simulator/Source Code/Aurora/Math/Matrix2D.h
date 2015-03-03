@@ -14,99 +14,99 @@ namespace Aurora
 	namespace Math
 	{
 		template<typename MatrixType>
-		class MATRIX2X2
+		class Matrix2D
 		{
 		public:
-			MATRIX2X2();
-			MATRIX2X2(MatrixType m00, MatrixType m01, MatrixType m10, MatrixType m11);
-			MATRIX2X2(const MATRIX2X2<MatrixType> &mat);
-			~MATRIX2X2();
+			Matrix2D();
+			Matrix2D(MatrixType m00, MatrixType m01, MatrixType m10, MatrixType m11);
+			Matrix2D(const Matrix2D<MatrixType> &mat);
+			~Matrix2D();
 			MatrixType M11, M12;
 			MatrixType M21, M22;
 
-			MATRIX2X2<MatrixType> operator+(const MatrixType				&value);
-			MATRIX2X2<MatrixType> operator+(const MATRIX2X2<MatrixType>			&value);
+			Matrix2D<MatrixType> operator+(const MatrixType				&value);
+			Matrix2D<MatrixType> operator+(const Matrix2D<MatrixType>			&value);
 
-			MATRIX2X2<MatrixType> operator-(const MatrixType				&value);
-			MATRIX2X2<MatrixType> operator-(const MATRIX2X2<MatrixType>			&value);
+			Matrix2D<MatrixType> operator-(const MatrixType				&value);
+			Matrix2D<MatrixType> operator-(const Matrix2D<MatrixType>			&value);
 
-			MATRIX2X2<MatrixType> &operator=(const MATRIX2X2<MatrixType>		&value);
+			Matrix2D<MatrixType> &operator=(const Matrix2D<MatrixType>		&value);
 
-			MATRIX2X2<MatrixType> &operator+=(const MatrixType			&value);
-			MATRIX2X2<MatrixType> &operator+=(const MATRIX2X2<MatrixType>		&value);
+			Matrix2D<MatrixType> &operator+=(const MatrixType			&value);
+			Matrix2D<MatrixType> &operator+=(const Matrix2D<MatrixType>		&value);
 
-			MATRIX2X2<MatrixType> &operator-=(const MatrixType			&value);
-			MATRIX2X2<MatrixType> &operator-=(const MATRIX2X2<MatrixType>		&value);
+			Matrix2D<MatrixType> &operator-=(const MatrixType			&value);
+			Matrix2D<MatrixType> &operator-=(const Matrix2D<MatrixType>		&value);
 
-			MATRIX2X2<MatrixType> operator*(const MatrixType				&value);
-			MATRIX2X2<MatrixType> operator*(const MATRIX2X2<MatrixType>			&value);
+			Matrix2D<MatrixType> operator*(const MatrixType				&value);
+			Matrix2D<MatrixType> operator*(const Matrix2D<MatrixType>			&value);
 
-			MATRIX2X2<MatrixType> &operator*=(const MatrixType			&value);
-			MATRIX2X2<MatrixType> &operator*=(const MATRIX2X2<MatrixType>		&value);
+			Matrix2D<MatrixType> &operator*=(const MatrixType			&value);
+			Matrix2D<MatrixType> &operator*=(const Matrix2D<MatrixType>		&value);
 
 		protected:
 		};
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType>::MATRIX2X2()
+		Matrix2D<MatrixType>::Matrix2D()
 		{
 			this->M11 = 0; this->M12 = 0;
 			this->M21 = 0; this->M22 = 0;
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType>::MATRIX2X2(MatrixType m00, MatrixType m01, MatrixType m10, MatrixType m11)
+		Matrix2D<MatrixType>::Matrix2D(MatrixType m00, MatrixType m01, MatrixType m10, MatrixType m11)
 		{
 			this->M11 = m00;		this->M12 = m01;
 			this->M21 = m10;		this->M22 = m11;
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType>::MATRIX2X2(const MATRIX2X2<MatrixType> &mat)
+		Matrix2D<MatrixType>::Matrix2D(const Matrix2D<MatrixType> &mat)
 		{
 			this->M11 = mat.M11;	this->M12 = mat.M12;
 			this->M21 = mat.M21;	this->M22 = mat.M22;
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType>::~MATRIX2X2()
+		Matrix2D<MatrixType>::~Matrix2D()
 		{
 
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> MATRIX2X2<MatrixType>::operator+(const MatrixType			&value)
+		Matrix2D<MatrixType> Matrix2D<MatrixType>::operator+(const MatrixType			&value)
 		{
 			/*MATRIX2X2 mat;
 			mat.M11 = this->M11 + value;		mat.M12 = this->M12 + value;
 			mat.M21 = this->M21 + value;		mat.M22 = this->M22 + value;
 			return(mat);*/
-			return(MATRIX2X2(this->M11 + value, this->M12 + value, this->M21 + value, this->M22 + value));
+			return(Matrix2D(this->M11 + value, this->M12 + value, this->M21 + value, this->M22 + value));
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> MATRIX2X2<MatrixType>::operator+(const MATRIX2X2<MatrixType>		&value)
+		Matrix2D<MatrixType> Matrix2D<MatrixType>::operator+(const Matrix2D<MatrixType>		&value)
 		{
 			/*MATRIX2X2 mat;
 			mat.M11 = this->M11 + value.M11;	mat.M12 = this->M12 + value.M12;
 			mat.M21 = this->M21 + value.M21;	mat.M22 = this->M22 + value.M22;
 			return(mat);*/
-			return(MATRIX2X2(this->M11 + value.M11, this->M12 + value.M12, this->M21 + value.M21, this->M22 + value.M22));
+			return(Matrix2D(this->M11 + value.M11, this->M12 + value.M12, this->M21 + value.M21, this->M22 + value.M22));
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> MATRIX2X2<MatrixType>::operator-(const MatrixType			&value)
+		Matrix2D<MatrixType> Matrix2D<MatrixType>::operator-(const MatrixType			&value)
 		{
 			/*MATRIX2X2 mat;
 			mat.M11 = this->M11 - value;		mat.M12 = this->M12 - value;
 			mat.M21 = this->M21 - value;		mat.M22 = this->M22 - value;
 			return(mat);*/
-			return(MATRIX2X2(this->M11 - value, this->M12 - value, this->M21 - value, this->M22 - value));
+			return(Matrix2D(this->M11 - value, this->M12 - value, this->M21 - value, this->M22 - value));
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> MATRIX2X2<MatrixType>::operator-(const MATRIX2X2<MatrixType>		&value)
+		Matrix2D<MatrixType> Matrix2D<MatrixType>::operator-(const Matrix2D<MatrixType>		&value)
 		{
 			/*MATRIX2X2 mat;
 			mat.M11 = this->M11 - value.M11;	mat.M12 = this->M12 - value.M12;
 			mat.M21 = this->M21 - value.M21;	mat.M22 = this->M22 - value.M22;
 			return(mat);*/
-			return(MATRIX2X2(this->M11 - value.M11, this->M12 - value.M12, this->M21 - value.M21, this->M22 - value.M22));
+			return(Matrix2D(this->M11 - value.M11, this->M12 - value.M12, this->M21 - value.M21, this->M22 - value.M22));
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> &MATRIX2X2<MatrixType>::operator=(const MATRIX2X2<MatrixType>		&value)
+		Matrix2D<MatrixType> &Matrix2D<MatrixType>::operator=(const Matrix2D<MatrixType>		&value)
 		{
 			if (this == &value) { return(*this); }
 			this->M11 = value.M11;				this->M12 = value.M12;
@@ -114,14 +114,14 @@ namespace Aurora
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> &MATRIX2X2<MatrixType>::operator+=(const MatrixType		&value)
+		Matrix2D<MatrixType> &Matrix2D<MatrixType>::operator+=(const MatrixType		&value)
 		{
 			this->M11 += value;					this->M12 += value;
 			this->M21 += value;					this->M22 += value;
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> &MATRIX2X2<MatrixType>::operator+=(const MATRIX2X2<MatrixType>	&value)
+		Matrix2D<MatrixType> &Matrix2D<MatrixType>::operator+=(const Matrix2D<MatrixType>	&value)
 		{
 			if (this == &value) { return(*this); }
 			this->M11 += value.M11;				this->M12 += value.M12;
@@ -129,14 +129,14 @@ namespace Aurora
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> &MATRIX2X2<MatrixType>::operator-=(const MatrixType		&value)
+		Matrix2D<MatrixType> &Matrix2D<MatrixType>::operator-=(const MatrixType		&value)
 		{
 			this->M11 -= value;					this->M12 -= value;
 			this->M21 -= value;					this->M22 -= value;
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> &MATRIX2X2<MatrixType>::operator-=(const MATRIX2X2<MatrixType>	&value)
+		Matrix2D<MatrixType> &Matrix2D<MatrixType>::operator-=(const Matrix2D<MatrixType>	&value)
 		{
 			if (this == &value) { return(*this); }
 			this->M11 -= value.M11;				this->M12 -= value.M12;
@@ -144,37 +144,37 @@ namespace Aurora
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> MATRIX2X2<MatrixType>::operator*(const MatrixType			&value)
+		Matrix2D<MatrixType> Matrix2D<MatrixType>::operator*(const MatrixType			&value)
 		{
 			/*MATRIX2X2 mat;
 			mat.M11 = this->M11 * value;		mat.M12 = this->M12 * value;
 			mat.M21 = this->M21 * value;		mat.M22 = this->M22 * value;
 			return(mat);*/
-			return(MATRIX2X2(this->M11 * value, this->M12 * value, this->M21 * value, this->M22 * value));
+			return(Matrix2D(this->M11 * value, this->M12 * value, this->M21 * value, this->M22 * value));
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> MATRIX2X2<MatrixType>::operator*(const MATRIX2X2<MatrixType>		&value)
+		Matrix2D<MatrixType> Matrix2D<MatrixType>::operator*(const Matrix2D<MatrixType>		&value)
 		{
 			/*MATRIX2X2 mat;
 			mat.M11 = this->M11 * value.M11 + this->M12 * value.M21;		mat.M12 = this->M11 * value.M12 + this->M12 * value.M22;
 			mat.M21 = this->M21 * value.M11 + this->M22 * value.M21;		mat.M22 = this->M21 * value.M12 + this->M22 * value.M22;
 			return(mat);*/
-			return(MATRIX2X2(this->M11 * value.M11 + this->M12 * value.M21,
+			return(Matrix2D(this->M11 * value.M11 + this->M12 * value.M21,
 				this->M11 * value.M12 + this->M12 * value.M22,
 				this->M21 * value.M11 + this->M22 * value.M21,
 				this->M21 * value.M12 + this->M22 * value.M22));
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> &MATRIX2X2<MatrixType>::operator*=(const MatrixType			&value)
+		Matrix2D<MatrixType> &Matrix2D<MatrixType>::operator*=(const MatrixType			&value)
 		{
 			this->M11 *= value;	this->M12 *= value;
 			this->M21 *= value; this->M22 *= value;
 			return(*this);
 		}
 		template<typename MatrixType>
-		MATRIX2X2<MatrixType> &MATRIX2X2<MatrixType>::operator*=(const MATRIX2X2<MatrixType>		&value)
+		Matrix2D<MatrixType> &Matrix2D<MatrixType>::operator*=(const Matrix2D<MatrixType>		&value)
 		{
-			MATRIX2X2 mat = *this;
+			Matrix2D mat = *this;
 			this->M11 = mat.M11 * value.M11 + mat.M12 * value.M21;		this->M12 = mat.M11 * value.M12 + mat.M12 * value.M22;
 			this->M21 = mat.M21 * value.M11 + mat.M22 * value.M21;		this->M22 = mat.M21 * value.M12 + mat.M22 * value.M22;
 			return(*this);
