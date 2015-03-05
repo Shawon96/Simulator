@@ -312,6 +312,18 @@
     <ClInclude Include="Source Code\Aurora\Math\Geometry\GeometryOperations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\RendererOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Device.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Context.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\GraphicsWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source Code\Aurora\Errors\ErrorMessages.cpp">
@@ -510,6 +522,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source Code\Aurora\Math\Geometry\Ellipsoid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\Aurora\Renderer\Device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\Aurora\Renderer\Context.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -122,6 +122,10 @@
     <ClInclude Include="Source Code\Aurora\Random\Implementations\Oscillator.h" />
     <ClInclude Include="Source Code\Aurora\Random\Implementations\Walker.h" />
     <ClInclude Include="Source Code\Aurora\Random\RandomOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Renderer\Context.h" />
+    <ClInclude Include="Source Code\Aurora\Renderer\Device.h" />
+    <ClInclude Include="Source Code\Aurora\Renderer\GraphicsWindow.h" />
+    <ClInclude Include="Source Code\Aurora\Renderer\RendererOperations.h" />
     <ClInclude Include="Source Code\Perlin Noise\noise\src\basictypes.h" />
     <ClInclude Include="Source Code\Perlin Noise\noise\src\exception.h" />
     <ClInclude Include="Source Code\Perlin Noise\noise\src\interp.h" />
@@ -199,6 +203,8 @@
     <ClCompile Include="Source Code\Aurora\Random\Implementations\Mover.cpp" />
     <ClCompile Include="Source Code\Aurora\Random\Implementations\Oscillator.cpp" />
     <ClCompile Include="Source Code\Aurora\Random\Implementations\Walker.cpp" />
+    <ClCompile Include="Source Code\Aurora\Renderer\Context.cpp" />
+    <ClCompile Include="Source Code\Aurora\Renderer\Device.cpp" />
     <ClCompile Include="Source Code\Perlin Noise\noise\src\latlon.cpp" />
     <ClCompile Include="Source Code\Perlin Noise\noise\src\model\cylinder.cpp" />
     <ClCompile Include="Source Code\Perlin Noise\noise\src\model\line.cpp" />

@@ -14,12 +14,18 @@ namespace Aurora
 
 			GeodeticExtent::GeodeticExtent(double west, double south, double east, double north)
 			{
-
+				west = west;
+				south = south;
+				east = east;
+				north = north;
 			}
 
 			GeodeticExtent::GeodeticExtent(const Geodetic2D &bottomLeft, const Geodetic2D &topRight)
 			{
-
+				west = bottomLeft.Longitude();
+				south = bottomLeft.Latitude();
+				east = topRight.Longitude();
+				north = topRight.Latitude();
 			}
 
 			GeodeticExtent::~GeodeticExtent()
@@ -29,23 +35,23 @@ namespace Aurora
 
 			bool GeodeticExtent::Equals(const GeodeticExtent &other)
 			{
-				return true;
-
+				return west == other.west && south == other.south && east == other.east && north == other.north;
 			}
 
 			bool GeodeticExtent::operator==(const GeodeticExtent &right)
 			{
-				return true;
+				return this->Equals(right);
 			}
 
 			bool GeodeticExtent::operator!=(const GeodeticExtent &right)
 			{
-				return true;
+				return !this->Equals(right);
 			}
 
 			int GeodeticExtent::GetHashCode()
 			{
-				return 0;
+				std::hash<double> doubleHash;
+				return doubleHash(this->west) ^ doubleHash(this->east) ^ doubleHash(this->north) ^ doubleHash(this->south);
 			}
 
 		}

@@ -46,6 +46,13 @@ namespace Aurora
 
 		protected:
 		};
+
+		using Matrix2DBool = Matrix2D < bool >;
+		using Matrix2DDouble = Matrix2D < double >;
+		using Matrix2DFloat = Matrix2D < float >;
+		using Matrix2DInt = Matrix2D < int >;
+		using Matrix2DHalfPrecision = Matrix2D < half_float::half >;
+
 		template<typename MatrixType>
 		Matrix2D<MatrixType>::Matrix2D()
 		{

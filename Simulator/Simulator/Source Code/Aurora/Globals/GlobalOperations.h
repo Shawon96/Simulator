@@ -65,6 +65,102 @@ namespace Aurora
 	namespace Global
 	{
 
+		template<typename T1>
+		class Event
+		{
+			public:
+				typedef std::function<void(T1)> Func;
+
+			public:
+				void Call(T1 arg)
+				{
+					for (auto i = m_handlers.begin(); i != m_handlers.end(); i++)
+					{
+						(*i)(arg);
+					}
+				}
+
+				void operator ()(T1 arg)
+				{
+					Call(arg);
+				}
+
+				Event& operator += (Func f)
+				{
+					if (typeid(f) != typeid(Func))
+						throw std::bad_function_call("Error in type");
+
+					m_handlers.push_back(f);
+					return *this;
+				}
+
+				Event& operator -= (Func f)
+				{
+					for (auto i = m_handlers.begin(); i != m_handlers.end(); i++)
+					{
+						if ((*i).target<void(T1)>() == f.target<void(T1)>())
+						{
+							m_handlers.erase(i);
+							break;
+						}
+					}
+
+					return *this;
+				}
+
+			private:
+				std::vector<Func> m_handlers;
+		};
+
+		/*template<typename returnType, typename T1>
+		class EventReturnType
+		{
+		public:
+			typedef std::function<returnType(T1)> Func;
+
+		public:
+			returnType Call(T1 arg)
+			{
+				for (auto i = m_handlers.begin(); i != m_handlers.end(); i++)
+				{
+					return((returnType)(*i)(arg));
+				}
+			}
+
+			returnType operator ()(T1 arg)
+			{
+				return(Call(arg));
+			}
+
+			EventReturnType& operator += (Func f)
+			{
+				if (typeid(f) != typeid(Func))
+					throw std::bad_function_call("Error in type");
+
+				m_handlers.push_back(f);
+				return *this;
+			}
+
+			EventReturnType& operator -= (Func f)
+			{
+				for (auto i = m_handlers.begin(); i != m_handlers.end(); i++)
+				{
+					if ((*i).target<returnType(T1)>() == f.target<returnType(T1)>())
+					{
+						m_handlers.erase(i);
+						break;
+					}
+				}
+
+				return *this;
+			}
+
+		private:
+			std::vector<Func> m_handlers;
+		};*/
+
+		
+
 		//###################################################################################
 		// Code for lambda callbacks from: http://meh.schizofreni.co/programming/magic/2013/01/23/function-pointer-from-lambda.html
 		// START

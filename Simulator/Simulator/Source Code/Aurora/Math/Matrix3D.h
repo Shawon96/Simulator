@@ -47,6 +47,13 @@ namespace Aurora
 
 		protected:
 		};
+
+		using Matrix3DBool = Matrix3D < bool >;
+		using Matrix3DDouble = Matrix3D < double >;
+		using Matrix3DFloat = Matrix3D < float >;
+		using Matrix3DInt = Matrix3D < int >;
+		using Matrix3DHalfPrecision = Matrix3D < half_float::half >;
+
 		template<typename MatrixType>
 		Matrix3D<MatrixType>::Matrix3D()
 		{

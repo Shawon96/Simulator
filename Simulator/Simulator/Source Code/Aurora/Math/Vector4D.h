@@ -134,6 +134,12 @@ namespace Aurora
 			VectorType Dot(const Vector4D<VectorType> &value);
 		};
 
+		using Vector4DBool = Vector4D < bool >;
+		using Vector4DDouble = Vector4D < double >;
+		using Vector4DFloat = Vector4D < float >;
+		using Vector4DInt = Vector4D < int >;
+		using Vector4DHalfPrecision = Vector4D < half_float::half >;
+
 		template<typename VectorType>
 		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Divide(const VectorType &scalar)
 		{

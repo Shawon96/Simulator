@@ -22,9 +22,9 @@ namespace Aurora
 					Vector3D<double> radiiToTheFourth;
 					Vector3D<double> oneOverRadiiSquared;
 			public:
-					const static Ellipsoid Wgs84;
-					const static Ellipsoid ScaledWgs84;
-					const static Ellipsoid UnitSphere;
+				static Ellipsoid Wgs84;
+				static Ellipsoid ScaledWgs84;
+				static Ellipsoid UnitSphere;
 
 					Vector3D<double> Radii() const {
 						return radii;

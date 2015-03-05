@@ -329,6 +329,12 @@ namespace Aurora
 				return positions;
 			}
 
+			Aurora::Math::Geometry::Ellipsoid Ellipsoid::UnitSphere = Ellipsoid(1.0, 1.0, 1.0);
+
+			Aurora::Math::Geometry::Ellipsoid Ellipsoid::ScaledWgs84 = Ellipsoid(1.0, 1.0, 6356752.314245 / 6378137.0);
+
+			Aurora::Math::Geometry::Ellipsoid Ellipsoid::Wgs84 = Aurora::Math::Geometry::Ellipsoid(6378137.0, 6378137.0, 6356752.314245);
+
 		}
 	}
 }

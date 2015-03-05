@@ -18,7 +18,6 @@ namespace Aurora
 					double south;
 					double east;
 					double north;
-
 				public:
 					GeodeticExtent();
 					GeodeticExtent(double west, double south, double east, double north);
@@ -29,6 +28,46 @@ namespace Aurora
 					bool operator==(const GeodeticExtent &right);
 					bool operator!=(const GeodeticExtent &right);
 					int GetHashCode();
+
+					double West() const {
+						return west;
+					}
+					template<typename T>
+					void West(T &&value) {
+						static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+
+						west = std::forward<T>(value);
+					}
+
+					double South() const {
+						return south;
+					}
+					template<typename T>
+					void South(T &&value) {
+						static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+
+						south = std::forward<T>(value);
+					}
+
+					double East() const {
+						return east;
+					}
+					template<typename T>
+					void East(T &&value) {
+						static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+
+						east = std::forward<T>(value);
+					}
+
+					double North() const {
+						return north;
+					}
+					template<typename T>
+					void North(T &&value) {
+						static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+
+						north = std::forward<T>(value);
+					}
 			};
 		}
 	}

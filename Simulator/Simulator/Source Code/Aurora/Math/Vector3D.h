@@ -130,6 +130,12 @@ namespace Aurora
 			Vector3D<VectorType> RotateAroundAxis(const Vector3D<VectorType> &axis, double theta);
 		};
 
+		using Vector3DBool = Vector3D < bool >;
+		using Vector3DDouble = Vector3D < double >;
+		using Vector3DFloat = Vector3D < float >;
+		using Vector3DInt = Vector3D < int >;
+		using Vector3DHalfPrecision = Vector3D < half_float::half >;
+
 		template<typename VectorType>
 		Vector3D<VectorType> Aurora::Math::Vector3D<VectorType>::RotateAroundAxis(const Vector3D<VectorType> &axis, double theta)
 		{

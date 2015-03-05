@@ -15,5 +15,6 @@
 #include "Engine\EngineOperations.h"
 #include "Errors\ErrorOperations.h"
 #include "Math\Globe\GlobeOperations.h"
+#include "Renderer\RendererOperations.h"
 
 #endif

@@ -19,6 +19,8 @@ namespace Aurora
 	*/
 	namespace Math
 	{
+		
+
 		template<typename VectorType>
 		class Vector2D
 		{
@@ -118,6 +120,12 @@ namespace Aurora
 
 			VectorType Dot(const Vector2D<VectorType> &value);
 		};
+		using Vector2DBool = Vector2D < bool >;
+		using Vector2DDouble = Vector2D < double >;
+		using Vector2DFloat = Vector2D < float >;
+		using Vector2DInt = Vector2D < int >;
+		using Vector2DHalfPrecision = Vector2D < half_float::half >;
+
 
 		template<typename VectorType>
 		Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::Divide(const VectorType &scalar)

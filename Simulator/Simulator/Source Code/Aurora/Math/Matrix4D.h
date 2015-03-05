@@ -122,6 +122,12 @@ namespace Aurora
 		protected:
 		};
 
+		using Matrix4DBool = Matrix4D < bool >;
+		using Matrix4DDouble = Matrix4D < double >;
+		using Matrix4DFloat = Matrix4D < float >;
+		using Matrix4DInt = Matrix4D < int >;
+		using Matrix4DHalfPrecision = Matrix4D < half_float::half >;
+
 		template<typename MatrixType>
 		Matrix4D<MatrixType>::Matrix4D()
 		{
