@@ -42,7 +42,7 @@ namespace Aurora
 				}
 				template<typename T>
 				void Longitude(T &&value) {
-					static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+					
 
 					longitude = std::forward<T>(value);
 				}
@@ -52,7 +52,7 @@ namespace Aurora
 				}
 				template<typename T>
 				void Latitude(T &&value) {
-					static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+					
 
 					latitude = std::forward<T>(value);
 				}
@@ -62,7 +62,7 @@ namespace Aurora
 				}
 				template<typename T>
 				void Height(T &&value) {
-					static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+					
 
 					height = std::forward<T>(value);
 				}

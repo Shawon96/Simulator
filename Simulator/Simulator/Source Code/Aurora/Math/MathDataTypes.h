@@ -32,20 +32,99 @@ namespace Aurora
 				mRECT();
 				mRECT(Type width, Type height);
 				~mRECT();
-				mRECT(const mRECT &value);
-				mRECT & operator=(const mRECT & value);
-				mRECT(mRECT &&value);
-				mRECT & operator=(mRECT && value);
+				mRECT(const mRECT<Type> &value);
+				mRECT & operator=(const mRECT<Type> & value);
+				mRECT(mRECT<Type> &&value);
+				mRECT & operator=(mRECT<Type> && value);
 
 				Type Width;
 				Type Height;
 
-				bool operator==(const mRECT		&value);
+				bool operator==(const mRECT<Type>		&value);
 
-				bool operator!=(const mRECT		&value);
+				bool operator!=(const mRECT<Type>		&value);
 
 				bool IsZero() const;
 			};
+
+			template<typename Type>
+			class Rectangle
+			{
+			private:
+				Vector2D<Type> point;
+				mRECT<Type> size;
+			public:
+				Rectangle();
+				Rectangle(Type x, Type y, Type heigh, Type width);
+				Rectangle(const Vector2D<Type> &point, const mRECT<Type> &size);
+				Rectangle<Type> & operator=(const Rectangle<Type> & value);
+				Rectangle(Rectangle<Type> &&value);
+				Rectangle<Type> & operator=(Rectangle<Type> && value);
+				virtual ~Rectangle();
+
+				Vector2D<Type> Point() const {
+					return point;
+				}
+				template<typename T>
+				void Point(T &&value) {
+					point = std::forward<T>(value);
+				}
+
+				mRECT<Type> Size() const {
+					return size;
+				}
+				template<typename T>
+				void Size(T &&value) {
+					size = std::forward<T>(value);
+				}
+			};
+
+			template<typename Type>
+			Rectangle<Type> & Aurora::Math::Rectangle<Type>::operator=(Rectangle<Type> && value)
+			{
+				if (this == &value) { return(*this); }
+				this->point = std::move(value.Point());
+				this->size = std::move(value.Size());
+				return(*this);
+			}
+
+			template<typename Type>
+			Aurora::Math::Rectangle<Type>::Rectangle(Rectangle<Type> &&value) : point(std::move(value.Point())), size(std::move(value.Size()))
+			{
+
+			}
+
+			template<typename Type>
+			Rectangle<Type> & Aurora::Math::Rectangle<Type>::operator=(const Rectangle<Type> & value)
+			{
+				if (this == &value) { return(*this); }
+				this->point = value.Point();
+				this->size = value.Size();
+				return(*this);
+			}
+
+			template<typename Type>
+			Aurora::Math::Rectangle<Type>::~Rectangle()
+			{
+
+			}
+
+			template<typename Type>
+			Aurora::Math::Rectangle<Type>::Rectangle(const Vector2D<Type> &point, const mRECT<Type> &size) : point(point), size(size)
+			{
+			}
+
+			template<typename Type>
+			Aurora::Math::Rectangle<Type>::Rectangle(Type x, Type y, Type heigh, Type width) : Rectangle(Vector2D<Type>(x, y), mRECT<Type>(width, heigh))
+			{
+
+			}
+
+			template<typename Type>
+			Aurora::Math::Rectangle<Type>::Rectangle() : point(Vector2D<Type>::GetZero()), size(mRECT<Type>())
+			{
+
+			}
 
 			/*!
 				\brief Datatype for a 2D parametric line

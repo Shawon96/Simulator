@@ -236,8 +236,8 @@ namespace Aurora {
 		{
 			this->SetConstrainsRange(mRECT<float>(0, 0));
 			this->target.Zero();
-			this->perlinNoiseTime_PositionX = Vector3D<float>(0, 0, 0);
-			this->perlinNoiseTime_PositionY = Vector3D<float>(10000, 10000, 10000);
+			this->perlinNoiseTime_PositionX = Vector3DFloat(0, 0, 0);
+			this->perlinNoiseTime_PositionY = Vector3DFloat(10000, 10000, 10000);
 			this->probalitityFactor = 0.9f;
 			this->position.Zero();
 			this->SetRandomNumberMode(RandomNumberMode::Uniform);
@@ -260,8 +260,8 @@ namespace Aurora {
 		void Walker::init(const mRECT<float> &areaSize, const Vector2D<float> &walkerStartPosition)
 		{
 			this->target.Zero();
-			this->perlinNoiseTime_PositionX = Vector3D<float>(0, 0, 0);
-			this->perlinNoiseTime_PositionY = Vector3D<float>(10000, 10000, 10000);
+			this->perlinNoiseTime_PositionX = Vector3DFloat(0, 0, 0);
+			this->perlinNoiseTime_PositionY = Vector3DFloat(10000, 10000, 10000);
 			this->probalitityFactor = 0.9f;
 
 			if(!areaSize.IsZero())

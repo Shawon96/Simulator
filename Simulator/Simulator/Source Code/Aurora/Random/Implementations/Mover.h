@@ -20,8 +20,8 @@ namespace Aurora {
 			
 
 			mutable Vector2D<float> target;
-			mutable Vector3D<float> perlinNoiseTime_PositionX;
-			mutable Vector3D<float> perlinNoiseTime_PositionY;
+			mutable Vector3DFloat perlinNoiseTime_PositionX;
+			mutable Vector3DFloat perlinNoiseTime_PositionY;
 
 			/*Float maximiunVelocity;
 			Float minimumVelocity;*/

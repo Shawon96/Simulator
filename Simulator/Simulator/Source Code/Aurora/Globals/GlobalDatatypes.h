@@ -178,6 +178,30 @@ namespace Aurora
 		const Float PI_DIV_4		= 0.785398163f;		/*!< .*/
 		const Float PI_INV			= 0.318309886f;		/*!< .*/
 
+		template<typename ColorType>
+		class Color
+		{
+		public:
+			Color();
+			virtual ~Color();
+			Color(ColorType A, ColorType R, ColorType G, ColorType B)
+			{
+				this->A = A;
+				this->R = R;
+				this->G = G;
+				this->B = B;
+			}
+
+			ColorType A;
+			ColorType R;
+			ColorType G;
+			ColorType B;
+		};
+
+		using ColorFloat = Color < float > ;
+		using ColorDouble = Color < double >;
+		using ColorInt = Color < int >;
+
 
 	}; // END OF NAMESPACE DATATYPES
 }; // END OF NAMESPACE Aurora

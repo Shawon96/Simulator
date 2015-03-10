@@ -262,8 +262,8 @@ namespace Aurora {
 		void Mover::init()
 		{
 			this->probalitityFactor = 0.9f;
-			this->perlinNoiseTime_PositionX = Vector3D<float>(0, 0, 0);
-			this->perlinNoiseTime_PositionY = Vector3D<float>(10000, 10000, 10000);
+			this->perlinNoiseTime_PositionX = Vector3DFloat(0, 0, 0);
+			this->perlinNoiseTime_PositionY = Vector3DFloat(10000, 10000, 10000);
 		}
 
 		

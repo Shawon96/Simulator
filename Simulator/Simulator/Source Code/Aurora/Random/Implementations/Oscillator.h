@@ -64,7 +64,7 @@ namespace Aurora {
 				}
 				template<typename T>
 				void StartPosition(T &&value) {
-					//static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+					//
 
 					startPosition = std::forward<T>(value);
 				}

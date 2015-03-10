@@ -44,7 +44,7 @@ namespace Aurora {
 			}
 			template<typename T>
 			void ObjectPhysics(T &&value) { 
-				static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+				
 				objectPhysics = std::forward<T>(value); 
 			}
 

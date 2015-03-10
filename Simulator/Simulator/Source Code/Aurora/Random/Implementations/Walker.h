@@ -17,8 +17,8 @@ namespace Aurora {
 		private:
 			Vector2D<float> position;
 			Vector2D<float> target;
-			Vector3D<float> perlinNoiseTime_PositionX;
-			Vector3D<float> perlinNoiseTime_PositionY;
+			Vector3DFloat perlinNoiseTime_PositionX;
+			Vector3DFloat perlinNoiseTime_PositionY;
 			Float probalitityFactor;
 
 			void MoveWalkerTowardsTarget();

@@ -15,10 +15,10 @@ namespace Aurora
 
 			Ellipsoid::Ellipsoid(double x, double y, double z)
 			{
-				Ellipsoid(Vector3D<double>(x,y,x));
+				Ellipsoid(Vector3DDouble(x,y,x));
 			}
 
-			Ellipsoid::Ellipsoid(const Vector3D<double> &radii)
+			Ellipsoid::Ellipsoid(const Vector3DDouble &radii)
 			{
 				if ((radii.X <= 0.0) || (radii.Y <= 0.0) || (radii.Z <= 0.0))
 				{
@@ -26,15 +26,15 @@ namespace Aurora
 				}
 
 				this->radii = radii;
-				radiiSquared = Vector3D<double>(
+				radiiSquared = Vector3DDouble(
 					radii.X * radii.X,
 					radii.Y * radii.Y,
 					radii.Z * radii.Z);
-				radiiToTheFourth = Vector3D<double>(
+				radiiToTheFourth = Vector3DDouble(
 					radiiSquared.X * radiiSquared.X,
 					radiiSquared.Y * radiiSquared.Y,
 					radiiSquared.Z * radiiSquared.Z);
-				oneOverRadiiSquared = Vector3D<double>(
+				oneOverRadiiSquared = Vector3DDouble(
 					1.0 / (radii.X * radii.X),
 					1.0 / (radii.Y * radii.Y),
 					1.0 / (radii.Z * radii.Z));
@@ -81,21 +81,21 @@ namespace Aurora
 				return *this;
 			}
 
-			Vector3D<double> Ellipsoid::CentricSurfaceNormal(const Vector3D<double> &positionOnEllipsoid)
+			Vector3DDouble Ellipsoid::CentricSurfaceNormal(const Vector3DDouble &positionOnEllipsoid)
 			{
 				return positionOnEllipsoid.Clone().Normalize();
 			}
 
-			Vector3D<double> Ellipsoid::GeodeticSurfaceNormal(const Vector3D<double> &positionOnEllipsoid)
+			Vector3DDouble Ellipsoid::GeodeticSurfaceNormal(const Vector3DDouble &positionOnEllipsoid)
 			{
 				return (positionOnEllipsoid.Clone().MultiplyComponents(oneOverRadiiSquared)).Normalize();
 			}
 
-			Vector3D<double> Ellipsoid::GeodeticSurfaceNormal(const Geodetic3D &geodetic)
+			Vector3DDouble Ellipsoid::GeodeticSurfaceNormal(const Geodetic3D &geodetic)
 			{
 				double cosLatitude = cos(geodetic.Latitude());
 
-				return Vector3D<double>(
+				return Vector3DDouble(
                 cosLatitude * cos(geodetic.Longitude()),
                 cosLatitude * sin(geodetic.Longitude()),
                 sin(geodetic.Latitude()));
@@ -111,7 +111,7 @@ namespace Aurora
 				return std::max(radii.X, std::max(radii.Y, radii.Z));
 			}
 
-			std::vector<double> Ellipsoid::Intersections(const Vector3D<double> &origin, Vector3D<double> &direction)
+			std::vector<double> Ellipsoid::Intersections(const Vector3DDouble &origin, Vector3DDouble &direction)
 			{
 				direction.Normalize();
 				std::vector<double> returnArray;
@@ -163,25 +163,25 @@ namespace Aurora
 				}
 			}
 
-			Vector3D<double> Ellipsoid::ToVector3D(const Geodetic2D &geodetic)
+			Vector3DDouble Ellipsoid::ToVector3D(const Geodetic2D &geodetic)
 			{
 				return ToVector3D(Geodetic3D(geodetic.Longitude(), geodetic.Latitude(), 0.0));
 			}
 
-			Vector3D<double> Ellipsoid::ToVector3D(const Geodetic3D &geodetic)
+			Vector3DDouble Ellipsoid::ToVector3D(const Geodetic3D &geodetic)
 			{
-				Vector3D<double> n = GeodeticSurfaceNormal(geodetic);
-				Vector3D<double> k = radiiSquared.MultiplyComponents(n);
+				Vector3DDouble n = GeodeticSurfaceNormal(geodetic);
+				Vector3DDouble k = radiiSquared.MultiplyComponents(n);
 				double gamma = sqrt(
 				    (k.X * n.X) +
 				    (k.Y * n.Y) +
 				    (k.Z * n.Z));
 
-				Vector3D<double> rSurface = k / gamma;
+				Vector3DDouble rSurface = k / gamma;
 				return rSurface + (n * geodetic.Height());
 			}
 
-			std::vector<Geodetic3D> Ellipsoid::ToGeodetic3D(const std::vector<Vector3D<double>> &positions)
+			std::vector<Geodetic3D> Ellipsoid::ToGeodetic3D(const std::vector<Vector3DDouble> &positions)
 			{
 				/*if (positions == nullptr)
 				{
@@ -198,10 +198,10 @@ namespace Aurora
 				return geodetics;
 			}
 
-			Aurora::Math::Globe::Geodetic3D Ellipsoid::ToGeodetic3D(const Vector3D<double> &position)
+			Aurora::Math::Globe::Geodetic3D Ellipsoid::ToGeodetic3D(const Vector3DDouble &position)
 			{
-				Vector3D<double> p = ScaleToGeodeticSurface(position);
-				Vector3D<double> h = position.Clone() - p;
+				Vector3DDouble p = ScaleToGeodeticSurface(position);
+				Vector3DDouble h = position.Clone() - p;
 				int sign = 0;
 				double dotValue = h.Dot(position);
 				if (dotValue < 0)
@@ -212,7 +212,7 @@ namespace Aurora
 				return Geodetic3D(ToGeodetic2D(p), height);
 			}
 
-			std::vector<Geodetic2D> Ellipsoid::ToGeodetic2D(const std::vector<Vector3D<double>> &positions)
+			std::vector<Geodetic2D> Ellipsoid::ToGeodetic2D(const std::vector<Vector3DDouble> &positions)
 			{
 				/*if (positions == null)
 				{
@@ -229,21 +229,21 @@ namespace Aurora
 				return geodetics;
 			}
 
-			Aurora::Math::Globe::Geodetic2D Ellipsoid::ToGeodetic2D(const Vector3D<double> &positionOnEllipsoid)
+			Aurora::Math::Globe::Geodetic2D Ellipsoid::ToGeodetic2D(const Vector3DDouble &positionOnEllipsoid)
 			{
-				Vector3D<double> n = GeodeticSurfaceNormal(positionOnEllipsoid);
+				Vector3DDouble n = GeodeticSurfaceNormal(positionOnEllipsoid);
 				return Geodetic2D(
 					atan2(n.Y, n.X),
 					asin(n.Z / n.Magnitude()));
 			}
 
-			Vector3D<double> Ellipsoid::ScaleToGeodeticSurface(const Vector3D<double> &position)
+			Vector3DDouble Ellipsoid::ScaleToGeodeticSurface(const Vector3DDouble &position)
 			{
 				double beta = 1.0 / sqrt(
 					(position.X * position.X) * oneOverRadiiSquared.X +
 					(position.Y * position.Y) * oneOverRadiiSquared.Y +
 					(position.Z * position.Z) * oneOverRadiiSquared.Z);
-				double n = Vector3D<double>(
+				double n = Vector3DDouble(
 					beta * position.X * oneOverRadiiSquared.X,
 					beta * position.Y * oneOverRadiiSquared.Y,
 					beta * position.Z * oneOverRadiiSquared.Z).Magnitude();
@@ -286,13 +286,13 @@ namespace Aurora
 						z2 / (radiiToTheFourth.Z * dc3));
 				} while (abs(s) > 1e-10);
 
-				return Vector3D<double>(
+				return Vector3DDouble(
 					position.X / da,
 					position.Y / db,
 					position.Z / dc);
 			}
 
-			Vector3D<double> Ellipsoid::ScaleToGeocentricSurface(const Vector3D<double> &position)
+			Vector3DDouble Ellipsoid::ScaleToGeocentricSurface(const Vector3DDouble &position)
 			{
 				double beta = 1.0 / sqrt(
 					(position.X * position.X) * oneOverRadiiSquared.X +
@@ -302,18 +302,18 @@ namespace Aurora
 				return position.Clone() * beta;
 			}
 
-			std::vector<Vector3D<double>> Ellipsoid::ComputeCurve(const Vector3D<double> &start, const Vector3D<double> &stop, const double &granularity)
+			std::vector<Vector3DDouble> Ellipsoid::ComputeCurve(const Vector3DDouble &start, const Vector3DDouble &stop, const double &granularity)
 			{
 				if (granularity <= 0.0)
 				{
 					throw std::bad_function_call(Aurora::Errors::ErrorMessages::EllipsoidGranularityError.c_str());
 				}
 				auto startClone = start.Clone();
-				Vector3D<double> normal = start.Cross(stop).Normalize();
+				Vector3DDouble normal = start.Cross(stop).Normalize();
 				double theta = startClone.AngleBetween(stop);
 				int n = std::max((int)(theta / granularity) - 1, 0);
 
-				std::vector<Vector3D<double>> positions(2 + n);
+				std::vector<Vector3DDouble> positions(2 + n);
 
 				positions.push_back(start);
 

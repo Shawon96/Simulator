@@ -2,7 +2,7 @@
 #define GeometryOperations_H
 
 #include "Ellipsoid.h"
-
+#include "Mesh.h"
 
 namespace Aurora
 {

@@ -64,52 +64,53 @@ namespace Aurora
 	*/
 	namespace Global
 	{
-
-		template<typename T1>
+		// Original implementation(now modified with variadic templates) from: http://geekswithblogs.net/raccoon_tim/archive/2011/09/28/lambdas-and-events-in-c.aspx
+		// TODO: Typesafety check
+		template<typename... T1>
 		class Event
 		{
-			public:
-				typedef std::function<void(T1)> Func;
+		public:
+			typedef std::function<void(T1...)> Func;
 
-			public:
-				void Call(T1 arg)
+		public:
+			void Call(T1 ...arg)
+			{
+				for (auto i = m_handlers.begin(); i != m_handlers.end(); i++)
 				{
-					for (auto i = m_handlers.begin(); i != m_handlers.end(); i++)
+					(*i)(arg...);
+				}
+			}
+
+			void operator ()(T1 ...arg)
+			{
+				Call(arg...);
+			}
+
+			Event& operator += (Func f)
+			{
+				if (typeid(f) != typeid(Func))
+					throw std::bad_function_call("Error in type");
+
+				m_handlers.push_back(f);
+				return *this;
+			}
+
+			Event& operator -= (Func f)
+			{
+				for (auto i = m_handlers.begin(); i != m_handlers.end(); i++)
+				{
+					if ((*i).target<void(T1)>() == f.target<void(T1)>())
 					{
-						(*i)(arg);
+						m_handlers.erase(i);
+						break;
 					}
 				}
 
-				void operator ()(T1 arg)
-				{
-					Call(arg);
-				}
+				return *this;
+			}
 
-				Event& operator += (Func f)
-				{
-					if (typeid(f) != typeid(Func))
-						throw std::bad_function_call("Error in type");
-
-					m_handlers.push_back(f);
-					return *this;
-				}
-
-				Event& operator -= (Func f)
-				{
-					for (auto i = m_handlers.begin(); i != m_handlers.end(); i++)
-					{
-						if ((*i).target<void(T1)>() == f.target<void(T1)>())
-						{
-							m_handlers.erase(i);
-							break;
-						}
-					}
-
-					return *this;
-				}
-
-			private:
-				std::vector<Func> m_handlers;
+		private:
+			std::vector<Func> m_handlers;
 		};
 
 		/*template<typename returnType, typename T1>

@@ -34,7 +34,7 @@ namespace Aurora
 					}
 					template<typename T>
 					void West(T &&value) {
-						static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+						
 
 						west = std::forward<T>(value);
 					}
@@ -44,7 +44,7 @@ namespace Aurora
 					}
 					template<typename T>
 					void South(T &&value) {
-						static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+						
 
 						south = std::forward<T>(value);
 					}
@@ -54,7 +54,7 @@ namespace Aurora
 					}
 					template<typename T>
 					void East(T &&value) {
-						static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+						
 
 						east = std::forward<T>(value);
 					}
@@ -64,7 +64,7 @@ namespace Aurora
 					}
 					template<typename T>
 					void North(T &&value) {
-						static_assert(!is_same<objectPhysics, T>::value, Aurora::Errors::ErrorMessages::TypeMismatch.c_str());
+						
 
 						north = std::forward<T>(value);
 					}
