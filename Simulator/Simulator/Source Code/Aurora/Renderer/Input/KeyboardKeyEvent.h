@@ -5,13 +5,15 @@
 
 namespace Aurora {
 	namespace Renderer {
-
-		enum class KeyboardKeyEvent
+		namespace Input
 		{
-			Down,
-			Up
-		};
 
+			enum class KeyboardKeyEvent
+			{
+				Down,
+				Up
+			};
+		};
 	};
 };
 #endif

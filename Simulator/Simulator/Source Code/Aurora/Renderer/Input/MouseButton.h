@@ -5,13 +5,15 @@
 
 namespace Aurora {
 	namespace Renderer {
-		enum class MouseButton
+		namespace Input
 		{
-			Left,
-			Middle,
-			Right
+			enum class MouseButton
+			{
+				Left,
+				Middle,
+				Right
+			};
 		};
-
 	};
 };
 #endif

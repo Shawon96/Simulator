@@ -5,29 +5,30 @@
 
 namespace Aurora {
 	namespace Renderer {
-
-		class Keyboard
+		namespace Input
 		{
-		private:
-
-		public:
-			Keyboard() = default;
-			virtual ~Keyboard() = default;
-
-			Event<KeyboardKeyEventArgs> KeyDown;
-			Event<KeyboardKeyEventArgs> KeyUp;
-		protected:
-			virtual void OnKeyDown(const KeyboardKey &key)
+			class Keyboard
 			{
-				KeyDown(KeyboardKeyEventArgs(KeyboardKeyEvent::Down, key));
-			}
+			private:
 
-			virtual void OnKeyUp(const KeyboardKey &key)
-			{
-				KeyDown(KeyboardKeyEventArgs(KeyboardKeyEvent::Up, key));
-			}
+			public:
+				Keyboard() = default;
+				virtual ~Keyboard() = default;
+
+				Event<KeyboardKeyEventArgs> KeyDown;
+				Event<KeyboardKeyEventArgs> KeyUp;
+			protected:
+				virtual void OnKeyDown(const KeyboardKey &key)
+				{
+					KeyDown(KeyboardKeyEventArgs(KeyboardKeyEvent::Down, key));
+				}
+
+				virtual void OnKeyUp(const KeyboardKey &key)
+				{
+					KeyDown(KeyboardKeyEventArgs(KeyboardKeyEvent::Up, key));
+				}
+			};
 		};
-
 	};
 };
 #endif

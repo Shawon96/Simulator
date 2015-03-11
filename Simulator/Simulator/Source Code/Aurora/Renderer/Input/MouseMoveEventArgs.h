@@ -7,23 +7,25 @@ using namespace Aurora::Math;
 
 namespace Aurora {
 	namespace Renderer {
-		class MouseMoveEventArgs
+		namespace Input
 		{
-		private:
-			Vector2DInt point;
-			
-		public:
-			MouseMoveEventArgs(const Aurora::Math::Vector2DInt &point)
+			class MouseMoveEventArgs
 			{
-				this->point = point;
-			}
-			virtual ~MouseMoveEventArgs() = default;
+			private:
+				Vector2DInt point;
 
-			Vector2DInt Point() const {
-				return point;
-			}
+			public:
+				MouseMoveEventArgs(const Aurora::Math::Vector2DInt &point)
+				{
+					this->point = point;
+				}
+				virtual ~MouseMoveEventArgs() = default;
+
+				Vector2DInt Point() const {
+					return point;
+				}
+			};
 		};
-
 	};
 };
 #endif

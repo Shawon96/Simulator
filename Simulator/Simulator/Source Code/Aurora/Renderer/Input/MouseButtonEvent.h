@@ -5,12 +5,14 @@
 
 namespace Aurora {
 	namespace Renderer {
-		enum class MouseButtonEvent
+		namespace Input
 		{
-			ButtonDown,
-			ButtonUp
+			enum class MouseButtonEvent
+			{
+				ButtonDown,
+				ButtonUp
+			};
 		};
-
 	};
 };
 #endif

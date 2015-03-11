@@ -7,34 +7,36 @@
 
 namespace Aurora {
 	namespace Renderer {
-		class MouseButtonEventArgs
+		namespace Input
 		{
-		private:
-			Vector2DInt point;
-			MouseButton button;
-			MouseButtonEvent buttonEvent;
-		public:
-			MouseButtonEventArgs(const Vector2DInt &point, MouseButton button, MouseButtonEvent buttonEvent)
+			class MouseButtonEventArgs
 			{
-				this->point = point;
-				this->button = button;
-				this->buttonEvent = buttonEvent;
-			}
-			virtual ~MouseButtonEventArgs() = default;
+			private:
+				Vector2DInt point;
+				MouseButton button;
+				MouseButtonEvent buttonEvent;
+			public:
+				MouseButtonEventArgs(const Vector2DInt &point, MouseButton button, MouseButtonEvent buttonEvent)
+				{
+					this->point = point;
+					this->button = button;
+					this->buttonEvent = buttonEvent;
+				}
+				virtual ~MouseButtonEventArgs() = default;
 
-			Vector2DInt Point() const {
-				return point;
-			}
+				Vector2DInt Point() const {
+					return point;
+				}
 
-			Aurora::Renderer::MouseButtonEvent ButtonEvent() const {
-				return buttonEvent;
-			}
+				Aurora::Renderer::MouseButtonEvent ButtonEvent() const {
+					return buttonEvent;
+				}
 
-			Aurora::Renderer::MouseButton Button() const {
-				return button;
-			}
+				Aurora::Renderer::MouseButton Button() const {
+					return button;
+				}
+			};
 		};
-
 	};
 };
 #endif

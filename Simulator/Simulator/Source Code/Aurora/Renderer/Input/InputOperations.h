@@ -6,9 +6,10 @@
 
 namespace Aurora {
 	namespace Renderer {
+		namespace Input
+		{
 
-		
-
+		};
 	};
 };
 #endif

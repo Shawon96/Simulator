@@ -5,35 +5,37 @@
 
 namespace Aurora {
 	namespace Renderer {
-		class Mouse
+		namespace Input
 		{
-		private:
-
-		public:
-			Mouse() = default;
-			virtual ~Mouse() = default;
-
-			Event<MouseButtonEventArgs> ButtonDown;
-			Event<MouseButtonEventArgs> ButtonUp;
-			Event<MouseMoveEventArgs> Move;
-
-		protected:
-			virtual void OnButtonDown(const Vector2DInt &point, MouseButton button)
+			class Mouse
 			{
-				ButtonDown(MouseButtonEventArgs(point, button, MouseButtonEvent::ButtonDown));
-			}
+			private:
 
-			virtual void OnButtonUp(const Vector2DInt &point, MouseButton button)
-			{
-				ButtonUp(MouseButtonEventArgs(point, button, MouseButtonEvent::ButtonUp));
-			}
+			public:
+				Mouse() = default;
+				virtual ~Mouse() = default;
 
-			virtual void OnMove(const Vector2DInt &point)
-			{
-				Move(MouseMoveEventArgs(point));
-			}
+				Event<MouseButtonEventArgs> ButtonDown;
+				Event<MouseButtonEventArgs> ButtonUp;
+				Event<MouseMoveEventArgs> Move;
+
+			protected:
+				virtual void OnButtonDown(const Vector2DInt &point, MouseButton button)
+				{
+					ButtonDown(MouseButtonEventArgs(point, button, MouseButtonEvent::ButtonDown));
+				}
+
+				virtual void OnButtonUp(const Vector2DInt &point, MouseButton button)
+				{
+					ButtonUp(MouseButtonEventArgs(point, button, MouseButtonEvent::ButtonUp));
+				}
+
+				virtual void OnMove(const Vector2DInt &point)
+				{
+					Move(MouseMoveEventArgs(point));
+				}
+			};
 		};
-
 	};
 };
 #endif

@@ -9,6 +9,7 @@
 namespace Aurora {
 	namespace Renderer {
 		using namespace Aurora::Global;
+		using namespace Aurora::Renderer::Input;
 		class GraphicsWindow
 		{
 			private:

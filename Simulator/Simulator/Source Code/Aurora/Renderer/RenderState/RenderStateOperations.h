@@ -6,8 +6,8 @@
 #include "RenderState.h"
 namespace Aurora {
 	namespace Renderer {
-
-
+		namespace RenderState {
+		};
 	};
 };
 #endif

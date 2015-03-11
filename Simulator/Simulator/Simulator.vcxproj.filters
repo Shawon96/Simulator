@@ -390,6 +390,54 @@
     <ClInclude Include="Source Code\Aurora\Math\Geometry\Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\VertexArray\VertexArrayOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Buffers\BuffersOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Buffers\BufferHint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Buffers\IndexBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Buffers\PixelBufferHint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Buffers\ReadPixelBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Buffers\UniformBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Buffers\VertexBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Buffers\WritePixelBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\IO\IOOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\IO\Bitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\VertexArray\ComponentDatatype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\VertexArray\VertexArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\VertexArray\VertexBufferAttribute.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\VertexArray\VertexBufferAttributes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\VertexArray\VertexLocations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source Code\Aurora\Errors\ErrorMessages.cpp">
@@ -594,6 +642,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source Code\Aurora\Renderer\Context.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\Aurora\IO\Bitmap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

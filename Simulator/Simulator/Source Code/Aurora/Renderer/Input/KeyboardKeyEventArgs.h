@@ -6,30 +6,32 @@
 
 namespace Aurora {
 	namespace Renderer {
-
-		class KeyboardKeyEventArgs
+		namespace Input
 		{
-		private:
-			KeyboardKeyEvent keyboardEvent;
-			KeyboardKey key;
-		public:
-			KeyboardKeyEventArgs(KeyboardKeyEvent keyboardEvent, KeyboardKey key)
+
+			class KeyboardKeyEventArgs
 			{
-				keyboardEvent = keyboardEvent;
-				key = key;
-			}
-			virtual ~KeyboardKeyEventArgs();
+			private:
+				KeyboardKeyEvent keyboardEvent;
+				KeyboardKey key;
+			public:
+				KeyboardKeyEventArgs(KeyboardKeyEvent keyboardEvent, KeyboardKey key)
+				{
+					keyboardEvent = keyboardEvent;
+					key = key;
+				}
+				virtual ~KeyboardKeyEventArgs();
 
-			Aurora::Renderer::KeyboardKeyEvent KeyboardEvent() const {
-				return keyboardEvent;
-			}
+				Aurora::Renderer::KeyboardKeyEvent KeyboardEvent() const {
+					return keyboardEvent;
+				}
 
-			Aurora::Renderer::KeyboardKey Key() const {
-				return key;
-			}
+				Aurora::Renderer::KeyboardKey Key() const {
+					return key;
+				}
 
+			};
 		};
-
 	};
 };
 #endif

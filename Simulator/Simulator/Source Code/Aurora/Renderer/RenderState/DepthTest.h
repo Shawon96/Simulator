@@ -4,49 +4,50 @@
 
 namespace Aurora {
 	namespace Renderer {
+		namespace RenderState {
 
-		enum class DepthTestFunction
-		{
-			Never,
-			Less,
-			Equal,
-			LessThanOrEqual,
-			Greater,
-			NotEqual,
-			GreaterThanOrEqual,
-			Always
-		};
-
-		class DepthTest
-		{
-		private:
-			bool enabled;
-			DepthTestFunction function;
-		public:
-			DepthTest()
+			enum class DepthTestFunction
 			{
-				enabled = true;
-				function = DepthTestFunction::Less;
-			}
-			virtual ~DepthTest();
+				Never,
+				Less,
+				Equal,
+				LessThanOrEqual,
+				Greater,
+				NotEqual,
+				GreaterThanOrEqual,
+				Always
+			};
 
-			bool Enabled() const {
-				return enabled;
-			}
-			template<typename T>
-			void Enabled(T &&value) {
-				enabled = std::forward<T>(value);
-			}
+			class DepthTest
+			{
+			private:
+				bool enabled;
+				DepthTestFunction function;
+			public:
+				DepthTest()
+				{
+					enabled = true;
+					function = DepthTestFunction::Less;
+				}
+				virtual ~DepthTest();
 
-			DepthTestFunction Function() const {
-				return function;
-			}
-			template<typename T>
-			void Function(T &&value) {
-				function = std::forward<T>(value);
-			}
+				bool Enabled() const {
+					return enabled;
+				}
+				template<typename T>
+				void Enabled(T &&value) {
+					enabled = std::forward<T>(value);
+				}
+
+				DepthTestFunction Function() const {
+					return function;
+				}
+				template<typename T>
+				void Function(T &&value) {
+					function = std::forward<T>(value);
+				}
+			};
 		};
-
 	};
 };
 #endif
