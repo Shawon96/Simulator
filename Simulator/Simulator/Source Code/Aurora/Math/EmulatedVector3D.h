@@ -10,8 +10,8 @@ namespace Aurora
 		public:
 			EmulatedVector3D(const Vector3DDouble &v)
 			{
-				/*high = v.ToFloat();
-				low = (v - high.operator Aurora::Math::Vector3D<double>();*/
+				high = v.ToFloat();
+				low = (v.Clone() - high.ToDouble()).ToFloat();
 			}
 			virtual ~EmulatedVector3D() = default;
 			

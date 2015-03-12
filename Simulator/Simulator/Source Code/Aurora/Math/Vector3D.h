@@ -102,11 +102,11 @@ namespace Aurora
 			
 			
 			
-			Vector3D<bool> ToBoolean();
-			Vector3D<float> ToFloat();
-			Vector3D<double> ToDouble();
-			Vector3D<int> ToInt();
-			Vector3D<half_float::half> ToHalfPrecision();
+			Vector3D<bool> ToBoolean() const;
+			Vector3D<float> ToFloat() const;
+			Vector3D<double> ToDouble() const;
+			Vector3D<int> ToInt() const;
+			Vector3D<half_float::half> ToHalfPrecision() const;
 
 			void Zero(void);
 			void Limit(const VectorType &limit);
@@ -151,33 +151,33 @@ namespace Aurora
 		};
 
 		template<typename VectorType>
-		Vector3D<half_float::half> Aurora::Math::Vector3D<VectorType>::ToHalfPrecision()
+		Vector3D<half_float::half> Aurora::Math::Vector3D<VectorType>::ToHalfPrecision() const
 		{
-			return(Vector3D<half_float::half>(this->X, this->Y, this->Z));
+			return(Vector3D<half_float::half>(static_cast<half_float::half>(this->X), static_cast<half_float::half>(this->Y), static_cast<half_float::half>(this->Z)));
 		}
 
 		template<typename VectorType>
-		Vector3D<int> Aurora::Math::Vector3D<VectorType>::ToInt()
+		Vector3D<int> Aurora::Math::Vector3D<VectorType>::ToInt() const
 		{
-			return(Vector3D<int>(this->X, this->Y, this->Z));
+			return(Vector3D<int>(static_cast<int>(this->X), static_cast<int>(this->Y), static_cast<int>(this->Z)));
 		}
 
 		template<typename VectorType>
-		Vector3D<double> Aurora::Math::Vector3D<VectorType>::ToDouble()
+		Vector3D<double> Aurora::Math::Vector3D<VectorType>::ToDouble() const
 		{
-			return(Vector3D<double>(this->X, this->Y, this->Z));
+			return(Vector3D<double>(static_cast<double>(this->X), static_cast<double>(this->Y), static_cast<double>(this->Z)));
 		}
 
 		template<typename VectorType>
-		Vector3D<float> Aurora::Math::Vector3D<VectorType>::ToFloat()
+		Vector3D<float> Aurora::Math::Vector3D<VectorType>::ToFloat() const
 		{
-			return(Vector3D<float>(this->X, this->Y, this->Z));
+			return(Vector3D<float>(static_cast<float>(this->X), static_cast<float>(this->Y), static_cast<float>(this->Z)));
 		}
 
 		template<typename VectorType>
-		Vector3D<bool> Aurora::Math::Vector3D<VectorType>::ToBoolean()
+		Vector3D<bool> Aurora::Math::Vector3D<VectorType>::ToBoolean() const
 		{
-			return(Vector3D<bool>(this->X, this->Y, this->Z));
+			return(Vector3D<bool>(static_cast<bool>(this->X), static_cast<bool>(this->Y), static_cast<bool>(this->Z)));
 		}
 
 		
