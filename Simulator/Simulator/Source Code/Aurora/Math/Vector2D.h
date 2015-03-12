@@ -179,7 +179,7 @@ namespace Aurora
 		template<typename VectorType>
 		std::string Aurora::Math::Vector2D<VectorType>::ToString() const
 		{
-			return("X:" + std::to_string(this->X) + " Y:" + std::to_string(this->Y))
+			return("X:" + std::to_string(this->X) + " Y:" + std::to_string(this->Y));
 		}
 
 		template<typename VectorType>

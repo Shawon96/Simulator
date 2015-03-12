@@ -4,6 +4,16 @@
 #include "Vector2D.h"
 #include "Matrix3D.h"
 
+/*
+template <typename T>
+class test {
+friend test operator+( test const & lhs, test const & rhs ) {  // [1]
+return test();
+}
+}
+test<int> t;
+*/
+
 using namespace Aurora::DataTypes;
 /*!
 Namespace: Aurora
@@ -88,6 +98,16 @@ namespace Aurora
 			bool operator!=(const Vector3D<VectorType>		&value);
 #pragma endregion ComparisonOperators
 
+			
+			
+			
+			
+			Vector3D<bool> ToBoolean();
+			Vector3D<float> ToFloat();
+			Vector3D<double> ToDouble();
+			Vector3D<int> ToInt();
+			Vector3D<half_float::half> ToHalfPrecision();
+
 			void Zero(void);
 			void Limit(const VectorType &limit);
 			bool IsZero() const;
@@ -129,6 +149,38 @@ namespace Aurora
 			VectorType AngleBetween(const Vector3D<VectorType> &other);
 			Vector3D<VectorType> RotateAroundAxis(const Vector3D<VectorType> &axis, double theta);
 		};
+
+		template<typename VectorType>
+		Vector3D<half_float::half> Aurora::Math::Vector3D<VectorType>::ToHalfPrecision()
+		{
+			return(Vector3D<half_float::half>(this->X, this->Y, this->Z));
+		}
+
+		template<typename VectorType>
+		Vector3D<int> Aurora::Math::Vector3D<VectorType>::ToInt()
+		{
+			return(Vector3D<int>(this->X, this->Y, this->Z));
+		}
+
+		template<typename VectorType>
+		Vector3D<double> Aurora::Math::Vector3D<VectorType>::ToDouble()
+		{
+			return(Vector3D<double>(this->X, this->Y, this->Z));
+		}
+
+		template<typename VectorType>
+		Vector3D<float> Aurora::Math::Vector3D<VectorType>::ToFloat()
+		{
+			return(Vector3D<float>(this->X, this->Y, this->Z));
+		}
+
+		template<typename VectorType>
+		Vector3D<bool> Aurora::Math::Vector3D<VectorType>::ToBoolean()
+		{
+			return(Vector3D<bool>(this->X, this->Y, this->Z));
+		}
+
+		
 
 		using Vector3DBool = Vector3D < bool >;
 		using Vector3DDouble = Vector3D < double >;
@@ -230,7 +282,7 @@ namespace Aurora
 		template<typename VectorType>
 		std::string Aurora::Math::Vector3D<VectorType>::ToString() const
 		{
-			return("X:" + std::to_string(this->X) + " Y:" + std::to_string(this->Y) + " Z:" + std::to_string(this->Z))
+			return("X:" + std::to_string(this->X) + " Y:" + std::to_string(this->Y) + " Z:" + std::to_string(this->Z));
 		}
 
 		template<typename VectorType>

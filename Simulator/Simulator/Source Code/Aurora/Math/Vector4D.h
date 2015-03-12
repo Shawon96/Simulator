@@ -192,7 +192,7 @@ namespace Aurora
 		template<typename VectorType>
 		std::string Aurora::Math::Vector4D<VectorType>::ToString() const
 		{
-			return("X:" + std::to_string(this->X) + " Y:" + std::to_string(this->Y) + " Z:" + std::to_string(this->Z) + " W:" + std::to_string(this->W))
+			return("X:" + std::to_string(this->X) + " Y:" + std::to_string(this->Y) + " Z:" + std::to_string(this->Z) + " W:" + std::to_string(this->W));
 		}
 
 		template<typename VectorType>

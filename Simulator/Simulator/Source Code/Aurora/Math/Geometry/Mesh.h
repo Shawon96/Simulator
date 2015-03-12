@@ -10,13 +10,29 @@ namespace Aurora
 	{
 		namespace Geometry
 		{
+			enum class PrimitiveType
+			{
+				Points,
+				Lines,
+				LineLoop,
+				LineStrip,
+				Triangles,
+				TriangleStrip,
+				TriangleFan,
+				LinesAdjacency,
+				LineStripAdjacency,
+				TrianglesAdjacency,
+				TriangleStripAdjacency
+			};
+
 			enum class WindingOrder
 			{
 				Clockwise,
 				Counterclockwise
 			};
-		}
-	}
-}
+
+		};
+	};
+};
 
 #endif

@@ -438,6 +438,126 @@
     <ClInclude Include="Source Code\Aurora\Renderer\VertexArray\VertexLocations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\ShaderVertexAttributeCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\ShadersOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\FragmentOutputs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\ShaderProgram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\ShaderVertexAttribute.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\Uniform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\UniformBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\UniformBlockArrayMember.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\UniformBlockCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\UniformBlockMatrixArrayMember.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\UniformBlockMatrixMember.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\UniformBlockMember.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\UniformBlockMemberCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Renderer\Shaders\UniformCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributesOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttribute.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeByte.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeDoubleVector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeFloat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeFloatVector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeFloatVector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeFloatVector4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeHalfFloat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeHalfFloatVector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeHalfFloatVector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeHalfFloatVector4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeRGB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeRGBA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\VertexAttributes\VertexAttributeType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\Indices\IndicesOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\Indices\IndicesBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\Indices\IndicesType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\Indices\IndicesUnsignedInt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\Indices\IndicesUnsignedShort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\Indices\TriangleIndicesUnsignedInt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\Indices\TriangleIndicesUnsignedShort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\Edge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Geometry\EllipsoidTangentPlane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\EmulatedVector3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source Code\Aurora\Errors\ErrorMessages.cpp">

@@ -1,6 +1,6 @@
 #ifndef MATHDATATYPES_H
 #define MATHDATATYPES_H
-#include "Vector4D.h"
+#include "EmulatedVector3D.h"
 #include "..\Globals\GlobalOperations.h"
 #include <math.h>
 using namespace Aurora::DataTypes;

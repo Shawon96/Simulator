@@ -19,6 +19,8 @@ namespace Aurora {
 				bool normalize;				
 				int offsetInBytes;
 				int strideInBytes;
+				ComponentDatatype componentDatatype;
+				
 			public:
 				VertexBufferAttribute() = default;
 				virtual ~VertexBufferAttribute() = default;
@@ -45,11 +47,11 @@ namespace Aurora {
 					return *this;
 				}
 
-				VertexBufferAttribute(std::shared_ptr<VertexBuffer<ComponentDatatype>> vertexBuffer, int numberOfComponents) : this(vertexBuffer, numberOfComponents, false, 0, 0)
+				VertexBufferAttribute(std::shared_ptr<VertexBuffer<ComponentDatatype>> vertexBuffer, ComponentDatatype componentDatatype, int numberOfComponents) : this(vertexBuffer, componentDatatype, numberOfComponents, false, 0, 0)
 				{
 				}
 
-				VertexBufferAttribute(std::shared_ptr<VertexBuffer<ComponentDatatype>> vertexBuffer, int numberOfComponents, bool normalize, int offsetInBytes, int strideInBytes)
+				VertexBufferAttribute(std::shared_ptr<VertexBuffer<ComponentDatatype>> vertexBuffer, ComponentDatatype componentDatatype, int numberOfComponents, bool normalize, int offsetInBytes, int strideInBytes)
 				{
 					if (numberOfComponents <= 0)
 					{
@@ -70,6 +72,7 @@ namespace Aurora {
 					numberOfComponents = numberOfComponents;
 					normalize = normalize;
 					offsetInBytes = offsetInBytes;
+					this->componentDatatype = componentDatatype;
 
 					if (strideInBytes == 0)
 					{
@@ -88,6 +91,13 @@ namespace Aurora {
 					return vertexBuffer;
 				}
 
+				Aurora::Renderer::VertexArray::ComponentDatatype ComponentDatatype() const {
+					return componentDatatype;
+				}
+				template<typename T>
+				void ComponentDatatype(T &&value) {
+					componentDatatype = std::forward<T>(value);
+				}
 
 				template<typename T>
 				void VertexBuffer(T &&value) {

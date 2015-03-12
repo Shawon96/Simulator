@@ -5,11 +5,13 @@
 #include "../Math/Geometry/GeometryOperations.h"
 #include "Buffers/BuffersOperations.h"
 #include "VertexArray/VertexArrayOperations.h"
+#include "ShaderVertexAttributeCollection.h"
 
 namespace Aurora {
 	namespace Renderer {
 		using namespace Aurora::Math::Geometry;
 		using namespace Aurora::Renderer::Buffers;
+		using namespace Aurora::Renderer::VertexArray;
 		enum class ClearBuffers
 		{
 			ColorBuffer = 1,
@@ -19,6 +21,7 @@ namespace Aurora {
 			All = ColorBuffer | DepthBuffer | StencilBuffer
 		};
 
+		template<typename Type>
 		class Context
 		{
 			private:
@@ -28,7 +31,7 @@ namespace Aurora {
 				virtual ~Context() = default;
 
 				virtual void MakeCurrent() = 0;
-				//virtual VertexArray CreateVertexArray(Mesh mesh, ShaderVertexAttributeCollection shaderAttributes, BufferHint usageHint);
+				//virtual VertexArray<Type> CreateVertexArray(Mesh mesh, ShaderVertexAttributeCollection shaderAttributes, BufferHint usageHint);
 		};
 
 	};
