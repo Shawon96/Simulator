@@ -3,7 +3,9 @@
 
 #include "Ellipsoid.h"
 #include "Mesh.h"
+#include "Edge.h"
 #include "VertexAttributes/VertexAttributesOperations.h"
+#include "Indices/IndicesOperations.h"
 
 namespace Aurora
 {
