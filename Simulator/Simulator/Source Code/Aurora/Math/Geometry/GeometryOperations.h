@@ -3,6 +3,7 @@
 
 #include "Ellipsoid.h"
 #include "Mesh.h"
+#include "VertexAttributes/VertexAttributesOperations.h"
 
 namespace Aurora
 {

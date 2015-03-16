@@ -92,6 +92,12 @@ namespace Aurora
 			bool operator!=(const Vector4D<VectorType>		&value);
 #pragma endregion ComparisonOperators
 
+			Vector4D<bool> ToBoolean() const;
+			Vector4D<float> ToFloat() const;
+			Vector4D<double> ToDouble() const;
+			Vector4D<int> ToInt() const;
+			Vector4D<half_float::half> ToHalfPrecision() const;
+
 			void Zero(void);
 			void Limit(const VectorType &limit);
 			bool IsZero() const;
@@ -139,6 +145,36 @@ namespace Aurora
 		using Vector4DFloat = Vector4D < float >;
 		using Vector4DInt = Vector4D < int >;
 		using Vector4DHalfPrecision = Vector4D < half_float::half >;
+
+		template<typename VectorType>
+		Vector4D<half_float::half> Aurora::Math::Vector4D<VectorType>::ToHalfPrecision() const
+		{
+			return(Vector4D<half_float::half>(static_cast<half_float::half>(this->X), static_cast<half_float::half>(this->Y), static_cast<half_float::half>(this->Z)));
+		}
+
+		template<typename VectorType>
+		Vector4D<int> Aurora::Math::Vector4D<VectorType>::ToInt() const
+		{
+			return(Vector4D<int>(static_cast<int>(this->X), static_cast<int>(this->Y), static_cast<int>(this->Z)));
+		}
+
+		template<typename VectorType>
+		Vector4D<double> Aurora::Math::Vector4D<VectorType>::ToDouble() const
+		{
+			return(Vector4D<double>(static_cast<double>(this->X), static_cast<double>(this->Y), static_cast<double>(this->Z)));
+		}
+
+		template<typename VectorType>
+		Vector4D<float> Aurora::Math::Vector4D<VectorType>::ToFloat() const
+		{
+			return(Vector4D<float>(static_cast<float>(this->X), static_cast<float>(this->Y), static_cast<float>(this->Z)));
+		}
+
+		template<typename VectorType>
+		Vector4D<bool> Aurora::Math::Vector4D<VectorType>::ToBoolean() const
+		{
+			return(Vector4D<bool>(static_cast<bool>(this->X), static_cast<bool>(this->Y), static_cast<bool>(this->Z)));
+		}
 
 		template<typename VectorType>
 		Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::Divide(const VectorType &scalar)

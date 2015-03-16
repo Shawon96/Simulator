@@ -88,6 +88,12 @@ namespace Aurora
 			bool operator!=(const Vector2D<VectorType>		&value);
 #pragma endregion ComparisonOperators
 
+			Vector2D<bool> ToBoolean() const;
+			Vector2D<float> ToFloat() const;
+			Vector2D<double> ToDouble() const;
+			Vector2D<int> ToInt() const;
+			Vector2D<half_float::half> ToHalfPrecision() const;
+
 			void Zero(void);
 			void Limit(const VectorType &limit);
 			bool IsZero() const;
@@ -125,6 +131,36 @@ namespace Aurora
 		using Vector2DFloat = Vector2D < float >;
 		using Vector2DInt = Vector2D < int >;
 		using Vector2DHalfPrecision = Vector2D < half_float::half >;
+
+		template<typename VectorType>
+		Vector2D<half_float::half> Aurora::Math::Vector2D<VectorType>::ToHalfPrecision() const
+		{
+			return(Vector2D<half_float::half>(static_cast<half_float::half>(this->X), static_cast<half_float::half>(this->Y), static_cast<half_float::half>(this->Z)));
+		}
+
+		template<typename VectorType>
+		Vector2D<int> Aurora::Math::Vector2D<VectorType>::ToInt() const
+		{
+			return(Vector2D<int>(static_cast<int>(this->X), static_cast<int>(this->Y), static_cast<int>(this->Z)));
+		}
+
+		template<typename VectorType>
+		Vector2D<double> Aurora::Math::Vector2D<VectorType>::ToDouble() const
+		{
+			return(Vector2D<double>(static_cast<double>(this->X), static_cast<double>(this->Y), static_cast<double>(this->Z)));
+		}
+
+		template<typename VectorType>
+		Vector2D<float> Aurora::Math::Vector2D<VectorType>::ToFloat() const
+		{
+			return(Vector2D<float>(static_cast<float>(this->X), static_cast<float>(this->Y), static_cast<float>(this->Z)));
+		}
+
+		template<typename VectorType>
+		Vector2D<bool> Aurora::Math::Vector2D<VectorType>::ToBoolean() const
+		{
+			return(Vector2D<bool>(static_cast<bool>(this->X), static_cast<bool>(this->Y), static_cast<bool>(this->Z)));
+		}
 
 
 		template<typename VectorType>

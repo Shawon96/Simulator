@@ -10,6 +10,7 @@ namespace Aurora
 		public:
 			EmulatedVector3D(const Vector3DDouble &v)
 			{
+				// TODO: Memory usage Optimization here??
 				high = v.ToFloat();
 				low = (v.Clone() - high.ToDouble()).ToFloat();
 			}
