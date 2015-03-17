@@ -1,7 +1,7 @@
 #ifndef VectorExtended_H
 #define VectorExtended_H
 
-#include "Matrix2D.h"
+#include "../Matrices/Matrix2D.h"
 
 using namespace Aurora::DataTypes;
 /*!
@@ -86,6 +86,14 @@ namespace Aurora
 			bool operator==(const Vector2D<VectorType>		&value);
 
 			bool operator!=(const Vector2D<VectorType>		&value);
+
+			bool operator<(const VectorType &scalar) const;
+
+			bool operator>(const VectorType &scalar) const;
+
+			bool operator<(const Vector2D<VectorType>		&value) const;
+
+			bool operator>(const Vector2D<VectorType>		&value) const;
 #pragma endregion ComparisonOperators
 
 			Vector2D<bool> ToBoolean() const;
@@ -131,6 +139,30 @@ namespace Aurora
 		using Vector2DFloat = Vector2D < float >;
 		using Vector2DInt = Vector2D < int >;
 		using Vector2DHalfPrecision = Vector2D < half_float::half >;
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector2D<VectorType>::operator>(const Vector2D<VectorType> &value) const
+		{
+			return(this->X > value.X && this->Y > value.Y);
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector2D<VectorType>::operator<(const Vector2D<VectorType> &value) const
+		{
+			return(this->X < value.X && this->Y < value.Y);
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector2D<VectorType>::operator>(const VectorType &scalar) const
+		{
+			return(this->X > scalar && this->Y > scalar);
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector2D<VectorType>::operator<(const VectorType &scalar) const
+		{
+			return(this->X < scalar && this->Y < scalar);
+		}
 
 		template<typename VectorType>
 		Vector2D<half_float::half> Aurora::Math::Vector2D<VectorType>::ToHalfPrecision() const

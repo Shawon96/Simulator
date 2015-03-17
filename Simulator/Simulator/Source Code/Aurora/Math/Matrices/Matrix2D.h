@@ -1,6 +1,6 @@
 #ifndef MATRIX2X2_H
 #define MATRIX2X2_H
-#include "..\Globals\GlobalDatatypes.h"
+#include "..\..\Globals\GlobalDatatypes.h"
 
 using namespace Aurora::DataTypes;
 

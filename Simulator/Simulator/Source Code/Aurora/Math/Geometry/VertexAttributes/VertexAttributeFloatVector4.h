@@ -2,7 +2,7 @@
 #define GeometryOperations_VertexAttributes_VertexAttributeFloatVector4_H
 
 #include "VertexAttribute.h"
-#include "../../Vector4D.h"
+#include "../../Vectors/Vector4D.h"
 
 namespace Aurora
 {

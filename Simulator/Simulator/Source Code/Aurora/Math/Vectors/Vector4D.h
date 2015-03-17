@@ -1,7 +1,7 @@
 #ifndef Vector4D_H
 #define Vector4D_H
 
-#include "Matrix4D.h"
+#include "../Matrices/Matrix4D.h"
 #include "Vector3D.h"
 
 using namespace Aurora::DataTypes;
@@ -90,6 +90,15 @@ namespace Aurora
 			bool operator==(const Vector4D<VectorType>		&value);
 
 			bool operator!=(const Vector4D<VectorType>		&value);
+
+			bool operator<(const VectorType &scalar) const;
+
+			bool operator>(const VectorType &scalar) const;
+
+			bool operator<(const Vector4D<VectorType>		&value) const;
+
+			bool operator>(const Vector4D<VectorType>		&value) const;
+
 #pragma endregion ComparisonOperators
 
 			Vector4D<bool> ToBoolean() const;
@@ -140,11 +149,39 @@ namespace Aurora
 			VectorType Dot(const Vector4D<VectorType> &value);
 		};
 
+		
+
+		
+
 		using Vector4DBool = Vector4D < bool >;
 		using Vector4DDouble = Vector4D < double >;
 		using Vector4DFloat = Vector4D < float >;
 		using Vector4DInt = Vector4D < int >;
 		using Vector4DHalfPrecision = Vector4D < half_float::half >;
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector4D<VectorType>::operator>(const Vector4D<VectorType> &value) const
+		{
+			return(this->X > value.X && this->Y > value.Y && this->Z > value.Z  && this->W > value.W);
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector4D<VectorType>::operator<(const Vector4D<VectorType> &value) const
+		{
+			return(this->X < value.X && this->Y < value.Y && this->Z < value.Z  && this->W < value.W);
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector4D<VectorType>::operator>(const VectorType &scalar) const
+		{
+			return(this->X > scalar && this->Y > scalar && this->Z > scalar  && this->W > scalar);
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector4D<VectorType>::operator<(const VectorType &scalar) const
+		{
+			return(this->X < scalar && this->Y < scalar && this->Z < scalar  && this->W < scalar);
+		}
 
 		template<typename VectorType>
 		Vector4D<half_float::half> Aurora::Math::Vector4D<VectorType>::ToHalfPrecision() const

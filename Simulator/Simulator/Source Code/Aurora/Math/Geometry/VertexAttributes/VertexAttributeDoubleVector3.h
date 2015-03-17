@@ -2,7 +2,7 @@
 #define GeometryOperations_VertexAttributes_VertexAttributeDoubleVector3_H
 
 #include "VertexAttribute.h"
-#include "../../Vector3D.h"
+#include "../../Vectors/Vector3D.h"
 
 namespace Aurora
 {

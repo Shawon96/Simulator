@@ -2,7 +2,7 @@
 #define Vector3D_H
 
 #include "Vector2D.h"
-#include "Matrix3D.h"
+#include "../Matrices/Matrix3D.h"
 
 /*
 template <typename T>
@@ -96,6 +96,14 @@ namespace Aurora
 			bool operator==(const Vector3D<VectorType>		&value);
 
 			bool operator!=(const Vector3D<VectorType>		&value);
+
+			bool operator<(const VectorType &scalar) const;
+
+			bool operator>(const VectorType &scalar) const;
+
+			bool operator<(const Vector3D<VectorType>		&value) const;
+
+			bool operator>(const Vector3D<VectorType>		&value) const;
 #pragma endregion ComparisonOperators
 
 			
@@ -107,6 +115,8 @@ namespace Aurora
 			Vector3D<double> ToDouble() const;
 			Vector3D<int> ToInt() const;
 			Vector3D<half_float::half> ToHalfPrecision() const;
+
+			
 
 			void Zero(void);
 			void Limit(const VectorType &limit);
@@ -151,7 +161,29 @@ namespace Aurora
 		};
 
 		
+		template<typename VectorType>
+		bool Aurora::Math::Vector3D<VectorType>::operator>(const Vector3D<VectorType> &value) const
+		{
+			return(this->X > value.X && this->Y > value.Y && this->Z > value.Z);
+		}
 
+		template<typename VectorType>
+		bool Aurora::Math::Vector3D<VectorType>::operator<(const Vector3D<VectorType> &value) const
+		{
+			return(this->X < value.X && this->Y < value.Y && this->Z < value.Z);
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector3D<VectorType>::operator>(const VectorType &scalar) const
+		{
+			return(this->X > scalar && this->Y > scalar && this->Z > scalar);
+		}
+
+		template<typename VectorType>
+		bool Aurora::Math::Vector3D<VectorType>::operator<(const VectorType &scalar) const
+		{
+			return(this->X < scalar && this->Y < scalar && this->Z < scalar);
+		}
 		
 
 		using Vector3DBool = Vector3D < bool >;

@@ -1,6 +1,6 @@
 #ifndef Matrix4D_H
 #define Matrix4D_H
-#include "..\Globals\GlobalDatatypes.h"
+#include "..\..\Globals\GlobalDatatypes.h"
 
 using namespace Aurora::DataTypes;
 

@@ -282,24 +282,6 @@
     <ClInclude Include="Source Code\Aurora\Math\Globe\Trig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Math\Matrix4D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Math\Vector3D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Math\Vector4D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Math\Matrix3D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Math\Matrix2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Math\Vector2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Libraries\Includes\half.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -555,7 +537,28 @@
     <ClInclude Include="Source Code\Aurora\Math\Geometry\EllipsoidTangentPlane.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Math\EmulatedVector3D.h">
+    <ClInclude Include="Source Code\Aurora\Math\Vectors\Vector2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Vectors\Vector3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Vectors\Vector4D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Vectors\EmulatedVector3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Matrices\Matrix2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Matrices\Matrix3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\Matrices\Matrix4D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\BoundingVolumes\AxisAlignedBoundingBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

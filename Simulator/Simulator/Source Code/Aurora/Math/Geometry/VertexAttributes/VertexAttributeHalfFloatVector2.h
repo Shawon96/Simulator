@@ -2,7 +2,7 @@
 #define GeometryOperations_VertexAttributes_VertexAttributeHalfFloatVector2_H
 
 #include "VertexAttribute.h"
-#include "../../Vector2D.h"
+#include "../../Vectors/Vector2D.h"
 namespace Aurora
 {
 	namespace Math

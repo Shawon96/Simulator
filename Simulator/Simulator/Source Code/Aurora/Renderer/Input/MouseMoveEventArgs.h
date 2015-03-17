@@ -1,7 +1,7 @@
 #ifndef Renderer_MouseMoveEventArgs_h
 #define Renderer_MouseMoveEventArgs_h
 
-#include "../../Math/Vector2D.h"
+#include "../../Math/Vectors/Vector2D.h"
 
 using namespace Aurora::Math;
 

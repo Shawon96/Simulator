@@ -1,6 +1,6 @@
 #ifndef Matrix3X3_H
 #define Matrix3X3_H
-#include "..\Globals\GlobalDatatypes.h"
+#include "..\..\Globals\GlobalDatatypes.h"
 
 using namespace Aurora::DataTypes;
 

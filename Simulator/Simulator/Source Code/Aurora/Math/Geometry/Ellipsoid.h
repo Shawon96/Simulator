@@ -3,7 +3,7 @@
 
 #include <functional>
 #include <stdlib.h> 
-#include "../Vector3D.h"
+#include "../Vectors/Vector3D.h"
 #include "../Globe/GlobeOperations.h"
 
 namespace Aurora
