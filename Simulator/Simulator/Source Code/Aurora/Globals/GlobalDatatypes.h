@@ -34,6 +34,8 @@ namespace Aurora
 		typedef long long					Int64;			/*!< Int long variable: Bit length 64					*/
 		typedef std::string					String;			/*!< String type variable: Bit length N/A				*/
 		typedef std::vector<std::string>	vString;		/*!< A vector class array with strings in it variable	*/
+
+		
 		
 		//--------------------------------------------------------------------------------------------------------------------------------------
 		// Engine specific datatypes
@@ -319,7 +321,10 @@ namespace Aurora
 		};
 
 		using UniqueUIntVector = std::vector<std::unique_ptr<UInt32>>;
-		using UniqueDoubleVector = std::vector<std::unique_ptr<double>>;
+		using UniqueUInt = std::unique_ptr < UInt32 > ;
+		using UniqueByte = std::unique_ptr < Byte >;
+		using UniqueDouble = std::unique_ptr < double >;
+		using UniqueDoubleVector = std::vector<UniqueDouble>;
 		using UniqueUShortVector = std::vector<std::unique_ptr<unsigned short>>;
 		template<typename DataType>
 		using UniqueDynamicTypeVector = std::vector<std::unique_ptr<DataType>>;

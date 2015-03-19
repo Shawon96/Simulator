@@ -770,9 +770,6 @@
     <ClCompile Include="Source Code\Aurora\Math\Globe\GeodeticExtent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source Code\Aurora\Math\Geometry\Ellipsoid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source Code\Aurora\Renderer\Device.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -780,6 +777,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source Code\Aurora\IO\Bitmap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\Aurora\Math\Geometry\Ellipsoid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

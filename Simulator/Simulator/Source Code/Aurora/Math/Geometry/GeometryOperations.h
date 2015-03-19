@@ -1,7 +1,7 @@
 #ifndef GeometryOperations_H
 #define GeometryOperations_H
 
-#include "Ellipsoid.h"
+//#include "Ellipsoid.h"
 #include "Mesh.h"
 #include "Edge.h"
 #include "VertexAttributes/VertexAttributesOperations.h"

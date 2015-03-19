@@ -1,10 +1,11 @@
-#ifndef GeometryOperations_Edge_H
-#define GeometryOperations_Edge_H
+#ifndef GeometryOperations_EllipsoidTangentPlane_H
+#define GeometryOperations_EllipsoidTangentPlane_H
+
 #include <functional>
 #include <stdlib.h> 
 #include "..\..\Globals\GlobalDatatypes.h"
 #include "Ellipsoid.h"
-#include "../Vectors/Vector3D.h"
+//#include "../Vectors/Vector3D.h"
 #include "../BoundingVolumes/AxisAlignedBoundingBox.h"
 #include "../CollisionDetection/CollisionDetectionOperations.h"
 
@@ -18,7 +19,7 @@ namespace Aurora
 			using namespace Aurora::Math;
 			using namespace Aurora::Math::BoundingVolumes;
 			using namespace Aurora::Math::CollisionDetection;
-
+			
 			class EllipsoidTangentPlane
 			{
 			private:
@@ -37,14 +38,14 @@ namespace Aurora
 				double D() const {
 					return d;
 				}
-				Vector3DDouble Axis() const {
+				Vector3DDouble XAxis() const {
 					return xAxis;
 				}
-				Vector3DDouble Axis() const {
+				Vector3DDouble YAxis() const {
 					return yAxis;
 				}
 
-				EllipsoidTangentPlane(Ellipsoid &ellipsoid, const UniqueVector3DDoubleVector &positions)
+				EllipsoidTangentPlane(Aurora::Math::Geometry::Ellipsoid &ellipsoid, const UniqueVector3DDoubleVector &positions)
 				{
 					/*if (ellipsoid == nullptr)
 					{
@@ -76,19 +77,19 @@ namespace Aurora
 					{
 						throw new ArgumentNullException("positions");
 					}*/
-
-					std::shared_ptr<std::vector < Vector2DDouble>> positionsOnPlane = std::make_shared<std::vector < Vector2DDouble>>();
+					Aurora::Math::Geometry::Ellipsoid e;
+					std::shared_ptr<UniqueVector2DDoubleVector> positionsOnPlane = std::make_shared<UniqueVector2DDoubleVector>();
 					//TODO: Better resize, Check other similar places
 					positionsOnPlane->resize(positions.size());
 
-					for(auto position : positions)
+					for(auto &position : positions)
 					{
 						Vector3DDouble intersectionPoint;
 
-						if (IntersectionTests::TryRayPlane(Vector3DDouble::GetZero(), position.Normalize(), normal, d, intersectionPoint))
+						if (IntersectionTests::TryRayPlane(Vector3DDouble::GetZero(), position->Normalize(), normal, d, intersectionPoint))
 						{
 							Vector3DDouble v = intersectionPoint - origin;
-							positionsOnPlane->push_back(Vector2DDouble(xAxis.Dot(v), yAxis.Dot(v)));
+							positionsOnPlane->push_back(std::unique_ptr<Vector2DDouble>(new Vector2DDouble(xAxis.Dot(v), yAxis.Dot(v))));
 						}
 						else
 						{

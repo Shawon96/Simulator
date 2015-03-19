@@ -7,7 +7,7 @@
 #include "Geodetic3D.h"
 #include <type_traits>
 #include <memory>
-#include "../../Math/MathOperations.h"
+//#include "../../Math/MathOperations.h"
 #include "../../Globals/GlobalDatatypes.h"
 
 using namespace Aurora::DataTypes;

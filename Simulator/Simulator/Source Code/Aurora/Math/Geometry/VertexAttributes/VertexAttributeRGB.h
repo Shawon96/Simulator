@@ -26,9 +26,9 @@ namespace Aurora
 
 					void AddColor(const Color<Byte> &color)
 					{
-						Values()->push_back(std::unique_ptr<Byte>(new Byte(color.R)));
-						Values()->push_back(std::unique_ptr<Byte>(new Byte(color.G)));
-						Values()->push_back(std::unique_ptr<Byte>(new Byte(color.B)));
+						Values()->push_back(UniqueByte(new Byte(color.R)));
+						Values()->push_back(UniqueByte(new Byte(color.G)));
+						Values()->push_back(UniqueByte(new Byte(color.B)));
 					}
 			};
 		};

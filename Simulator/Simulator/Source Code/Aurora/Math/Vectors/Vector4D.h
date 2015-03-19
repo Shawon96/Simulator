@@ -165,13 +165,21 @@ namespace Aurora
 		using Vector4DInt = Vector4D < int >;
 		using Vector4DHalfPrecision = Vector4D < half_float::half >;
 
-		using UniqueVector4DBoolVector = std::vector < std::unique_ptr<Vector4DBool> >;
-		using UniqueVector4DDoubleVector = std::vector < std::unique_ptr<Vector4DDouble> >;
-		using UniqueVector4DFloatVector = std::vector < std::unique_ptr<Vector4DFloat> >;
-		using UniqueVector4DIntVector = std::vector < std::unique_ptr<Vector4DInt> >;
-		using UniqueVector4DHalfPrecisionVector = std::vector < std::unique_ptr<Vector4DHalfPrecision> >;
+		using UniqueVector4DBool = std::unique_ptr < Vector4DBool > ;
+		using UniqueVector4DDouble = std::unique_ptr < Vector4DDouble > ;
+		using UniqueVector4DFloat = std::unique_ptr < Vector4DFloat > ;
+		using UniqueVector4DInt = std::unique_ptr < Vector4DInt > ;
+		using UniqueVector4DHalfPrecision = std::unique_ptr < Vector4DHalfPrecision > ;
 		template<typename DataType>
-		using UniqueVector4DDynamicTypeVector = std::vector < std::unique_ptr<Vector4D<DataType>> > ;
+		using UniqueVector4DDynamicType = std::unique_ptr < Vector4D<DataType> > ;
+
+		using UniqueVector4DBoolVector = std::vector < UniqueVector4DBool > ;
+		using UniqueVector4DDoubleVector = std::vector < UniqueVector4DDouble > ;
+		using UniqueVector4DFloatVector = std::vector < UniqueVector4DFloat > ;
+		using UniqueVector4DIntVector = std::vector < UniqueVector4DInt > ;
+		using UniqueVector4DHalfPrecisionVector = std::vector < UniqueVector4DHalfPrecision > ;
+		template<typename DataType>
+		using UniqueVector4DDynamicTypeVector = std::vector < UniqueVector4DDynamicType<DataType> > ;
 
 		template<typename VectorType>
 		bool Aurora::Math::Vector4D<VectorType>::operator>(const Vector4D<VectorType> &value) const

@@ -1,5 +1,5 @@
 #include "Trig.h"
-
+#include "../MathOperations.h"
 using namespace Aurora::Math;
 
 namespace Aurora

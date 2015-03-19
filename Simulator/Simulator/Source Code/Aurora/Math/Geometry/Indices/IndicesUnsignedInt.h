@@ -31,9 +31,9 @@ namespace Aurora
 
 				void AddTriangle(const TriangleIndicesUnsignedInt &triangle)
 					{
-						values->push_back(std::unique_ptr<UInt32>(new UInt32(triangle.UI0())));
-						values->push_back(std::unique_ptr<UInt32>(new UInt32(triangle.UI1())));
-						values->push_back(std::unique_ptr<UInt32>(new UInt32(triangle.UI2())));
+						values->push_back(UniqueUInt(new UInt32(triangle.UI0())));
+						values->push_back(UniqueUInt(new UInt32(triangle.UI1())));
+						values->push_back(UniqueUInt(new UInt32(triangle.UI2())));
 					}
 
 			private:

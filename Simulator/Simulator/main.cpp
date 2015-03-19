@@ -17,6 +17,17 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
 int main(void)
 {    
+	Ellipsoid er;
+	/*int stackValue = 200;
+	float stackValue2 = 12;
+	double stackValue3 = 200;
+	Event<int, float, double> e;
+	e += [=](int i, float j, double k) { printf("%d\n", i + stackValue + (int)j + (int)k); };
+	e += [&](int i, float j, double k) { printf("%d\n", i + stackValue + (int)j + (int)k); stackValue += 100; };
+	e += [&stackValue](int i, float j, double k) { printf("%d\n", i + stackValue + (int)j + (int)k); };
+	e += [stackValue](int i, float j, double k) { printf("%d\n", i + stackValue + (int)j + (int)k); };
+
+	e(100, stackValue2, 53);*/
 	GLFWwindow* window;    
 	glfwSetErrorCallback(error_callback);    
 	if (!glfwInit())

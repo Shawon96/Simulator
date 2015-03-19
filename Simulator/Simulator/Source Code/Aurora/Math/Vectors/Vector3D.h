@@ -172,14 +172,21 @@ namespace Aurora
 		using Vector3DInt = Vector3D < int >;
 		using Vector3DHalfPrecision = Vector3D < half_float::half >;
 
-		using UniqueVector3DBoolVector = std::vector < std::unique_ptr<Vector3DBool> >;
-		using UniqueVector3DDoubleVector = std::vector < std::unique_ptr<Vector3DDouble> >;
-		using UniqueVector3DFloatVector = std::vector < std::unique_ptr<Vector3DFloat> >;
-		using UniqueVector3DIntVector = std::vector < std::unique_ptr<Vector3DInt> >;
-		using UniqueVector3DHalfPrecisionVector = std::vector < std::unique_ptr<Vector3DHalfPrecision> >;
-
+		using UniqueVector3DBool = std::unique_ptr < Vector3DBool > ;
+		using UniqueVector3DDouble = std::unique_ptr < Vector3DDouble > ;
+		using UniqueVector3DFloat = std::unique_ptr < Vector3DFloat > ;
+		using UniqueVector3DInt = std::unique_ptr < Vector3DInt > ;
+		using UniqueVector3DHalfPrecision = std::unique_ptr < Vector3DHalfPrecision > ;
 		template<typename DataType>
-		using UniqueVector3DDynamicTypeVector = std::vector < std::unique_ptr<Vector3D<DataType>> > ;
+		using UniqueVector3DDynamicType = std::unique_ptr < Vector3D<DataType> > ;
+
+		using UniqueVector3DBoolVector = std::vector < UniqueVector3DBool > ;
+		using UniqueVector3DDoubleVector = std::vector < UniqueVector3DDouble > ;
+		using UniqueVector3DFloatVector = std::vector < UniqueVector3DFloat > ;
+		using UniqueVector3DIntVector = std::vector < UniqueVector3DInt > ;
+		using UniqueVector3DHalfPrecisionVector = std::vector < UniqueVector3DHalfPrecision > ;
+		template<typename DataType>
+		using UniqueVector3DDynamicTypeVector = std::vector < UniqueVector3DDynamicType<DataType> > ;
 
 		template<typename VectorType>
 		bool Aurora::Math::Vector3D<VectorType>::operator>(const Vector3D<VectorType> &value) const
@@ -355,15 +362,15 @@ namespace Aurora
 
 			if ((x < y) && (x < z))
             {
-                return UnitX;
+                return UnitX();
             }
             else if ((y < x) && (y < z))
             {
-                return UnitY;
+                return UnitY();
             }
             else
             {
-                return UnitZ;
+                return UnitZ();
             }
 		}
 

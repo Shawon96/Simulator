@@ -71,8 +71,8 @@ namespace Aurora
 
 				std::size_t GetHashCode();
 			};
-
-			using UniqueGeodetic2DVector = std::vector < std::unique_ptr<Geodetic2D> >;
+			using UniqueGeodetic2D = std::unique_ptr<Geodetic2D>;
+			using UniqueGeodetic2DVector = std::vector < UniqueGeodetic2D >;
 		}
 	}
 }
