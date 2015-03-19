@@ -15,26 +15,28 @@ namespace Aurora
 			public:
 				IndicesUnsignedInt() : IndicesBase(IndicesType::UnsignedShort)
 				{
+					values = std::make_shared<UniqueUShortVector>();
 				}
 
 				IndicesUnsignedInt(int capacity) : IndicesBase(IndicesType::UnsignedShort)
 				{
-					values.resize(capacity);
+					values = std::make_shared<UniqueUShortVector>(capacity);
+					this->values->resize(capacity);
 				}
 
-				std::vector<unsigned short> Values() const {
+				std::shared_ptr<UniqueUShortVector> Values() const {
 					return values;
 				}
 
 				void AddTriangle(const TriangleIndicesUnsignedShort &triangle)
 				{
-					values.push_back(triangle.UI0());
-					values.push_back(triangle.UI1());
-					values.push_back(triangle.UI2());
+					values->push_back(triangle.UI0());
+					values->push_back(triangle.UI1());
+					values->push_back(triangle.UI2());
 				}
 
 			private:
-				std::vector<unsigned short> values;
+				std::shared_ptr<UniqueUShortVector> values;
 
 
 			};

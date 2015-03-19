@@ -3,6 +3,8 @@
 
 #include <functional>
 #include <stdlib.h> 
+#include <vector>
+#include <memory>
 #include "Geodetic2D.h"
 
 namespace Aurora
@@ -76,7 +78,7 @@ namespace Aurora
 
 				std::size_t GetHashCode();
 			};
-
+			using UniqueGeodetic3DVector = std::vector < std::unique_ptr<Geodetic3D> >;
 
 		}
 	}

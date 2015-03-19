@@ -16,7 +16,7 @@ namespace Aurora {
 			protected:
 				static std::shared_ptr<PhysicsCalculator<Type>> instance;
 			virtual void init() override;
-			std::vector<Vector2D<Type>> constantForces;
+			UniqueVector2DDynamicTypeVector<Type> constantForces;
 			std::map<PhysicsCalculationMode, std::shared_ptr<PhysicsCalculator<Type>>> physicsCalculatorInstances;
 			
 		public:

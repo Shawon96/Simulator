@@ -3,6 +3,8 @@
 
 #include <functional>
 #include <stdlib.h> 
+#include <vector>
+#include <memory>
 #include "../Vectors/Vector3D.h"
 #include "../Globe/GlobeOperations.h"
 
@@ -80,16 +82,16 @@ namespace Aurora
 					Vector3DDouble GeodeticSurfaceNormal(const Geodetic3D &geodetic);
 					double MinimumRadius();
 					double MaximumRadius();
-					std::vector<double> Intersections(const Vector3DDouble &origin, Vector3DDouble &direction);
+					UniqueDoubleVector Intersections(const Vector3DDouble &origin, Vector3DDouble &direction);
 					Vector3DDouble ToVector3D(const Geodetic2D &geodetic);
 					Vector3DDouble ToVector3D(const Geodetic3D &geodetic);
-					std::vector<Geodetic3D> ToGeodetic3D(const std::vector<Vector3DDouble> &positions);
-					std::vector<Geodetic2D> ToGeodetic2D(const std::vector<Vector3DDouble> &positions);
+					UniqueGeodetic3DVector ToGeodetic3D(const UniqueVector3DDoubleVector &positions);
+					UniqueGeodetic2DVector ToGeodetic2D(const UniqueVector3DDoubleVector &positions);
 					Geodetic2D ToGeodetic2D(const Vector3DDouble &positionOnEllipsoid);
 					Geodetic3D ToGeodetic3D(const Vector3DDouble &position);
 					Vector3DDouble ScaleToGeodeticSurface(const Vector3DDouble &position);
 					Vector3DDouble ScaleToGeocentricSurface(const Vector3DDouble &position);
-					std::vector<Vector3DDouble> ComputeCurve(const Vector3DDouble &start, const Vector3DDouble &stop, const double &granularity);
+					UniqueVector3DDoubleVector ComputeCurve(const Vector3DDouble &start, const Vector3DDouble &stop, const double &granularity);
 			};
 		}
 	}

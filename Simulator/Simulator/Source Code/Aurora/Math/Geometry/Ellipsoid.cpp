@@ -111,10 +111,10 @@ namespace Aurora
 				return std::max(radii.X, std::max(radii.Y, radii.Z));
 			}
 
-			std::vector<double> Ellipsoid::Intersections(const Vector3DDouble &origin, Vector3DDouble &direction)
+			UniqueDoubleVector Ellipsoid::Intersections(const Vector3DDouble &origin, Vector3DDouble &direction)
 			{
 				direction.Normalize();
-				std::vector<double> returnArray;
+				UniqueDoubleVector returnArray;
 
 				// By laborious algebraic manipulation....
 				double a = direction.X * direction.X * oneOverRadiiSquared.X +
@@ -139,7 +139,7 @@ namespace Aurora
 				}
 				else if (discriminant == 0.0)
 				{
-					returnArray.push_back( -0.5 * b / a );
+					returnArray.push_back(std::unique_ptr<double>( new Double( -0.5 * b / a )));
 				    // one intersection at a tangent point
 					return returnArray;
 				}
@@ -151,14 +151,14 @@ namespace Aurora
 				// Two intersections - return the smallest first.
 				if (root1 < root2)
 				{
-					returnArray.push_back(root1);
-					returnArray.push_back(root2);
+					returnArray.push_back(std::unique_ptr<double>(new Double(root1)));
+					returnArray.push_back(std::unique_ptr<double>(new Double(root2)));
 				    return returnArray;
 				}
 				else
 				{
-					returnArray.push_back(root2);
-				    returnArray.push_back(root1);
+					returnArray.push_back(std::unique_ptr<double>(new Double(root2)));
+					returnArray.push_back(std::unique_ptr<double>(new Double(root1)));
 				    return returnArray;
 				}
 			}
@@ -181,18 +181,18 @@ namespace Aurora
 				return rSurface + (n * geodetic.Height());
 			}
 
-			std::vector<Geodetic3D> Ellipsoid::ToGeodetic3D(const std::vector<Vector3DDouble> &positions)
+			UniqueGeodetic3DVector Ellipsoid::ToGeodetic3D(const UniqueVector3DDoubleVector &positions)
 			{
 				/*if (positions == nullptr)
 				{
 				    throw std::bad_function_call(Aurora::Errors::ErrorMessages::RadiiEllipsoidError.c_str());
 				}*/
 
-				std::vector<Geodetic3D> geodetics(positions.size());
+				UniqueGeodetic3DVector geodetics(positions.size());
 
-				for (auto position : positions)
+				for (auto &position : positions)
 				{
-					geodetics.push_back(ToGeodetic3D(position));
+					geodetics.push_back(std::unique_ptr<Geodetic3D>(new Geodetic3D(std::move(ToGeodetic3D(*position)))));
 				}
 
 				return geodetics;
@@ -212,18 +212,18 @@ namespace Aurora
 				return Geodetic3D(ToGeodetic2D(p), height);
 			}
 
-			std::vector<Geodetic2D> Ellipsoid::ToGeodetic2D(const std::vector<Vector3DDouble> &positions)
+			UniqueGeodetic2DVector Ellipsoid::ToGeodetic2D(const UniqueVector3DDoubleVector &positions)
 			{
 				/*if (positions == null)
 				{
 					throw new ArgumentNullException("positions");
 				}*/
 
-				std::vector<Geodetic2D> geodetics(positions.size());
+				UniqueGeodetic2DVector geodetics(positions.size());
 
-				for (auto position : positions)
+				for (auto &position : positions)
 				{
-					geodetics.push_back(ToGeodetic2D(position));
+					geodetics.push_back(std::unique_ptr<Geodetic2D>(new Geodetic2D(std::move(ToGeodetic2D(*position)))));
 				}
 
 				return geodetics;
@@ -302,7 +302,7 @@ namespace Aurora
 				return position.Clone() * beta;
 			}
 
-			std::vector<Vector3DDouble> Ellipsoid::ComputeCurve(const Vector3DDouble &start, const Vector3DDouble &stop, const double &granularity)
+			UniqueVector3DDoubleVector Ellipsoid::ComputeCurve(const Vector3DDouble &start, const Vector3DDouble &stop, const double &granularity)
 			{
 				if (granularity <= 0.0)
 				{
@@ -313,18 +313,18 @@ namespace Aurora
 				double theta = startClone.AngleBetween(stop);
 				int n = std::max((int)(theta / granularity) - 1, 0);
 
-				std::vector<Vector3DDouble> positions(2 + n);
+				UniqueVector3DDoubleVector positions(2 + n);
 
-				positions.push_back(start);
+				positions.push_back(std::unique_ptr<Vector3DDouble>(new Vector3DDouble(std::move(start))));
 
 				for (int i = 1; i <= n; ++i)
 				{
 					double phi = (i * granularity);
 
-					positions.push_back((ScaleToGeocentricSurface(startClone.RotateAroundAxis(normal, phi))));
+					positions.push_back(std::unique_ptr<Vector3DDouble>(new Vector3DDouble(std::move((ScaleToGeocentricSurface(startClone.RotateAroundAxis(normal, phi)))))));
 				}
 
-				positions.push_back(stop);
+				positions.push_back(std::unique_ptr<Vector3DDouble>(new Vector3DDouble(std::move(stop))));
 
 				return positions;
 			}

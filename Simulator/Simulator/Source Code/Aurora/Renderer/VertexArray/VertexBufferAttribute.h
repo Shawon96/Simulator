@@ -79,7 +79,7 @@ namespace Aurora {
 						//
 						// Tightly packed
 						//
-						strideInBytes = sizeof(std::vector<T>) + (sizeof(T) * numberOfComponents);
+						strideInBytes = sizeof(UniqueDynamicTypeVector<T>) + (sizeof(T) * numberOfComponents);
 					}
 					else
 					{

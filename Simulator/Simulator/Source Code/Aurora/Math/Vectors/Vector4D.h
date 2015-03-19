@@ -41,12 +41,16 @@ namespace Aurora
 
 #pragma region AdditionAndSubstractionOperators
 			const Vector4D<VectorType> operator+(const VectorType			&value);
+			const Vector4D<VectorType> operator+(const VectorType			&value) const;
 
 			const Vector4D<VectorType> operator+(const Vector4D<VectorType>		&value);
+			const Vector4D<VectorType> operator+(const Vector4D<VectorType>		&value) const;
 
 			const Vector4D<VectorType> operator-(const VectorType			&value);
+			const Vector4D<VectorType> operator-(const VectorType			&value) const;
 
 			const Vector4D<VectorType> operator-(const Vector4D<VectorType>		&value);
+			const Vector4D<VectorType> operator-(const Vector4D<VectorType>		&value) const;
 
 			Vector4D<VectorType> &operator=(const VectorType			&value);
 
@@ -66,8 +70,10 @@ namespace Aurora
 #pragma region DivisionAndMultiplicationOperators
 
 			const Vector4D<VectorType> operator*(const VectorType		&value);
+			const Vector4D<VectorType> operator*(const VectorType		&value) const;
 
 			const VectorType operator*(const Vector4D<VectorType>		&value);
+			const VectorType operator*(const Vector4D<VectorType>		&value) const;
 
 			const Vector4D<VectorType> &operator*=(const VectorType		&value);
 
@@ -146,7 +152,7 @@ namespace Aurora
 
 			bool Equals(const Vector4D<VectorType> &value) const;
 
-			VectorType Dot(const Vector4D<VectorType> &value);
+			VectorType Dot(const Vector4D<VectorType> &value) const;
 		};
 
 		
@@ -158,6 +164,14 @@ namespace Aurora
 		using Vector4DFloat = Vector4D < float >;
 		using Vector4DInt = Vector4D < int >;
 		using Vector4DHalfPrecision = Vector4D < half_float::half >;
+
+		using UniqueVector4DBoolVector = std::vector < std::unique_ptr<Vector4DBool> >;
+		using UniqueVector4DDoubleVector = std::vector < std::unique_ptr<Vector4DDouble> >;
+		using UniqueVector4DFloatVector = std::vector < std::unique_ptr<Vector4DFloat> >;
+		using UniqueVector4DIntVector = std::vector < std::unique_ptr<Vector4DInt> >;
+		using UniqueVector4DHalfPrecisionVector = std::vector < std::unique_ptr<Vector4DHalfPrecision> >;
+		template<typename DataType>
+		using UniqueVector4DDynamicTypeVector = std::vector < std::unique_ptr<Vector4D<DataType>> > ;
 
 		template<typename VectorType>
 		bool Aurora::Math::Vector4D<VectorType>::operator>(const Vector4D<VectorType> &value) const
@@ -244,7 +258,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VectorType Aurora::Math::Vector4D<VectorType>::Dot(const Vector4D<VectorType> &value)
+		VectorType Aurora::Math::Vector4D<VectorType>::Dot(const Vector4D<VectorType> &value) const
 		{
 			return X * value.X + Y * value.Y + Z * value.Z + W * value.W;
 		}
@@ -535,7 +549,19 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
+		const VectorType Aurora::Math::Vector4D<VectorType>::operator*(const Vector4D<VectorType> &value) const
+		{
+			return((this->X * value.X) + (this->Y * value.Y) + (this->Z * value.Z) + (this->W * value.W));
+		}
+
+		template<typename VectorType>
 		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator*(const VectorType &value)
+		{
+			return(Vector4D<VectorType>(this->X * value, this->Y * value, this->Z * value, this->W * value));
+		}
+
+		template<typename VectorType>
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator*(const VectorType &value) const
 		{
 			return(Vector4D<VectorType>(this->X * value, this->Y * value, this->Z * value, this->W * value));
 		}
@@ -600,7 +626,19 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator-(const Vector4D<VectorType> &value) const
+		{
+			return(Vector4D<VectorType>(this->X - value.X, this->Y - value.Y, this->Z - value.Z, this->W - value.W));
+		}
+
+		template<typename VectorType>
 		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator-(const VectorType &value)
+		{
+			return(Vector4D<VectorType>(this->X - value, this->Y - value, this->Z - value, this->W - value));
+		}
+
+		template<typename VectorType>
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator-(const VectorType &value) const
 		{
 			return(Vector4D<VectorType>(this->X - value, this->Y - value, this->Z - value, this->W - value));
 		}
@@ -612,7 +650,20 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator+(const Vector4D<VectorType> &value) const
+		{
+			return(Vector4D<VectorType>(this->X + value.X, this->Y + value.Y, this->Z + value.Z, this->W + value.W));
+		}
+
+		template<typename VectorType>
 		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator+(const VectorType &value)
+		{
+
+			return(Vector4D<VectorType>(this->X + value, this->Y + value, this->Z + value, this->W + valu));
+		}
+
+		template<typename VectorType>
+		const Vector4D<VectorType> Aurora::Math::Vector4D<VectorType>::operator+(const VectorType &value) const
 		{
 
 			return(Vector4D<VectorType>(this->X + value, this->Y + value, this->Z + value, this->W + valu));

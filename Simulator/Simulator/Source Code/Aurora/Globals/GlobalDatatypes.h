@@ -4,6 +4,7 @@
 #include <vector>
 #include <math.h>
 #include "../../../Libraries/Includes/half.hpp"
+#include <memory>
 
 /*!
 Namespace: Aurora
@@ -316,6 +317,12 @@ namespace Aurora
 			//     the alpha, red, green, and blue components.
 			Format64bppArgb = 3424269,
 		};
+
+		using UniqueUIntVector = std::vector<std::unique_ptr<UInt32>>;
+		using UniqueDoubleVector = std::vector<std::unique_ptr<double>>;
+		using UniqueUShortVector = std::vector<std::unique_ptr<unsigned short>>;
+		template<typename DataType>
+		using UniqueDynamicTypeVector = std::vector<std::unique_ptr<DataType>>;
 
 	}; // END OF NAMESPACE DATATYPES
 }; // END OF NAMESPACE Aurora

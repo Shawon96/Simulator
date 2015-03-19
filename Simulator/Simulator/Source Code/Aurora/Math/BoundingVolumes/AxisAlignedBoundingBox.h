@@ -10,13 +10,33 @@ namespace Aurora
 	{
 		namespace BoundingVolumes
 		{
+/*!
+ * \class AxisAlignedBoundingBox
+ *
+ * \ingroup GroupName
+ *
+ * \brief 
+ *
+ * TODO: long description
+ *
+ * \note 
+ *
+ * \author Adrian Simionescu
+ *
+ * \version 1.0
+ *
+ * \date March 2015
+ *
+ * Contact: user@company.com
+ *
+ */
 			class AxisAlignedBoundingBox
 			{
 			private:
 				Vector3DDouble minimum;
 				Vector3DDouble maximum;
 			public:
-				AxisAlignedBoundingBox(const std::vector<Vector3DDouble> &positions)
+				AxisAlignedBoundingBox(const UniqueVector3DDoubleVector &positions)
 				{
 					/*if (positions == null)
 					{
@@ -31,36 +51,36 @@ namespace Aurora
 					double maximumY = -std::numeric_limits<double>::max();
 					double maximumZ = -std::numeric_limits<double>::max();
 
-					for(auto position : positions)
+					for(auto &position : positions)
 					{
-						if (position.X < minimumX)
+						if (position->X < minimumX)
 						{
-							minimumX = position.X;
+							minimumX = position->X;
 						}
 
-						if (position.X > maximumX)
+						if (position->X > maximumX)
 						{
-							maximumX = position.X;
+							maximumX = position->X;
 						}
 
-						if (position.Y < minimumY)
+						if (position->Y < minimumY)
 						{
-							minimumY = position.Y;
+							minimumY = position->Y;
 						}
 
-						if (position.Y > maximumY)
+						if (position->Y > maximumY)
 						{
-							maximumY = position.Y;
+							maximumY = position->Y;
 						}
 
-						if (position.Z < minimumZ)
+						if (position->Z < minimumZ)
 						{
-							minimumZ = position.Z;
+							minimumZ = position->Z;
 						}
 
-						if (position.Z > maximumZ)
+						if (position->Z > maximumZ)
 						{
-							maximumZ = position.Z;
+							maximumZ = position->Z;
 						}
 					}
 

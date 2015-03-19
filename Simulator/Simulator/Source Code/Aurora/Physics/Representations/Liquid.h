@@ -16,7 +16,7 @@ namespace Aurora {
 			protected:
 				virtual void init() override;
 				float coefficientDrag;
-				std::vector<Vector2D<Type>> liquidArea;
+				UniqueVector2DDynamicTypeVector<Type> liquidArea;
 				
 
 
@@ -33,7 +33,7 @@ namespace Aurora {
 			template<typename T>
 			void CoefficientDrag(T &&value) { coefficientDrag = std::forward<T>(value); }
 			
-			std::vector<Vector2D<Type>> LiquidArea() const { return liquidArea; }
+			UniqueVector2DDynamicTypeVector<Type> LiquidArea() const { return liquidArea; }
 			
 			void AddEdgePoint(const Vector2D<Type> &value);
 

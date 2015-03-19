@@ -42,19 +42,20 @@ namespace Aurora
 			protected:
 				VertexAttribute(const std::string &name, VertexAttributeType type) : VertexAttributeBase(name, type)
 				{
-					
+					this->values = std::shared_ptr<UniqueDynamicTypeVector<DataType>>();
 				}
 
 				VertexAttribute(const std::string &name, VertexAttributeType type, int capacity) : VertexAttributeBase(name, type)
 				{
-					this->values.resize(capacity);
+					this->values = std::shared_ptr<UniqueDynamicTypeVector<DataType>>();
+					this->values->resize(capacity);
 				}
 
 			private:
-				std::vector<DataType> values;
+				std::shared_ptr<UniqueDynamicTypeVector<DataType>> values;
 				
 			public:
-				std::vector<DataType> Values() const {
+				std::shared_ptr<UniqueDynamicTypeVector<DataType>> Values() const {
 					return values;
 				}
 			};

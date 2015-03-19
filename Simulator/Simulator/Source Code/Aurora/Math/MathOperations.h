@@ -6,6 +6,8 @@
 #include "MathDataTypes.h"
 #include "Globe\GlobeOperations.h"
 #include "Geometry\GeometryOperations.h"
+#include "BoundingVolumes\BoundingVolumesOperations.h"
+#include "CollisionDetection\CollisionDetectionOperations.h"
 
 //#include <Transformations.h>
 using namespace Aurora::DataTypes;

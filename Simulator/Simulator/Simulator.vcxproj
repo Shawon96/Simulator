@@ -85,6 +85,10 @@
     <ClInclude Include="Source Code\Aurora\IO\Bitmap.h" />
     <ClInclude Include="Source Code\Aurora\IO\IOOperations.h" />
     <ClInclude Include="Source Code\Aurora\Math\BoundingVolumes\AxisAlignedBoundingBox.h" />
+    <ClInclude Include="Source Code\Aurora\Math\BoundingVolumes\BoundingVolumesOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Math\CollisionDetection\CollisionDetectionOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Math\CollisionDetection\ContainmentTests.h" />
+    <ClInclude Include="Source Code\Aurora\Math\CollisionDetection\IntersectionTests.h" />
     <ClInclude Include="Source Code\Aurora\Math\Vectors\EmulatedVector3D.h" />
     <ClInclude Include="Source Code\Aurora\Math\Geometry\Edge.h" />
     <ClInclude Include="Source Code\Aurora\Math\Geometry\Ellipsoid.h" />

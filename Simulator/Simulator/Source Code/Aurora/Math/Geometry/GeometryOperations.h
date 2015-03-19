@@ -6,6 +6,7 @@
 #include "Edge.h"
 #include "VertexAttributes/VertexAttributesOperations.h"
 #include "Indices/IndicesOperations.h"
+#include "EllipsoidTangentPlane.h"
 
 namespace Aurora
 {
@@ -13,8 +14,8 @@ namespace Aurora
 	{
 		namespace Geometry
 		{
-		}
-	}
-}
+		};
+	};
+};
 
 #endif

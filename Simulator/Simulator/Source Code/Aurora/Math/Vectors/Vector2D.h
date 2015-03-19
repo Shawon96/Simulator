@@ -38,12 +38,16 @@ namespace Aurora
 
 #pragma region AdditionAndSubstractionOperators
 			const Vector2D<VectorType> operator+(const VectorType			&value);
+			const Vector2D<VectorType> operator+(const VectorType			&value) const;
 
 			const Vector2D<VectorType> operator+(const Vector2D<VectorType>		&value);
+			const Vector2D<VectorType> operator+(const Vector2D<VectorType>		&value) const;
 
 			const Vector2D<VectorType> operator-(const VectorType			&value);
+			const Vector2D<VectorType> operator-(const VectorType			&value) const;
 
 			const Vector2D<VectorType> operator-(const Vector2D<VectorType>		&value);
+			const Vector2D<VectorType> operator-(const Vector2D<VectorType>		&value) const;
 
 			Vector2D<VectorType> &operator=(const VectorType			&value);
 
@@ -63,8 +67,10 @@ namespace Aurora
 #pragma region DivisionAndMultiplicationOperators
 
 			const Vector2D<VectorType> operator*(const VectorType		&value);
+			const Vector2D<VectorType> operator*(const VectorType		&value) const;
 
 			const VectorType operator*(const Vector2D<VectorType>		&value);
+			const VectorType operator*(const Vector2D<VectorType>		&value) const;
 
 			const Vector2D<VectorType> &operator*=(const VectorType		&value);
 
@@ -132,13 +138,21 @@ namespace Aurora
 
 			bool Equals(const Vector2D<VectorType> &value) const;
 
-			VectorType Dot(const Vector2D<VectorType> &value);
+			VectorType Dot(const Vector2D<VectorType> &value) const;
 		};
 		using Vector2DBool = Vector2D < bool >;
 		using Vector2DDouble = Vector2D < double >;
 		using Vector2DFloat = Vector2D < float >;
 		using Vector2DInt = Vector2D < int >;
 		using Vector2DHalfPrecision = Vector2D < half_float::half >;
+
+		using UniqueVector2DBoolVector = std::vector < std::unique_ptr<Vector2DBool> >;
+		using UniqueVector2DDoubleVector = std::vector < std::unique_ptr<Vector2DDouble> >;
+		using UniqueVector2DFloatVector = std::vector < std::unique_ptr<Vector2DFloat> >;
+		using UniqueVector2DIntVector = std::vector < std::unique_ptr<Vector2DInt> >;
+		using UniqueVector2DHalfPrecisionVector = std::vector < std::unique_ptr<Vector2DHalfPrecision> >;
+		template<typename DataType>
+		using UniqueVector2DDynamicTypeVector = std::vector < std::unique_ptr<Vector2D<DataType>> >;
 
 		template<typename VectorType>
 		bool Aurora::Math::Vector2D<VectorType>::operator>(const Vector2D<VectorType> &value) const
@@ -226,7 +240,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VectorType Aurora::Math::Vector2D<VectorType>::Dot(const Vector2D<VectorType> &value)
+		VectorType Aurora::Math::Vector2D<VectorType>::Dot(const Vector2D<VectorType> &value) const
 		{
 			return X * value.X + Y * value.Y;
 		}
@@ -439,7 +453,19 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
+		const VectorType Aurora::Math::Vector2D<VectorType>::operator*(const Vector2D<VectorType> &value) const
+		{
+			return((this->X * value.X) + (this->Y * value.Y));
+		}
+
+		template<typename VectorType>
 		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator*(const VectorType &value)
+		{
+			return(Vector2D<VectorType>(this->X * value, this->Y * value));
+		}
+
+		template<typename VectorType>
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator*(const VectorType &value) const
 		{
 			return(Vector2D<VectorType>(this->X * value, this->Y * value));
 		}
@@ -493,7 +519,19 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator-(const Vector2D<VectorType> &value) const
+		{
+			return(Vector2D<VectorType>(this->X - value.X, this->Y - value.Y));
+		}
+
+		template<typename VectorType>
 		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator-(const VectorType &value)
+		{
+			return(Vector2D<VectorType>(this->X - value, this->Y - value));
+		}
+
+		template<typename VectorType>
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator-(const VectorType &value) const
 		{
 			return(Vector2D<VectorType>(this->X - value, this->Y - value));
 		}
@@ -505,7 +543,20 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator+(const Vector2D<VectorType> &value) const
+		{
+			return(Vector2D<VectorType>(this->X + value.X, this->Y + value.Y));
+		}
+
+		template<typename VectorType>
 		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator+(const VectorType &value)
+		{
+
+			return(Vector2D<VectorType>(this->X + value, this->Y + value));
+		}
+
+		template<typename VectorType>
+		const Vector2D<VectorType> Aurora::Math::Vector2D<VectorType>::operator+(const VectorType &value) const
 		{
 
 			return(Vector2D<VectorType>(this->X + value, this->Y + value));

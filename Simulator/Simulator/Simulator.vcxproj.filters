@@ -561,6 +561,18 @@
     <ClInclude Include="Source Code\Aurora\Math\BoundingVolumes\AxisAlignedBoundingBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\BoundingVolumes\BoundingVolumesOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\CollisionDetection\CollisionDetectionOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\CollisionDetection\ContainmentTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Math\CollisionDetection\IntersectionTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source Code\Aurora\Errors\ErrorMessages.cpp">

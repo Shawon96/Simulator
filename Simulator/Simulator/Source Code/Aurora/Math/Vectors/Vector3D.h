@@ -48,12 +48,16 @@ namespace Aurora
 
 #pragma region AdditionAndSubstractionOperators
 			const Vector3D<VectorType> operator+(const VectorType			&value);
+			const Vector3D<VectorType> operator+(const VectorType			&value) const;
 
 			const Vector3D<VectorType> operator+(const Vector3D<VectorType>		&value);
+			const Vector3D<VectorType> operator+(const Vector3D<VectorType>		&value) const;
 
 			const Vector3D<VectorType> operator-(const VectorType			&value);
+			const Vector3D<VectorType> operator-(const VectorType			&value) const;
 
 			const Vector3D<VectorType> operator-(const Vector3D<VectorType>		&value);
+			const Vector3D<VectorType> operator-(const Vector3D<VectorType>		&value) const;
 
 			Vector3D<VectorType> &operator=(const VectorType			&value);
 
@@ -73,8 +77,10 @@ namespace Aurora
 #pragma region DivisionAndMultiplicationOperators
 
 			const Vector3D<VectorType> operator*(const VectorType		&value);
+			const Vector3D<VectorType> operator*(const VectorType		&value) const;
 
 			const VectorType operator*(const Vector3D<VectorType>		&value);
+			const VectorType operator*(const Vector3D<VectorType>		&value) const;
 
 			const Vector3D<VectorType> &operator*=(const VectorType		&value);
 
@@ -154,13 +160,27 @@ namespace Aurora
 
 			bool Equals(const Vector3D<VectorType> &value) const;
 
-			VectorType Dot(const Vector3D<VectorType> &value);
+			VectorType Dot(const Vector3D<VectorType> &value) const;
 			Vector3D<VectorType> Cross(const Vector3D<VectorType> &value) const;
 			VectorType AngleBetween(const Vector3D<VectorType> &other);
 			Vector3D<VectorType> RotateAroundAxis(const Vector3D<VectorType> &axis, double theta);
 		};
 
-		
+		using Vector3DBool = Vector3D < bool >;
+		using Vector3DDouble = Vector3D < double >;
+		using Vector3DFloat = Vector3D < float >;
+		using Vector3DInt = Vector3D < int >;
+		using Vector3DHalfPrecision = Vector3D < half_float::half >;
+
+		using UniqueVector3DBoolVector = std::vector < std::unique_ptr<Vector3DBool> >;
+		using UniqueVector3DDoubleVector = std::vector < std::unique_ptr<Vector3DDouble> >;
+		using UniqueVector3DFloatVector = std::vector < std::unique_ptr<Vector3DFloat> >;
+		using UniqueVector3DIntVector = std::vector < std::unique_ptr<Vector3DInt> >;
+		using UniqueVector3DHalfPrecisionVector = std::vector < std::unique_ptr<Vector3DHalfPrecision> >;
+
+		template<typename DataType>
+		using UniqueVector3DDynamicTypeVector = std::vector < std::unique_ptr<Vector3D<DataType>> > ;
+
 		template<typename VectorType>
 		bool Aurora::Math::Vector3D<VectorType>::operator>(const Vector3D<VectorType> &value) const
 		{
@@ -184,13 +204,6 @@ namespace Aurora
 		{
 			return(this->X < scalar && this->Y < scalar && this->Z < scalar);
 		}
-		
-
-		using Vector3DBool = Vector3D < bool >;
-		using Vector3DDouble = Vector3D < double >;
-		using Vector3DFloat = Vector3D < float >;
-		using Vector3DInt = Vector3D < int >;
-		using Vector3DHalfPrecision = Vector3D < half_float::half >;
 
 		template<typename VectorType>
 		Vector3D<half_float::half> Aurora::Math::Vector3D<VectorType>::ToHalfPrecision() const
@@ -295,7 +308,7 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
-		VectorType Aurora::Math::Vector3D<VectorType>::Dot(const Vector3D<VectorType> &value)
+		VectorType Aurora::Math::Vector3D<VectorType>::Dot(const Vector3D<VectorType> &value) const
 		{
 			return X * value.X + Y * value.Y + Z * value.Z;
 		}
@@ -553,7 +566,19 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
+		const VectorType Aurora::Math::Vector3D<VectorType>::operator*(const Vector3D<VectorType> &value) const
+		{
+			return((this->X * value.X) + (this->Y * value.Y) + (this->Z * value.Z));
+		}
+
+		template<typename VectorType>
 		const Vector3D<VectorType> Aurora::Math::Vector3D<VectorType>::operator*(const VectorType &value)
+		{
+			return(Vector3D<VectorType>(this->X * value, this->Y * value, this->Z * value));
+		}
+
+		template<typename VectorType>
+		const Vector3D<VectorType> Aurora::Math::Vector3D<VectorType>::operator*(const VectorType &value) const
 		{
 			return(Vector3D<VectorType>(this->X * value, this->Y * value, this->Z * value));
 		}
@@ -612,7 +637,19 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
+		const Vector3D<VectorType> Aurora::Math::Vector3D<VectorType>::operator-(const Vector3D<VectorType> &value) const
+		{
+			return(Vector3D<VectorType>(this->X - value.X, this->Y - value.Y, this->Z - value.Z));
+		}
+
+		template<typename VectorType>
 		const Vector3D<VectorType> Aurora::Math::Vector3D<VectorType>::operator-(const VectorType &value)
+		{
+			return(Vector3D<VectorType>(this->X - value, this->Y - value, this->Z - value));
+		}
+
+		template<typename VectorType>
+		const Vector3D<VectorType> Aurora::Math::Vector3D<VectorType>::operator-(const VectorType &value) const
 		{
 			return(Vector3D<VectorType>(this->X - value, this->Y - value, this->Z - value));
 		}
@@ -624,7 +661,20 @@ namespace Aurora
 		}
 
 		template<typename VectorType>
+		const Vector3D<VectorType> Aurora::Math::Vector3D<VectorType>::operator+(const Vector3D<VectorType> &value) const
+		{
+			return(Vector3D<VectorType>(this->X + value.X, this->Y + value.Y, this->Z + value.Z));
+		}
+
+		template<typename VectorType>
 		const Vector3D<VectorType> Aurora::Math::Vector3D<VectorType>::operator+(const VectorType &value)
+		{
+
+			return(Vector3D<VectorType>(this->X + value, this->Y + value, this->Z + value));
+		}
+
+		template<typename VectorType>
+		const Vector3D<VectorType> Aurora::Math::Vector3D<VectorType>::operator+(const VectorType &value) const
 		{
 
 			return(Vector3D<VectorType>(this->X + value, this->Y + value, this->Z + value));
