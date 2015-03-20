@@ -9,18 +9,7 @@ namespace Aurora
 	{
 		namespace Geometry
 		{
-			class VertexAttributeByte : VertexAttribute <Byte>
-			{
-			public: VertexAttributeByte(const std::string &name) : VertexAttribute(name, VertexAttributeType::UnsignedByte)
-				{
-
-				}
-
-				VertexAttributeByte(const std::string &name, int capacity) : VertexAttribute(name, VertexAttributeType::UnsignedByte, capacity)
-				{
-
-				}
-			};
+			using VertexAttributeByte = VertexAttribute < Byte > ;
 		};
 	};
 };

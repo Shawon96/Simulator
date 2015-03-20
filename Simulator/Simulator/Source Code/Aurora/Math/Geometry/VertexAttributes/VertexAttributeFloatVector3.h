@@ -10,19 +10,8 @@ namespace Aurora
 	{
 		namespace Geometry
 		{
-			class VertexAttributeFloatVector3 : VertexAttribute < Vector3DFloat >
-			{
-			public: 
-				VertexAttributeFloatVector3(const std::string &name) : VertexAttribute(name, VertexAttributeType::FloatVector3)
-			{
-
-			}
-
-				VertexAttributeFloatVector3(const std::string &name, int capacity) : VertexAttribute(name, VertexAttributeType::FloatVector3, capacity)
-					{
-
-					}
-			};
+			using VertexAttributeFloatVector3 = VertexAttribute < Vector3DFloat >;
+			
 		};
 	};
 };

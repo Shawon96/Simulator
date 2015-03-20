@@ -2,7 +2,7 @@
 #define Renderer_Context_h
 
 #include "RenderState/RenderStateOperations.h"
-#include "../Math/Geometry/GeometryOperations.h"
+//#include "../Math/Geometry/GeometryOperations.h"
 #include "Buffers/BuffersOperations.h"
 #include "VertexArray/VertexArrayOperations.h"
 #include "ShaderVertexAttributeCollection.h"

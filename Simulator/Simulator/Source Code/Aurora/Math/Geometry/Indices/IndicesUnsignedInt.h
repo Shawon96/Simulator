@@ -11,12 +11,46 @@ namespace Aurora
 	{
 		namespace Geometry
 		{
-			class IndicesUnsignedInt : IndicesBase
+			class IndicesUnsignedInt : public IndicesBase
 			{
 			public:
+				
 				IndicesUnsignedInt() : IndicesBase(IndicesType::UnsignedInt)
 				{
 					values = std::make_shared<UniqueUIntVector>();
+				}
+				virtual ~IndicesUnsignedInt() = default;
+
+				IndicesUnsignedInt(const IndicesUnsignedInt &value)
+				{
+					values = value.Values();
+					IndicesBase::IndicesBase(IndicesType::UnsignedInt);
+				}
+
+				IndicesUnsignedInt(IndicesUnsignedInt &&value)
+				{
+					values = std::move(value.Values());
+					IndicesBase::IndicesBase(IndicesType::UnsignedInt);
+				}
+				IndicesUnsignedInt &operator=(IndicesUnsignedInt && value)
+				{
+					if (this == &value)
+						return *this;
+
+					values = std::move(value.Values());
+					IndicesBase::IndicesBase(IndicesType::UnsignedInt);
+
+					return *this;
+				}
+				IndicesUnsignedInt& operator=(const IndicesUnsignedInt& value)
+				{
+					if (this == &value)
+						return *this;
+
+					values = value.Values();
+					IndicesBase::IndicesBase(IndicesType::UnsignedInt);
+
+					return *this;
 				}
 
 				IndicesUnsignedInt(int capacity) : IndicesBase(IndicesType::UnsignedInt)
@@ -40,7 +74,8 @@ namespace Aurora
 				std::shared_ptr<UniqueUIntVector> values;
 				
 				
-			};
+			};	
+
 		};
 	};
 };

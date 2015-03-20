@@ -11,9 +11,41 @@ namespace Aurora
 		{
 			using namespace Aurora::DataTypes;
 
-			class VertexAttributeRGB : VertexAttribute < Byte >
+			class VertexAttributeRGB : public VertexAttribute < Byte >
 			{
 			public: 
+				VertexAttributeRGB() = default;
+				virtual ~VertexAttributeRGB() = default;
+				VertexAttributeRGB(const VertexAttributeRGB &value) : VertexAttribute(value)
+				{
+
+				}
+				VertexAttributeRGB(VertexAttributeRGB &&value) : VertexAttribute(std::move(value))
+				{
+
+				}
+				VertexAttributeRGB &operator=(VertexAttributeRGB && value)
+				{
+					if (this == &value)
+						return *this;
+
+					this->Name(std::move(value.Name()));
+					this->Type(std::move(value.Type()));
+					this->Values(std::move(Values()));
+
+					return *this;
+				}
+				VertexAttributeRGB& operator=(const VertexAttributeRGB& value)
+				{
+					if (this == &value)
+						return *this;
+
+					this->Name(value.Name());
+					this->Type(value.Type());
+					this->Values(Values());
+
+					return *this;
+				}
 				VertexAttributeRGB(const std::string &name) : VertexAttribute(name, VertexAttributeType::UnsignedByte)
 			{
 

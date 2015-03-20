@@ -322,7 +322,8 @@ namespace Aurora
 
 		using UniqueUIntVector = std::vector<std::unique_ptr<UInt32>>;
 		using UniqueUInt = std::unique_ptr < UInt32 > ;
-		using UniqueByte = std::unique_ptr < Byte >;
+		using UniqueByte = std::unique_ptr < Byte >; 
+		using UniqueUShort = std::unique_ptr < UInt16 >;
 		using UniqueDouble = std::unique_ptr < double >;
 		using UniqueDoubleVector = std::vector<UniqueDouble>;
 		using UniqueUShortVector = std::vector<std::unique_ptr<unsigned short>>;

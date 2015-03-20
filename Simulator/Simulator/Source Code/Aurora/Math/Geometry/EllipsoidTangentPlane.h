@@ -29,6 +29,41 @@ namespace Aurora
 				Vector3DDouble xAxis;
 				Vector3DDouble yAxis;
 			public:
+				EllipsoidTangentPlane() = default;
+				virtual ~EllipsoidTangentPlane() = default;
+				EllipsoidTangentPlane(const EllipsoidTangentPlane &value) : origin(value.Origin()), normal(value.Normal()), d(value.D()), xAxis(value.XAxis()), yAxis(value.YAxis())
+				{
+				}
+				EllipsoidTangentPlane(EllipsoidTangentPlane &&value) : origin(std::move(value.Origin())), normal(std::move(value.Normal())), d(std::move(value.D())), xAxis(std::move(value.XAxis())), yAxis(std::move(value.YAxis()))
+				{
+				}
+				EllipsoidTangentPlane &operator=(EllipsoidTangentPlane && value)
+				{
+					if (this == &value)
+						return *this;
+
+					this->origin = std::move(value.Origin());
+					this->normal = std::move(value.Normal());
+					this->d = std::move(value.D());
+					this->xAxis = std::move(value.XAxis());
+					this->yAxis = std::move(value.YAxis());
+
+					return *this;
+				}
+				EllipsoidTangentPlane& operator=(const EllipsoidTangentPlane& value)
+				{
+					if (this == &value)
+						return *this;
+
+					this->origin = value.Origin();
+					this->normal = value.Normal();
+					this->d = value.D();
+					this->xAxis = value.XAxis();
+					this->yAxis = value.YAxis();
+
+					return *this;
+				}
+
 				Vector3DDouble Origin() const {
 					return origin;
 				}

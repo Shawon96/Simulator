@@ -11,9 +11,41 @@ namespace Aurora
 		{
 			using namespace Aurora::DataTypes;
 
-			class VertexAttributeRGBA : VertexAttribute < Byte >
+			class VertexAttributeRGBA : public VertexAttribute < Byte >
 			{
 			public:
+				VertexAttributeRGBA() = default;
+				virtual ~VertexAttributeRGBA() = default;
+				VertexAttributeRGBA(const VertexAttributeRGBA &value) : VertexAttribute(value)
+				{
+
+				}
+				VertexAttributeRGBA(VertexAttributeRGBA &&value) : VertexAttribute(std::move(value))
+				{
+
+				}
+				VertexAttributeRGBA &operator=(VertexAttributeRGBA && value)
+				{
+					if (this == &value)
+						return *this;
+
+					this->Name(std::move(value.Name()));
+					this->Type(std::move(value.Type()));
+					this->Values(std::move(Values()));
+
+					return *this;
+				}
+				VertexAttributeRGBA& operator=(const VertexAttributeRGBA& value)
+				{
+					if (this == &value)
+						return *this;
+
+					this->Name(value.Name());
+					this->Type(value.Type());
+					this->Values(Values());
+
+					return *this;
+				}
 				VertexAttributeRGBA(const std::string &name) : VertexAttribute(name, VertexAttributeType::UnsignedByte)
 				{
 

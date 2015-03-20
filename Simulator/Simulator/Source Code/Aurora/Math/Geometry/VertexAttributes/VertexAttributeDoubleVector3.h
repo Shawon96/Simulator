@@ -10,18 +10,8 @@ namespace Aurora
 	{
 		namespace Geometry
 		{
-			class VertexAttributeDoubleVector3 : VertexAttribute < Vector3DDouble >
-			{
-			public: VertexAttributeDoubleVector3(const std::string &name) : VertexAttribute(name, VertexAttributeType::EmulatedDoubleVector3)
-			{
-
-			}
-
-					VertexAttributeDoubleVector3(const std::string &name, int capacity) : VertexAttribute(name, VertexAttributeType::EmulatedDoubleVector3, capacity)
-					{
-
-					}
-			};
+			using VertexAttributeDoubleVector3 = VertexAttribute < Vector3DDouble >;
+			
 		};
 	};
 };

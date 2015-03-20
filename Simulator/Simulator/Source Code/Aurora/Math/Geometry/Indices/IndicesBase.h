@@ -12,13 +12,19 @@ namespace Aurora
 			class IndicesBase
 			{
 			protected:
+				
+
+				
+			private:
+				IndicesType type;
+			public:
+				IndicesBase() = default;
+				virtual ~IndicesBase() = default;
 				IndicesBase(IndicesType type)
 				{
 					type = type;
 				}
-			private:
-				IndicesType type;
-			public:
+
 				Aurora::Math::Geometry::IndicesType Datatype() const {
 					return type;
 				}

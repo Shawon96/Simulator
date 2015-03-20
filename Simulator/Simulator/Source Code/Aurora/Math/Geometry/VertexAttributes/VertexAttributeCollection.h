@@ -11,7 +11,7 @@ namespace Aurora
 		namespace Geometry
 		{
 			template<typename Type>
-			using VertexAttributeCollection = std::map < std::string, VertexAttribute<Type> >;
+			using UniqueVertexAttributeCollection = std::map < std::string, UniqueVertexAttribute<Type> >;
 		};
 	};
 };

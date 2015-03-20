@@ -10,6 +10,7 @@ namespace Aurora
 		{
 			enum class VertexAttributeType
 			{
+				Unknown,
 				UnsignedByte,
 				HalfFloat,
 				HalfFloatVector2,

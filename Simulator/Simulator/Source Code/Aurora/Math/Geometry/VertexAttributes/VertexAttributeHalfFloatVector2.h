@@ -9,18 +9,8 @@ namespace Aurora
 	{
 		namespace Geometry
 		{
-			class VertexAttributeHalfFloatVector2 : VertexAttribute < Vector2DHalfPrecision >
-			{
-			public: VertexAttributeHalfFloatVector2(const std::string &name) : VertexAttribute(name, VertexAttributeType::HalfFloatVector2)
-			{
-
-			}
-
-					VertexAttributeHalfFloatVector2(const std::string &name, int capacity) : VertexAttribute(name, VertexAttributeType::HalfFloatVector2, capacity)
-					{
-
-					}
-			};
+			using VertexAttributeHalfFloatVector2 = VertexAttribute < Vector2DHalfPrecision >;
+			
 		};
 	};
 };
