@@ -2,15 +2,15 @@
 #define NatureOfCodeCocos2DX_Walker_h
 
 #include "..\BaseClasses\ObjectBase.h"
-#include "..\..\Math\MathOperations.h"
 #include "..\..\Physics\PhysicsOperations.h"
 
-using namespace Aurora::Math;
-using namespace Aurora::Physics;
+
 
 namespace Aurora {
 	namespace Random {
-
+		using namespace Aurora::Math;
+		using namespace Aurora::Math::DataTypes;
+		using namespace Aurora::Physics;
 		class Walker : public RandomBaseComplete, public IPhysicsImplementor<float>
 		{
 

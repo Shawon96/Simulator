@@ -32,6 +32,7 @@ namespace Aurora
 					this->Name(std::move(value.Name()));
 					this->Type(std::move(value.Type()));
 					this->Values(std::move(Values()));
+					value.Values(nullptr);
 
 					return *this;
 				}

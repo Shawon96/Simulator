@@ -8,7 +8,9 @@ using namespace Aurora::Physics;
 
 namespace Aurora {
 	namespace Random {
-
+		using namespace Aurora::Math;
+		using namespace Aurora::Math::DataTypes;
+		using namespace Aurora::Physics;
 		class Mover : public RandomBaseComplete, public IPhysicsImplementor<float>
 		{
 

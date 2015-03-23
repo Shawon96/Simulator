@@ -8,7 +8,7 @@ namespace Aurora {
 		using namespace Aurora::Renderer::Shaders;
 		using namespace Aurora::DataTypes;
 		
-		using ShaderVertexAttributeCollection = std::map < std::string, ShaderVertexAttribute > ;
+		using SharedShaderVertexAttributeCollection = std::shared_ptr<std::map < std::string, ShaderVertexAttribute >>;
 	};
 };
 #endif

@@ -29,6 +29,7 @@ namespace Aurora
 				{
 					values = std::move(value.Values());
 					IndicesBase::IndicesBase(IndicesType::UnsignedInt);
+					value.Values(nullptr);
 				}
 				IndicesUnsignedShort &operator=(IndicesUnsignedShort && value)
 				{
@@ -37,6 +38,7 @@ namespace Aurora
 
 					values = std::move(value.Values());
 					IndicesBase::IndicesBase(IndicesType::UnsignedInt);
+					value.Values(nullptr);
 
 					return *this;
 				}
@@ -59,6 +61,11 @@ namespace Aurora
 
 				std::shared_ptr<UniqueUShortVector> Values() const {
 					return values;
+				}
+
+				template<typename T>
+				void Values(T &&value) {
+					values = std::forward<T>(value);
 				}
 
 				void AddTriangle(const TriangleIndicesUnsignedShort &triangle)

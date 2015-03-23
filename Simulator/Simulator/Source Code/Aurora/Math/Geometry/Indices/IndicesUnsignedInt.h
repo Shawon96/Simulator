@@ -31,6 +31,7 @@ namespace Aurora
 				{
 					values = std::move(value.Values());
 					IndicesBase::IndicesBase(IndicesType::UnsignedInt);
+					value.Values(nullptr);
 				}
 				IndicesUnsignedInt &operator=(IndicesUnsignedInt && value)
 				{
@@ -39,6 +40,7 @@ namespace Aurora
 
 					values = std::move(value.Values());
 					IndicesBase::IndicesBase(IndicesType::UnsignedInt);
+					value.Values(nullptr);
 
 					return *this;
 				}
@@ -63,6 +65,11 @@ namespace Aurora
 					return values;
 				}
 
+				template<typename T>
+				void Values(T &&value) {
+					values = std::forward<T>(value);
+				}
+
 				void AddTriangle(const TriangleIndicesUnsignedInt &triangle)
 					{
 						values->push_back(UniqueUInt(new UInt32(triangle.UI0())));
@@ -72,7 +79,6 @@ namespace Aurora
 
 			private:
 				std::shared_ptr<UniqueUIntVector> values;
-				
 				
 			};	
 

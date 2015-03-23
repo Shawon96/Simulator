@@ -159,9 +159,9 @@ namespace Aurora
 				{
 					
 				}
-				VertexAttribute(VertexAttribute &&value) : VertexAttributeBase(std::move(value))
+				VertexAttribute(VertexAttribute &&value) : VertexAttributeBase(std::move(value)), values(std::move(value.Values()))
 				{
-					
+					value.Values(nullptr);
 				}
 				VertexAttribute &operator=(VertexAttribute && value)
 				{
@@ -171,6 +171,7 @@ namespace Aurora
 					this->Name(std::move(value.Name()));
 					this->Type(std::move(value.Type()));
 					this->values = std::move(Values());
+					value.Values(nullptr);
 
 					return *this;
 				}

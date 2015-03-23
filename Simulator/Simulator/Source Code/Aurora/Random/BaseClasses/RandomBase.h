@@ -14,10 +14,12 @@
 #include "..\CommonTools.h"
 #include "..\..\Math\MathOperations.h"
 
-using namespace Aurora::Math;
+
 
 namespace Aurora {
     namespace Random {
+		using namespace Aurora::Math;
+		using namespace Aurora::Math::DataTypes;
 		//-------------------------------------------------------------------------
 		// START = Random Base Interfaces
 		//-----------------------------------------------------------------------
@@ -57,8 +59,8 @@ namespace Aurora {
 				IRandomBaseBasic(IRandomBaseBasic &&value);
 				IRandomBaseBasic & operator=(IRandomBaseBasic && value);
 
-                void SetConstrainsRange(const mRECT<float> &areaSize);
-				const mRECT<float> GetConstrainsRange() const;
+				void SetConstrainsRange(const Aurora::Math::DataTypes::mRECT<float> &areaSize);
+				const Aurora::Math::DataTypes::mRECT<float> GetConstrainsRange() const;
                 virtual void DoCalculations() = 0;
                 virtual void Constrain() = 0;
 
@@ -141,7 +143,7 @@ namespace Aurora {
 				std::shared_ptr<module::Perlin> perlinNoiseCalculator;
 				
 				virtual void init() override;
-				virtual void init(const mRECT<float> &areaSize, RandomNumberMode randomNumberMode);
+				virtual void init(const Aurora::Math::DataTypes::mRECT<float> &areaSize, RandomNumberMode randomNumberMode);
 		public:
 			RandomBaseComplete();
 			RandomBaseComplete(const RandomBaseComplete &value);

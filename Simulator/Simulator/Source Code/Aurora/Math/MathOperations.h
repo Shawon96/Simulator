@@ -3,7 +3,7 @@
 
 #include <utility>    // std::swap
 //#include "Vector.h"
-#include "MathDataTypes.h"
+#include "DataTypes\DataTypesOperations.h"
 #include "Globe\GlobeOperations.h"
 #include "Geometry\GeometryOperations.h"
 #include "BoundingVolumes\BoundingVolumesOperations.h"
@@ -26,6 +26,7 @@ namespace Aurora
 	*/
 	namespace Math
 	{
+		using namespace Aurora::Math::DataTypes;
 		class MathOperations
 		{
 			public:

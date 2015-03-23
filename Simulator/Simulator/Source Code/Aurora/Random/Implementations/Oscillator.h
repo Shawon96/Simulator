@@ -2,16 +2,18 @@
 #define NatureOfCodeCocos2DX_Oscillator_h
 
 #include "..\BaseClasses\ObjectBase.h"
-#include "..\..\Math\MathOperations.h"
 #include "..\..\Physics\PhysicsOperations.h"
 #include <type_traits>
 
 
-using namespace Aurora::Math;
-using namespace Aurora::Physics;
+
 
 namespace Aurora {
 	namespace Random {
+		using namespace Aurora::Math;
+		using namespace Aurora::Math::DataTypes;
+		using namespace Aurora::Physics;
+
 		class Oscillator : public RandomBaseComplete, public IPhysicsImplementor<float>
 		{
 			private:

@@ -31,7 +31,8 @@ namespace Aurora {
 				virtual ~Context() = default;
 
 				virtual void MakeCurrent() = 0;
-				//virtual VertexArray<Type> CreateVertexArray(Mesh mesh, ShaderVertexAttributeCollection shaderAttributes, BufferHint usageHint);
+				//virtual VertexArray<Type> CreateVertexArray(const Mesh &mesh, SharedShaderVertexAttributeCollection shaderAttributes, BufferHint usageHint);
+				
 		};
 
 	};

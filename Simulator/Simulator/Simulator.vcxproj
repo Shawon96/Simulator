@@ -89,6 +89,11 @@
     <ClInclude Include="Source Code\Aurora\Math\CollisionDetection\CollisionDetectionOperations.h" />
     <ClInclude Include="Source Code\Aurora\Math\CollisionDetection\ContainmentTests.h" />
     <ClInclude Include="Source Code\Aurora\Math\CollisionDetection\IntersectionTests.h" />
+    <ClInclude Include="Source Code\Aurora\Math\DataTypes\DataTypesOperations.h" />
+    <ClInclude Include="Source Code\Aurora\Math\DataTypes\Interval.h" />
+    <ClInclude Include="Source Code\Aurora\Math\DataTypes\QUATERNION4D.h" />
+    <ClInclude Include="Source Code\Aurora\Math\DataTypes\RECT.h" />
+    <ClInclude Include="Source Code\Aurora\Math\DataTypes\Rectangle.h" />
     <ClInclude Include="Source Code\Aurora\Math\Vectors\EmulatedVector3D.h" />
     <ClInclude Include="Source Code\Aurora\Math\Geometry\Edge.h" />
     <ClInclude Include="Source Code\Aurora\Math\Geometry\Ellipsoid.h" />
@@ -123,7 +128,7 @@
     <ClInclude Include="Source Code\Aurora\Math\Globe\GeodeticExtent.h" />
     <ClInclude Include="Source Code\Aurora\Math\Globe\GlobeOperations.h" />
     <ClInclude Include="Source Code\Aurora\Math\Globe\Trig.h" />
-    <ClInclude Include="Source Code\Aurora\Math\MathDataTypes.h" />
+    <ClInclude Include="Source Code\Aurora\Math\DataTypes\MathDataTypes.h" />
     <ClInclude Include="Source Code\Aurora\Math\MathOperations.h" />
     <ClInclude Include="Source Code\Aurora\Math\Matrices\Matrix2D.h" />
     <ClInclude Include="Source Code\Aurora\Math\Matrices\Matrix3D.h" />
@@ -266,7 +271,7 @@
     <ClCompile Include="Source Code\Aurora\Math\Globe\GlobeOperations.cpp" />
     <ClCompile Include="Source Code\Aurora\Math\Globe\GeodeticExtent.cpp" />
     <ClCompile Include="Source Code\Aurora\Math\Globe\Trig.cpp" />
-    <ClCompile Include="Source Code\Aurora\Math\MathDataTypes.cpp" />
+    <ClCompile Include="Source Code\Aurora\Math\DataTypes\MathDataTypes.cpp" />
     <ClCompile Include="Source Code\Aurora\Math\MathOperations.cpp" />
     <ClCompile Include="Source Code\Aurora\Models\ModelDefines.cpp" />
     <ClCompile Include="Source Code\Aurora\Models\ModelLoad.cpp" />

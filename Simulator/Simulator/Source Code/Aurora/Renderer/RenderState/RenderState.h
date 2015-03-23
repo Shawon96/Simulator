@@ -58,6 +58,85 @@ namespace Aurora {
 					depthMask = true;
 				}
 
+				virtual ~RenderState() = default;
+
+				RenderState(const RenderState &value) : primitiveRestart(value.PrimitiveRestart()), 
+														facetCulling(value.FacetCulling()), 
+														programPointSize(value.ProgramPointSize()), 
+														rasterizationMode(value.RasterizationMode()), 
+														scissorTest(value.ScissorTest()), 
+														stencilTest(value.StencilTest()), 
+														depthTest(value.DepthTest()), 
+														depthRange(value.DepthRange()), 
+														blending(value.Blending()), 
+														colorMask(value.ColorMask()), 
+														depthMask(value.DepthMask())
+				{
+
+				}
+				RenderState(RenderState &&value) : primitiveRestart(std::move(value.PrimitiveRestart())),
+					facetCulling(std::move(value.FacetCulling())),
+					programPointSize(std::move(value.ProgramPointSize())),
+					rasterizationMode(std::move(value.RasterizationMode())),
+					scissorTest(std::move(value.ScissorTest())),
+					stencilTest(std::move(value.StencilTest())),
+					depthTest(std::move(value.DepthTest())),
+					depthRange(std::move(value.DepthRange())),
+					blending(std::move(value.Blending())),
+					colorMask(std::move(value.ColorMask())),
+					depthMask(std::move(value.DepthMask()))
+				{
+
+				}
+				RenderState &operator=(RenderState && value)
+				{
+					if (this == &value)
+						return *this;
+
+					primitiveRestart = std::move(value.PrimitiveRestart());
+					facetCulling = std::move(value.FacetCulling());
+					scissorTest = std::move(value.ScissorTest());
+					stencilTest = std::move(value.StencilTest());
+					depthTest = std::move(value.DepthTest());
+					depthRange = std::move(value.DepthRange());
+					blending = std::move(value.Blending());
+					colorMask = std::move(value.ColorMask());
+
+					depthMask = value.DepthMask();
+					programPointSize = value.ProgramPointSize();
+					rasterizationMode = value.RasterizationMode();
+
+					value.PrimitiveRestart(nullptr);
+					value.FacetCulling(nullptr);
+					value.ScissorTest(nullptr);
+					value.StencilTest(nullptr);
+					value.DepthTest(nullptr);
+					value.DepthRange(nullptr);
+					value.Blending(nullptr);
+					value.ColorMask(nullptr);
+
+					return *this;
+				}
+				RenderState& operator=(const RenderState& value)
+				{
+					if (this == &value)
+						return *this;
+
+					primitiveRestart = value.PrimitiveRestart();
+					facetCulling = value.FacetCulling();
+					programPointSize = value.ProgramPointSize();
+					rasterizationMode = value.RasterizationMode();
+					scissorTest = value.ScissorTest();
+					stencilTest = value.StencilTest();
+					depthTest = value.DepthTest();
+					depthRange = value.DepthRange();
+					blending = value.Blending();
+					colorMask = value.ColorMask();
+					depthMask = value.DepthMask();
+
+					return *this;
+				}
+
 				std::shared_ptr<Aurora::Renderer::RenderState::PrimitiveRestart> PrimitiveRestart() const {
 					return primitiveRestart;
 				}

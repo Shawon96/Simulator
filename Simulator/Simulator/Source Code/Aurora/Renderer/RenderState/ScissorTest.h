@@ -1,25 +1,27 @@
 #ifndef Renderer_RenderState_ScissorTest_h
 #define Renderer_RenderState_ScissorTest_h
 
-#include "../../Math/MathDataTypes.h"
+#include "../../Math/DataTypes/Rectangle.h"
 
 namespace Aurora {
 	namespace Renderer {
 		namespace RenderState {
 
 			using namespace Aurora::Math;
+			using namespace Aurora::Math::DataTypes;
 			class ScissorTest
 			{
 
 			private:
 				bool enabled;
 
-				Aurora::Math::Rectangle<int> rectangle;
+				Aurora::Math::DataTypes::Rectangle<int> rectangle;
 			public:
 				ScissorTest()
 				{
 					enabled = false;
-					rectangle = Aurora::Math::Rectangle<int>(0, 0, 0, 0);
+					//rectangle = Rectangle<int>(0, 0, 0, 0);
+					rectangle = Aurora::Math::DataTypes::Rectangle<int>(0,0,0,0);
 				}
 
 				virtual ~ScissorTest() = default;
@@ -32,7 +34,7 @@ namespace Aurora {
 					enabled = std::forward<T>(value);
 				}
 
-				Aurora::Math::Rectangle<int> Rectangle() const {
+				Aurora::Math::DataTypes::Rectangle<int> Rectangle() const {
 					return rectangle;
 				}
 				template<typename T>

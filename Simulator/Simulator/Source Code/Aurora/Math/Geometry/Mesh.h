@@ -46,6 +46,42 @@ namespace Aurora
 					
 				}
 
+				virtual ~Mesh() = default;
+				Mesh(const Mesh &value) : indices(value.Indices()), meshPrimitiveType(value.MeshPrimitiveType()), frontFaceWindingOrder(value.FrontFaceWindingOrder()), attributes(value.Attributes())
+				{
+
+				}
+				Mesh(Mesh &&value) : indices(std::move(value.Indices())), meshPrimitiveType(std::move(value.MeshPrimitiveType())), frontFaceWindingOrder(std::move(value.FrontFaceWindingOrder())), attributes(std::move(value.Attributes()))
+				{
+					value.Attributes(nullptr);
+				}
+				Mesh &operator=(Mesh && value)
+				{
+					if (this == &value)
+						return *this;
+
+					this->indices = std::move(value.Indices());
+					this->meshPrimitiveType = value.MeshPrimitiveType();
+					this->frontFaceWindingOrder = value.FrontFaceWindingOrder();
+					this->attributes = std::move(.Attributes());
+
+					value.Attributes(nullptr);
+
+					return *this;
+				}
+				Mesh& operator=(const Mesh& value)
+				{
+					if (this == &value)
+						return *this;
+
+					this->indices = value.Indices();
+					this->meshPrimitiveType = value.MeshPrimitiveType();
+					this->frontFaceWindingOrder = value.FrontFaceWindingOrder();
+					this->attributes = value.Attributes();
+
+					return *this;
+				}
+
 				std::shared_ptr<UniqueVertexAttributeCollection<Type>> Attributes() const {
 					return attributes;
 				}
