@@ -17,7 +17,40 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
 int main(void)
 {    
-	Ellipsoid er;
+	int size = 4;
+	std::unique_ptr<int[]> array;
+	array = std::make_unique<int[]>(size);
+	array[0] = 10;
+	array[1] = 23;
+	array[2] = 34;
+	auto t = array.get();
+	printf("%d\n", t);
+	printf("%d\n", *t);
+	t = t + 2;
+	printf("%d\n", t);
+	printf("%d\n", *t);
+
+	DynamicArray<int> ar(4);
+	DynamicArray<int> ab(ar);
+	DynamicArray<int>::iterator ai = ar.begin();
+	ar[0] = 11;
+	ar[1] = 12;
+	printf("%d\n", ai);
+	printf("%d\n", *ai);
+	ai++;
+	printf("%d\n", ai);
+	printf("%d\n", *ai);
+
+	DynamicArray<int>::iterator aii = ar.begin();
+	printf("%d\n", aii);
+	printf("%d\n", *aii);
+	aii++;
+	printf("%d\n", aii);
+	printf("%d\n", *aii);
+
+	DynamicArray<int> ar2(3);
+	ar2 = ar;
+
 	/*int stackValue = 200;
 	float stackValue2 = 12;
 	double stackValue3 = 200;

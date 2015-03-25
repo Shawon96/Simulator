@@ -5,6 +5,8 @@
 #include <math.h>
 #include "../../../Libraries/Includes/half.hpp"
 #include <memory>
+#include <list>
+#include <forward_list>
 
 /*!
 Namespace: Aurora
@@ -329,6 +331,12 @@ namespace Aurora
 		using UniqueUShortVector = std::vector<std::unique_ptr<unsigned short>>;
 		template<typename DataType>
 		using UniqueDynamicTypeVector = std::vector<std::unique_ptr<DataType>>;
+
+		template<typename DataType>
+		using UniqueDynamicTypeDoubleLinkedList = std::list < std::unique_ptr<DataType> > ;
+
+		template<typename DataType>
+		using UniqueDynamicTypeLinkedList = std::forward_list < std::unique_ptr<DataType> > ;
 
 	}; // END OF NAMESPACE DATATYPES
 }; // END OF NAMESPACE Aurora

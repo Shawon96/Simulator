@@ -139,7 +139,7 @@ namespace Aurora
 				}
 				else if (discriminant == 0.0)
 				{
-					returnArray.push_back(UniqueDouble(new Double(-0.5 * b / a)));
+					returnArray.push_back(UniqueDouble(std::make_unique<Double>(-0.5 * b / a)));
 				    // one intersection at a tangent point
 					return returnArray;
 				}
@@ -151,14 +151,14 @@ namespace Aurora
 				// Two intersections - return the smallest first.
 				if (root1 < root2)
 				{
-					returnArray.push_back(UniqueDouble(new Double(root1)));
-					returnArray.push_back(UniqueDouble(new Double(root2)));
+					returnArray.push_back(UniqueDouble(std::make_unique<Double>(root1)));
+					returnArray.push_back(UniqueDouble(std::make_unique<Double>(root2)));
 				    return returnArray;
 				}
 				else
 				{
-					returnArray.push_back(UniqueDouble(new Double(root2)));
-					returnArray.push_back(UniqueDouble(new Double(root1)));
+					returnArray.push_back(UniqueDouble(std::make_unique<Double>(root2)));
+					returnArray.push_back(UniqueDouble(std::make_unique<Double>(root1)));
 				    return returnArray;
 				}
 			}
@@ -192,7 +192,7 @@ namespace Aurora
 
 				for (auto &position : positions)
 				{
-					geodetics.push_back(UniqueGeodetic3D(new Geodetic3D(std::move(ToGeodetic3D(*position)))));
+					geodetics.push_back(UniqueGeodetic3D(std::make_unique<Geodetic3D>(std::move(ToGeodetic3D(*position)))));
 				}
 
 				return geodetics;
@@ -223,7 +223,7 @@ namespace Aurora
 
 				for (auto &position : positions)
 				{
-					geodetics.push_back(UniqueGeodetic2D(new Geodetic2D(std::move(ToGeodetic2D(*position)))));
+					geodetics.push_back(UniqueGeodetic2D(std::make_unique<Geodetic2D>(std::move(ToGeodetic2D(*position)))));
 				}
 
 				return geodetics;
@@ -315,16 +315,16 @@ namespace Aurora
 
 				UniqueVector3DDoubleVector positions(2 + n);
 
-				positions.push_back(UniqueVector3DDouble(new Vector3DDouble(std::move(start))));
+				positions.push_back(UniqueVector3DDouble(std::make_unique<Vector3DDouble>(std::move(start))));
 
 				for (int i = 1; i <= n; ++i)
 				{
 					double phi = (i * granularity);
 
-					positions.push_back(UniqueVector3DDouble(new Vector3DDouble(std::move((ScaleToGeocentricSurface(startClone.RotateAroundAxis(normal, phi)))))));
+					positions.push_back(UniqueVector3DDouble(std::make_unique<Vector3DDouble>(std::move((ScaleToGeocentricSurface(startClone.RotateAroundAxis(normal, phi)))))));
 				}
 
-				positions.push_back(UniqueVector3DDouble(new Vector3DDouble(std::move(stop))));
+				positions.push_back(UniqueVector3DDouble(std::make_unique<Vector3DDouble>(std::move(stop))));
 
 				return positions;
 			}

@@ -91,6 +91,7 @@ namespace Aurora
 				
 
 			private:
+				// TODO: Examine the option to use list or forward_list to speedier collection access and processing
 				std::shared_ptr<UniqueDynamicTypeVector<DataType>> values;
 
 			public:

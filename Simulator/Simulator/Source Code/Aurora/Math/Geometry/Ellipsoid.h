@@ -17,7 +17,7 @@ namespace Aurora
 		{
 			using namespace Aurora::Math;
 			using namespace Aurora::Math::Globe;
-
+			// TODO: FIX MEMORY ERRORS BY RETURNING STATIC VARIABLES, RETURN shared_ptr to allocated data
 			class Ellipsoid
 			{
 				private:

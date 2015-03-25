@@ -124,7 +124,7 @@ namespace Aurora
 						if (IntersectionTests::TryRayPlane(Vector3DDouble::GetZero(), position->Normalize(), normal, d, intersectionPoint))
 						{
 							Vector3DDouble v = intersectionPoint - origin;
-							positionsOnPlane->push_back(std::unique_ptr<Vector2DDouble>(new Vector2DDouble(xAxis.Dot(v), yAxis.Dot(v))));
+							positionsOnPlane->push_back(std::unique_ptr<Vector2DDouble>(std::make_unique<Vector2DDouble>(xAxis.Dot(v), yAxis.Dot(v))));
 						}
 						else
 						{

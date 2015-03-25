@@ -181,6 +181,9 @@ namespace Aurora
 		template<typename DataType>
 		using UniqueVector4DDynamicTypeVector = std::vector < UniqueVector4DDynamicType<DataType> > ;
 
+		using DoubleLinkedListUniqueVector4DDouble = std::list < UniqueVector4DDouble >;
+		using LinkedListUniqueVector4DDouble = std::forward_list < UniqueVector4DDouble >;
+
 		template<typename VectorType>
 		bool Aurora::Math::Vector4D<VectorType>::operator>(const Vector4D<VectorType> &value) const
 		{

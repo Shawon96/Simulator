@@ -72,12 +72,13 @@ namespace Aurora
 
 				void AddTriangle(const TriangleIndicesUnsignedInt &triangle)
 					{
-						values->push_back(UniqueUInt(new UInt32(triangle.UI0())));
-						values->push_back(UniqueUInt(new UInt32(triangle.UI1())));
-						values->push_back(UniqueUInt(new UInt32(triangle.UI2())));
+						values->push_back(UniqueUInt(std::make_unique<UInt32>(triangle.UI0())));
+						values->push_back(UniqueUInt(std::make_unique<UInt32>(triangle.UI1())));
+						values->push_back(UniqueUInt(std::make_unique<UInt32>(triangle.UI2())));
 					}
 
 			private:
+				//TODO: linked list optimization??
 				std::shared_ptr<UniqueUIntVector> values;
 				
 			};	

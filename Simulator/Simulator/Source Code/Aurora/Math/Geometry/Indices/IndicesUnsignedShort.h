@@ -70,12 +70,13 @@ namespace Aurora
 
 				void AddTriangle(const TriangleIndicesUnsignedShort &triangle)
 				{
-					values->push_back(UniqueUShort(new UInt16(triangle.UI0())));
-					values->push_back(UniqueUShort(new UInt16(triangle.UI1())));
-					values->push_back(UniqueUShort(new UInt16(triangle.UI2())));
+					values->push_back(UniqueUShort(std::make_unique<UInt16>(triangle.UI0())));
+					values->push_back(UniqueUShort(std::make_unique<UInt16>(triangle.UI1())));
+					values->push_back(UniqueUShort(std::make_unique<UInt16>(triangle.UI2())));
 				}
 
 			private:
+				//TODO: linked list optimization??
 				std::shared_ptr<UniqueUShortVector> values;
 
 

@@ -188,6 +188,9 @@ namespace Aurora
 		template<typename DataType>
 		using UniqueVector3DDynamicTypeVector = std::vector < UniqueVector3DDynamicType<DataType> > ;
 
+		using DoubleLinkedListUniqueVector3DDouble = std::list < UniqueVector3DDouble >;
+		using LinkedListUniqueVector3DDouble = std::forward_list < UniqueVector3DDouble >;
+
 		template<typename VectorType>
 		bool Aurora::Math::Vector3D<VectorType>::operator>(const Vector3D<VectorType> &value) const
 		{

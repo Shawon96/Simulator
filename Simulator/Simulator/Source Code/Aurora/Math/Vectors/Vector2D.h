@@ -140,6 +140,9 @@ namespace Aurora
 
 			VectorType Dot(const Vector2D<VectorType> &value) const;
 		};
+
+		
+
 		using Vector2DBool = Vector2D < bool >;
 		using Vector2DDouble = Vector2D < double >;
 		using Vector2DFloat = Vector2D < float >;
@@ -161,6 +164,9 @@ namespace Aurora
 		using UniqueVector2DHalfPrecisionVector = std::vector <UniqueVector2DHalfPrecision>;
 		template<typename DataType>
 		using UniqueVector2DDynamicTypeVector = std::vector < UniqueVector2DDynamicType<DataType> >;
+
+		using DoubleLinkedListUniqueVector2DDouble = std::list < UniqueVector2DDouble>;
+		using LinkedListUniqueVector2DDouble = std::forward_list < UniqueVector2DDouble>;
 
 		template<typename VectorType>
 		bool Aurora::Math::Vector2D<VectorType>::operator>(const Vector2D<VectorType> &value) const

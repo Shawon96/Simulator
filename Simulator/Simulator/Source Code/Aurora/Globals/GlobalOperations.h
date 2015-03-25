@@ -16,6 +16,7 @@
 #include "Constants.h"
 #include "../Errors/ErrorOperations.h"
 #include "GlobalDatatypes.h"
+#include "DynamicArray.h"
 
 /*! \file */ 
 /*! A quick define for a debug mode key usage without any big complications. */
