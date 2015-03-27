@@ -178,10 +178,27 @@ namespace Aurora
 			};
 
 			// Notice this does not remove, only marks a location that is not to be used
-			void DisableElement(unsigned int index)
+			void DisableElement(unsigned int elementIndex)
 			{
-				if (index < size && index >= 0)
-					this->disabledArrayElementsIndex->push_back(index);
+				if (elementIndex < size && elementIndex >= 0)
+					this->disabledArrayElementsIndex->push_back(elementIndex);
+			}
+
+			void EnableElement(unsigned int elementIndex)
+			{
+				if (elementIndex < size && elementIndex >= 0)
+				{
+					int index = 0;
+					for (auto disabledElementIndex : *this->disabledArrayElementsIndex.get())
+					{
+						if (disabledElementIndex == elementIndex)
+						{
+							this->disabledArrayElementsIndex->erase(this->disabledArrayElementsIndex->begin() + index);
+							break;
+						}
+						index++;
+					}
+				}
 			}
 
 			DataType &at(unsigned int index)

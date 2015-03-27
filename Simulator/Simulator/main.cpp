@@ -37,11 +37,12 @@ int main(void)
 
 	ExtendedDynamicTypeArray<Aurora::Math::Polygons::IndexedVector2DDouble> au(4);
 	au.DisableElement(1);
+	//au.EnableElement(1);
 	ExtendedDynamicTypeArray<Aurora::Math::Polygons::IndexedVector2DDouble>::iterator aui = au.begin();
 	Aurora::Math::Vector2DDouble vv;
-	ar[0] = Aurora::Math::Polygons::IndexedVector2DDouble(vv, 1);
-	ai++;
-	ai--;
+	au[0] = Aurora::Math::Polygons::IndexedVector2DDouble(vv, 1);
+	aui++;
+	aui--;
 	Aurora::Math::Polygons::IndexedVector2DDouble t();
 	
 
