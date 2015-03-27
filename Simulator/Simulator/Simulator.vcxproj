@@ -80,7 +80,8 @@
     <ClInclude Include="Source Code\Aurora\Errors\ErrorMessages.h" />
     <ClInclude Include="Source Code\Aurora\Errors\ErrorOperations.h" />
     <ClInclude Include="Source Code\Aurora\Globals\Constants.h" />
-    <ClInclude Include="Source Code\Aurora\Globals\DynamicArray.h" />
+    <ClInclude Include="Source Code\Aurora\Globals\DynamicTypeArray.h" />
+    <ClInclude Include="Source Code\Aurora\Globals\DynamicTypeExtendedArray.h" />
     <ClInclude Include="Source Code\Aurora\Globals\GlobalDatatypes.h" />
     <ClInclude Include="Source Code\Aurora\Globals\GlobalOperations.h" />
     <ClInclude Include="Source Code\Aurora\IO\Bitmap.h" />

@@ -8,6 +8,7 @@
 #include "Geometry\GeometryOperations.h"
 #include "BoundingVolumes\BoundingVolumesOperations.h"
 #include "CollisionDetection\CollisionDetectionOperations.h"
+#include "Polygons\PolygonsOperations.h"
 
 //#include <Transformations.h>
 using namespace Aurora::DataTypes;

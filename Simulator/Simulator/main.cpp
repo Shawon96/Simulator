@@ -17,7 +17,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
 int main(void)
 {    
-	int size = 4;
+	/*int size = 4;
 	std::unique_ptr<int[]> array;
 	array = std::make_unique<int[]>(size);
 	array[0] = 10;
@@ -28,28 +28,32 @@ int main(void)
 	printf("%d\n", *t);
 	t = t + 2;
 	printf("%d\n", t);
-	printf("%d\n", *t);
+	printf("%d\n", *t);*/
 
-	DynamicArray<int> ar(4);
-	DynamicArray<int> ab(ar);
-	DynamicArray<int>::iterator ai = ar.begin();
-	ar[0] = 11;
-	ar[1] = 12;
-	printf("%d\n", ai);
-	printf("%d\n", *ai);
+	DynamicTypeArray<Aurora::Math::Polygons::IndexedVector2DDouble> ar(4);
+
+	DynamicTypeArray<Aurora::Math::Polygons::IndexedVector2DDouble>::iterator ai = ar.begin();
+	
+
+	ExtendedDynamicTypeArray<Aurora::Math::Polygons::IndexedVector2DDouble> au(4);
+	au.DisableElement(1);
+	ExtendedDynamicTypeArray<Aurora::Math::Polygons::IndexedVector2DDouble>::iterator aui = au.begin();
+	Aurora::Math::Vector2DDouble vv;
+	ar[0] = Aurora::Math::Polygons::IndexedVector2DDouble(vv, 1);
 	ai++;
-	printf("%d\n", ai);
-	printf("%d\n", *ai);
+	ai--;
+	Aurora::Math::Polygons::IndexedVector2DDouble t();
+	
 
-	DynamicArray<int>::iterator aii = ar.begin();
-	printf("%d\n", aii);
-	printf("%d\n", *aii);
-	aii++;
-	printf("%d\n", aii);
-	printf("%d\n", *aii);
+	
+	/*if (ai == nullptr)
+		printf("%d\n", &ai);
 
-	DynamicArray<int> ar2(3);
-	ar2 = ar;
+
+		printf("%d\n", *ai);
+
+		printf("%d\n", ai);
+		printf("%d\n", *ai);*/
 
 	/*int stackValue = 200;
 	float stackValue2 = 12;

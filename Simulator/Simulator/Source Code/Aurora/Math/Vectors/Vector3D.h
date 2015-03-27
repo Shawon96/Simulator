@@ -191,6 +191,15 @@ namespace Aurora
 		using DoubleLinkedListUniqueVector3DDouble = std::list < UniqueVector3DDouble >;
 		using LinkedListUniqueVector3DDouble = std::forward_list < UniqueVector3DDouble >;
 
+		template<typename DataType>
+		using DynamicTypeArrayVector3D = DynamicTypeArray < Vector3D<DataType> > ;
+
+		using DynamicTypeArrayVector3DBool = DynamicTypeArray < Vector3DBool > ;
+		using DynamicTypeArrayVector3DDouble = DynamicTypeArray < Vector3DDouble > ;
+		using DynamicTypeArrayVector3DFloat = DynamicTypeArray < Vector3DFloat > ;
+		using DynamicTypeArrayVector3DInt = DynamicTypeArray < Vector3DInt > ;
+		using DynamicTypeArrayVector3DHalfPrecision = DynamicTypeArray < Vector3DHalfPrecision > ;
+
 		template<typename VectorType>
 		bool Aurora::Math::Vector3D<VectorType>::operator>(const Vector3D<VectorType> &value) const
 		{

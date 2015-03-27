@@ -1,7 +1,6 @@
 #ifndef Math_Polygons_IndexedVector_H
 #define Math_Polygons_IndexedVector_H
 
-#include "../Globals/DynamicArray.h"
 #include "../Vectors/EmulatedVector3D.h"
 #include <list>
 #include <forward_list>
@@ -22,10 +21,12 @@ namespace Aurora
 				T vector;
 				int index;
 			public:
+				IndexedVector() = default;
+				virtual ~IndexedVector() = default;
 				IndexedVector(const T &vector, int index)
 				{
-					vector = vector;
-					index = index;
+					this->vector = vector;
+					this->index = index;
 				}
 
 				T Vector() const {
@@ -73,9 +74,9 @@ namespace Aurora
 			using IndexedVector3DDouble =IndexedVector<Vector3DDouble>;
 			using IndexedVector4DDouble =IndexedVector<Vector4DDouble>;
 
-			using DynamicArrayIndexedVector2DDouble = DynamicArray<IndexedVector < Vector2DDouble >>;
-			using DynamicArrayIndexedVector3DDouble = DynamicArray < IndexedVector < Vector3DDouble > > ;
-			using DynamicArrayIndexedVector4DDouble = DynamicArray < IndexedVector < Vector4DDouble > > ;
+			using DynamicArrayIndexedVector2DDouble = DynamicTypeArray<IndexedVector2DDouble>;
+			using DynamicArrayIndexedVector3DDouble = DynamicTypeArray < IndexedVector3DDouble >;
+			using DynamicArrayIndexedVector4DDouble = DynamicTypeArray < IndexedVector4DDouble>;
 
 
 			using UniqueIndexedVector2DDouble = std::unique_ptr<IndexedVector2DDouble>;
@@ -105,6 +106,15 @@ namespace Aurora
 			using LinkedListSharedIndexedVector2DDouble = std::forward_list < SharedIndexedVector2DDouble >;
 			using LinkedListSharedIndexedVector3DDouble = std::forward_list < SharedIndexedVector3DDouble >;
 			using LinkedListSharedIndexedVector4DDouble = std::forward_list < SharedIndexedVector4DDouble >;
+
+			template<typename DataType>
+			using DynamicTypeArrayIndexedVector = DynamicTypeArray < IndexedVector<DataType> >;
+
+			
+			using DynamicTypeArrayIndexedVector2DDouble = DynamicTypeArray < IndexedVector2DDouble >;
+			using DynamicTypeArrayIndexedVector3DDouble = DynamicTypeArray < IndexedVector3DDouble >;
+			using DynamicTypeArrayIndexedVector4DDouble = DynamicTypeArray < IndexedVector4DDouble >;
+			
 		};
 	};
 };

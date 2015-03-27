@@ -184,6 +184,15 @@ namespace Aurora
 		using DoubleLinkedListUniqueVector4DDouble = std::list < UniqueVector4DDouble >;
 		using LinkedListUniqueVector4DDouble = std::forward_list < UniqueVector4DDouble >;
 
+		template<typename DataType>
+		using DynamicTypeArrayVector4D = DynamicTypeArray < Vector3D<DataType> > ;
+
+		using DynamicTypeArrayVector4DBool = DynamicTypeArray < Vector4DBool > ;
+		using DynamicTypeArrayVector4DDouble = DynamicTypeArray < Vector4DDouble > ;
+		using DynamicTypeArrayVector4DFloat = DynamicTypeArray < Vector4DFloat > ;
+		using DynamicTypeArrayVector4DInt = DynamicTypeArray < Vector4DInt > ;
+		using DynamicTypeArrayVector4DHalfPrecision = DynamicTypeArray < Vector4DHalfPrecision > ;
+
 		template<typename VectorType>
 		bool Aurora::Math::Vector4D<VectorType>::operator>(const Vector4D<VectorType> &value) const
 		{

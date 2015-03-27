@@ -19,7 +19,7 @@ namespace Aurora
 	*/
 	namespace Math
 	{
-		
+		using namespace Aurora::Global;
 
 		template<typename VectorType>
 		class Vector2D
@@ -167,6 +167,15 @@ namespace Aurora
 
 		using DoubleLinkedListUniqueVector2DDouble = std::list < UniqueVector2DDouble>;
 		using LinkedListUniqueVector2DDouble = std::forward_list < UniqueVector2DDouble>;
+
+		template<typename DataType>
+		using DynamicTypeArrayVector2D = DynamicTypeArray < Vector2D<DataType> > ;
+
+		using DynamicTypeArrayVector2DBool = DynamicTypeArray < Vector2DBool >;
+		using DynamicTypeArrayVector2DDouble = DynamicTypeArray < Vector2DDouble >;
+		using DynamicTypeArrayVector2DFloat = DynamicTypeArray < Vector2DFloat >;
+		using DynamicTypeArrayVector2DInt = DynamicTypeArray < Vector2DInt >;
+		using DynamicTypeArrayVector2DHalfPrecision = DynamicTypeArray < Vector2DHalfPrecision >;
 
 		template<typename VectorType>
 		bool Aurora::Math::Vector2D<VectorType>::operator>(const Vector2D<VectorType> &value) const

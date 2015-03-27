@@ -654,7 +654,10 @@
     <ClInclude Include="Source Code\Aurora\Math\Tessellation\SubdivisionUtility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source Code\Aurora\Globals\DynamicArray.h">
+    <ClInclude Include="Source Code\Aurora\Globals\DynamicTypeArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\Aurora\Globals\DynamicTypeExtendedArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
